@@ -1,0 +1,98 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://custom_nodes/dialogue_label.gd" type="Script" id=1]
+[ext_resource path="res://scenes/dialogue_debugger.gd" type="Script" id=2]
+[ext_resource path="res://audio/test_soundbit.mp3" type="AudioStream" id=3]
+
+[node name="Control" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 2 )
+
+[node name="dialogue_panel" type="Panel" parent="."]
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_right = -1.0
+
+[node name="DialogueLabel" type="RichTextLabel" parent="dialogue_panel"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+bbcode_enabled = true
+bbcode_text = "[center]test"
+text = "test"
+script = ExtResource( 1 )
+messages = [ "We have recieved image file from [inst 10][b]//username:[/b]tester" ]
+sound_bits = {
+"null": null,
+"test": ExtResource( 3 )
+}
+
+[node name="search_panel" type="Panel" parent="."]
+anchor_left = 0.5
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 1.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="search_panel"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="LineEdit" type="LineEdit" parent="search_panel/VBoxContainer"]
+margin_right = 511.0
+margin_bottom = 24.0
+size_flags_horizontal = 3
+
+[node name="find_keys" type="Button" parent="search_panel/VBoxContainer"]
+margin_top = 28.0
+margin_right = 511.0
+margin_bottom = 48.0
+text = "find in keys"
+
+[node name="find_values" type="Button" parent="search_panel/VBoxContainer"]
+margin_top = 52.0
+margin_right = 511.0
+margin_bottom = 72.0
+text = "find in values"
+
+[node name="ItemList" type="ItemList" parent="search_panel/VBoxContainer"]
+margin_top = 76.0
+margin_right = 511.0
+margin_bottom = 600.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="edit_panel" type="Panel" parent="."]
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_top = 1.0
+margin_right = -1.0
+
+[node name="TextEdit" type="TextEdit" parent="edit_panel"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 3.0
+margin_top = 3.0
+margin_right = -3.0
+margin_bottom = -3.0
+highlight_current_line = true
+show_line_numbers = true
+draw_spaces = true
+highlight_all_occurrences = true
+wrap_enabled = true
+
+[node name="event_dialogue" type="AcceptDialog" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -50.0
+margin_top = -50.0
+margin_right = 50.0
+margin_bottom = 50.0
+
+[connection signal="dialogue_custom_event" from="dialogue_panel/DialogueLabel" to="." method="_on_DialogueLabel_dialogue_custom_event"]
+[connection signal="pressed" from="search_panel/VBoxContainer/find_keys" to="." method="_on_find_keys_pressed"]
+[connection signal="pressed" from="search_panel/VBoxContainer/find_values" to="." method="_on_find_values_pressed"]
+[connection signal="item_activated" from="search_panel/VBoxContainer/ItemList" to="." method="_on_ItemList_item_activated"]
+[connection signal="text_changed" from="edit_panel/TextEdit" to="." method="_on_TextEdit_text_changed"]

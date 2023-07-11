@@ -1,0 +1,16 @@
+keys,en
+TRANSLATION_GUIDE,"Our dialogue system supports BBCODE tags
+here's a guide about tags: https://docs.godotengine.org/en/3.5/tutorials/ui/bbcode_in_richtextlabel.html?highlight=bbcode#reference
+
+there's also custom tags:
+[spd 0.5] - change text speed to 0.5 symbols/frame
+[inst 5] - instantly display next 5 symbols
+[snd sans] - choose sans soundbit
+[wait 60] - delay for 60 frames"
+TRANSLATION_EXAMPLE,"[color=gray][inst 13]!!!warning!!![/color]
+[spd 0.9][snd sans]fast text with... [wait 60]sans soundbit
+[spd 0.1][snd null]slow text without sound bite."
+INTRO_DIAL1,[spd 0.5]hello there!
+INTRO_DIAL2,it's an intro
+INTRO_DIAL3,there's nothing here
+INTRO_DIAL4,have a nice day
