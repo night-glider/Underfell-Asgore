@@ -1,0 +1,408 @@
+[gd_scene load_steps=12 format=2]
+
+[ext_resource path="res://sprites/logo.png" type="Texture" id=1]
+[ext_resource path="res://scenes/credits.gd" type="Script" id=2]
+[ext_resource path="res://fonts/determination.ttf" type="DynamicFontData" id=3]
+[ext_resource path="res://sprites/credits.png" type="Texture" id=4]
+
+[sub_resource type="DynamicFont" id=3]
+size = 32
+extra_spacing_bottom = -10
+font_data = ExtResource( 3 )
+
+[sub_resource type="Theme" id=4]
+default_font = SubResource( 3 )
+
+[sub_resource type="Animation" id=1]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("logo:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Camera2D:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 320, 240 ) ]
+}
+
+[sub_resource type="Animation" id=2]
+resource_name = "fade_out"
+length = 4.0
+tracks/0/type = "value"
+tracks/0/path = NodePath("logo:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5, 0.7 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
+}
+tracks/1/type = "method"
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0.5, 4 ),
+"transitions": PoolRealArray( 1, 1 ),
+"values": [ {
+"args": [  ],
+"method": "_logo_sound"
+}, {
+"args": [  ],
+"method": "roll_credits"
+} ]
+}
+
+[sub_resource type="Animation" id=7]
+resource_name = "roll"
+length = 40.0
+tracks/0/type = "value"
+tracks/0/path = NodePath("Camera2D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 35 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 320, 240 ), Vector2( 320, 3350 ) ]
+}
+tracks/1/type = "method"
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 40 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "end_credits"
+} ]
+}
+
+[sub_resource type="Theme" id=5]
+
+[sub_resource type="DynamicFont" id=6]
+size = 48
+font_data = ExtResource( 3 )
+
+[node name="Control" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+theme = SubResource( 4 )
+script = ExtResource( 2 )
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2( 320, 240 )
+current = true
+
+[node name="logo" type="TextureRect" parent="."]
+modulate = Color( 1, 1, 1, 0 )
+margin_left = 53.0
+margin_top = 142.0
+margin_right = 587.0
+margin_bottom = 337.0
+texture = ExtResource( 1 )
+expand = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/RESET = SubResource( 1 )
+anims/fade_out = SubResource( 2 )
+anims/roll = SubResource( 7 )
+
+[node name="metal" type="Label" parent="."]
+modulate = Color( 1, 1, 0, 1 )
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+grow_horizontal = 2
+theme = SubResource( 5 )
+custom_fonts/font = SubResource( 6 )
+text = "METAL_NICK"
+
+[node name="metal2" type="Label" parent="."]
+anchor_left = 0.15
+anchor_top = 1.0
+anchor_right = 0.86
+anchor_bottom = 1.0
+margin_top = 44.0
+grow_horizontal = 2
+theme = SubResource( 5 )
+text = "METAL_ROLES"
+align = 1
+autowrap = true
+
+[node name="lux" type="Label" parent="."]
+modulate = Color( 1, 1, 0, 1 )
+anchor_left = 0.5
+anchor_top = 1.5
+anchor_right = 0.5
+anchor_bottom = 1.5
+grow_horizontal = 2
+theme = SubResource( 5 )
+custom_fonts/font = SubResource( 6 )
+text = "LUX_NICK"
+
+[node name="lux2" type="Label" parent="."]
+anchor_left = 0.15
+anchor_top = 1.5
+anchor_right = 0.86
+anchor_bottom = 1.5
+margin_top = 44.0
+grow_horizontal = 2
+theme = SubResource( 5 )
+text = "LUX_ROLES"
+align = 1
+autowrap = true
+
+[node name="renders" type="Label" parent="."]
+modulate = Color( 1, 1, 0, 1 )
+anchor_left = 0.5
+anchor_top = 2.0
+anchor_right = 0.5
+anchor_bottom = 2.0
+grow_horizontal = 2
+theme = SubResource( 5 )
+custom_fonts/font = SubResource( 6 )
+text = "RENDERS_NICK"
+
+[node name="renders2" type="Label" parent="."]
+anchor_left = 0.15
+anchor_top = 2.0
+anchor_right = 0.86
+anchor_bottom = 2.0
+margin_top = 44.0
+grow_horizontal = 2
+theme = SubResource( 5 )
+text = "RENDERS_ROLES"
+align = 1
+autowrap = true
+
+[node name="tody" type="Label" parent="."]
+modulate = Color( 1, 1, 0, 1 )
+anchor_left = 0.5
+anchor_top = 2.5
+anchor_right = 0.5
+anchor_bottom = 2.5
+grow_horizontal = 2
+theme = SubResource( 5 )
+custom_fonts/font = SubResource( 6 )
+text = "TODY_NICK"
+
+[node name="tody2" type="Label" parent="."]
+anchor_left = 0.15
+anchor_top = 2.5
+anchor_right = 0.86
+anchor_bottom = 2.5
+margin_top = 44.0
+grow_horizontal = 2
+theme = SubResource( 5 )
+text = "TODY_ROLES"
+align = 1
+autowrap = true
+
+[node name="cool" type="Label" parent="."]
+modulate = Color( 1, 1, 0, 1 )
+anchor_left = 0.5
+anchor_top = 3.0
+anchor_right = 0.5
+anchor_bottom = 3.0
+grow_horizontal = 2
+theme = SubResource( 5 )
+custom_fonts/font = SubResource( 6 )
+text = "COOL_NICK"
+
+[node name="cool2" type="Label" parent="."]
+anchor_left = 0.15
+anchor_top = 3.0
+anchor_right = 0.86
+anchor_bottom = 3.0
+margin_top = 44.0
+grow_horizontal = 2
+theme = SubResource( 5 )
+text = "COOL_ROLES"
+align = 1
+autowrap = true
+
+[node name="ethan" type="Label" parent="."]
+modulate = Color( 1, 1, 0, 1 )
+anchor_left = 0.5
+anchor_top = 3.5
+anchor_right = 0.5
+anchor_bottom = 3.5
+grow_horizontal = 2
+theme = SubResource( 5 )
+custom_fonts/font = SubResource( 6 )
+text = "ETHAN_NICK"
+
+[node name="ethan2" type="Label" parent="."]
+anchor_left = 0.15
+anchor_top = 3.5
+anchor_right = 0.86
+anchor_bottom = 3.5
+margin_top = 44.0
+grow_horizontal = 2
+theme = SubResource( 5 )
+text = "ETHAN_ROLES"
+align = 1
+autowrap = true
+
+[node name="fell" type="Label" parent="."]
+modulate = Color( 1, 1, 0, 1 )
+anchor_left = 0.5
+anchor_top = 4.0
+anchor_right = 0.5
+anchor_bottom = 4.0
+grow_horizontal = 2
+theme = SubResource( 5 )
+custom_fonts/font = SubResource( 6 )
+text = "FELL_NICK"
+
+[node name="fell2" type="Label" parent="."]
+anchor_left = 0.15
+anchor_top = 4.0
+anchor_right = 0.86
+anchor_bottom = 4.0
+margin_top = 44.0
+grow_horizontal = 2
+theme = SubResource( 5 )
+text = "FELL_ROLES"
+align = 1
+autowrap = true
+
+[node name="best" type="Label" parent="."]
+modulate = Color( 1, 1, 0, 1 )
+anchor_left = 0.5
+anchor_top = 4.5
+anchor_right = 0.5
+anchor_bottom = 4.5
+grow_horizontal = 2
+theme = SubResource( 5 )
+custom_fonts/font = SubResource( 6 )
+text = "BEST_NICK"
+
+[node name="best2" type="Label" parent="."]
+anchor_left = 0.15
+anchor_top = 4.5
+anchor_right = 0.86
+anchor_bottom = 4.5
+margin_top = 44.0
+grow_horizontal = 2
+theme = SubResource( 5 )
+text = "BEST_ROLES"
+align = 1
+autowrap = true
+
+[node name="prince" type="Label" parent="."]
+modulate = Color( 1, 1, 0, 1 )
+anchor_left = 0.5
+anchor_top = 5.0
+anchor_right = 0.5
+anchor_bottom = 5.0
+grow_horizontal = 2
+theme = SubResource( 5 )
+custom_fonts/font = SubResource( 6 )
+text = "PRINCE_NICK"
+
+[node name="prince2" type="Label" parent="."]
+anchor_left = 0.15
+anchor_top = 5.0
+anchor_right = 0.86
+anchor_bottom = 5.0
+margin_top = 44.0
+grow_horizontal = 2
+theme = SubResource( 5 )
+text = "PRINCE_ROLES"
+align = 1
+autowrap = true
+
+[node name="daniel" type="Label" parent="."]
+modulate = Color( 1, 1, 0, 1 )
+anchor_left = 0.5
+anchor_top = 5.5
+anchor_right = 0.5
+anchor_bottom = 5.5
+grow_horizontal = 2
+theme = SubResource( 5 )
+custom_fonts/font = SubResource( 6 )
+text = "DANIEL_NICK"
+
+[node name="daniel2" type="Label" parent="."]
+anchor_left = 0.15
+anchor_top = 5.5
+anchor_right = 0.86
+anchor_bottom = 5.5
+margin_top = 44.0
+grow_horizontal = 2
+theme = SubResource( 5 )
+text = "DANIEL_ROLES"
+align = 1
+autowrap = true
+
+[node name="contributers" type="Label" parent="."]
+modulate = Color( 1, 1, 0, 1 )
+anchor_left = 0.5
+anchor_top = 6.0
+anchor_right = 0.5
+anchor_bottom = 6.0
+grow_horizontal = 2
+theme = SubResource( 5 )
+custom_fonts/font = SubResource( 6 )
+text = "CONTRIBUTER_CREDIT"
+
+[node name="contributers2" type="Label" parent="."]
+anchor_left = 0.15
+anchor_top = 6.0
+anchor_right = 0.86
+anchor_bottom = 6.0
+margin_top = 44.0
+grow_horizontal = 2
+theme = SubResource( 5 )
+text = "CONTRIBUTERS"
+align = 1
+autowrap = true
+
+[node name="thanks" type="Label" parent="."]
+anchor_left = 0.1
+anchor_top = 6.5
+anchor_right = 0.9
+anchor_bottom = 6.5
+grow_horizontal = 2
+theme = SubResource( 5 )
+text = "SPECIAL_THANKS"
+align = 1
+autowrap = true
+
+[node name="TextureRect" type="TextureRect" parent="."]
+anchor_left = 0.5
+anchor_top = 7.0
+anchor_right = 0.5
+anchor_bottom = 7.0
+margin_top = 150.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource( 4 )

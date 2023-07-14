@@ -6,11 +6,42 @@ there's also custom tags:
 [spd 0.5] - change text speed to 0.5 symbols/frame
 [inst 5] - instantly display next 5 symbols
 [snd sans] - choose sans soundbit
-[wait 60] - delay for 60 frames"
+[wait 60] - delay for 60 frames
+[event custom_event_data] - emits custom event with ""custom_event_data"". Never use this tag pls, it's only for programmers."
 TRANSLATION_EXAMPLE,"[color=gray][inst 13]!!!warning!!![/color]
 [spd 0.9][snd sans]fast text with... [wait 60]sans soundbit
 [spd 0.1][snd null]slow text without sound bite."
-INTRO_DIAL1,[spd 0.5]hello there!
-INTRO_DIAL2,it's an intro
-INTRO_DIAL3,there's nothing here
-INTRO_DIAL4,have a nice day
+PRESS_Z_OR_ENTER,[PRESS ENTER OR Z]
+BEGIN_GAME,Begin Game
+CREDITS,Credits
+CHARA_LV,Chara LV 1
+THE_END,The End
+CHOOSE_DIFFICULTY,Choose difficulty
+DIFFICULTY_NORMAL,Normal
+DIFFICULTY_INSANE,INSANE
+IN_DEVELOPMENT,in development
+METAL_NICK,Metal
+METAL_ROLES,"Director, Composer, Writer, Concept Artist, Spriter Assistant, Beta Tester"
+LUX_NICK,Luxandre
+LUX_ROLES,"Sprite Artist, Concept Artist, Animator, Beta Tester"
+RENDERS_NICK,RendersDude
+RENDERS_ROLES,"Sprite Artist, Concept Artist, Beta Tester"
+TODY_NICK,Tody-Box
+TODY_ROLES,"Sprite Artist, Animator, Beta Tester"
+COOL_NICK,Coolpix
+COOL_ROLES,Composer
+ETHAN_NICK,Ethan Harper
+ETHAN_ROLES,Composer
+FELL_NICK,Fell-Leader
+FELL_ROLES,"Sprite Artist, Beta Tester, Writer"
+BEST_NICK,Night_glider
+BEST_ROLES,[REDACTED]
+PRINCE_NICK,Prince Myriad
+PRINCE_ROLES,Sprite Artist
+DANIEL_NICK,XDanielAF
+DANIEL_ROLES,"Sprite Artist, Animator, Beta Tester"
+CONTRIBUTER_CREDIT,Contributer Credit
+CONTRIBUTERS,"PixelBuster
+Soup Taels"
+SPECIAL_THANKS,"Special thanks to every member of this team for contributing their time into bringing this game to life, and you, the player. Without you guys none of this would be possible.
+Until next time, thank you all."
