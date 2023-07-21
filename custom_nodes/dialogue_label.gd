@@ -1,7 +1,7 @@
 extends RichTextLabel
 class_name DialogueLabel
 
-export var messages := ["HELLO_WORLD"]
+export(Array, String) var messages := ["HELLO_WORLD"]
 export var sound_bits := {
 	"null": null,
 	"asgore": preload("res://audio/asgore_talk.ogg")
@@ -129,8 +129,6 @@ func _parse_custom_tags(string)->Array:
 						"name":current_tag, 
 						"pos": current_pos,
 						"value":current_tag_value} )
-				else:
-					push_error("Malformed bbcode tag '" + current_tag + "' in message " + str(message_id) + ". Please be sure to use square brackets only for valid bbcode tags, otherwise bugs may occur")
 				
 				current_tag = ""
 				current_tag_value = ""

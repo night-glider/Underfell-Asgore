@@ -1,0 +1,333 @@
+[gd_scene load_steps=30 format=2]
+
+[ext_resource path="res://scenes/barrier.gd" type="Script" id=1]
+[ext_resource path="res://sprites/overworld/soul_container.png" type="Texture" id=2]
+[ext_resource path="res://sprites/overworld/throne_asgore_right.png" type="Texture" id=3]
+[ext_resource path="res://sprites/overworld/throne_asgore_stand_up.png" type="Texture" id=4]
+[ext_resource path="res://sprites/overworld/throne_asgore_up.png" type="Texture" id=5]
+[ext_resource path="res://sprites/overworld/frisk_up.png" type="Texture" id=6]
+[ext_resource path="res://sprites/battle/soul.png" type="Texture" id=7]
+[ext_resource path="res://audio/battle_flash.wav" type="AudioStream" id=8]
+
+[sub_resource type="AtlasTexture" id=2]
+atlas = ExtResource( 2 )
+region = Rect2( 0, 0, 17, 31 )
+
+[sub_resource type="AtlasTexture" id=3]
+atlas = ExtResource( 2 )
+region = Rect2( 17, 0, 17, 31 )
+
+[sub_resource type="AtlasTexture" id=4]
+atlas = ExtResource( 2 )
+region = Rect2( 34, 0, 17, 31 )
+
+[sub_resource type="AtlasTexture" id=5]
+atlas = ExtResource( 2 )
+region = Rect2( 51, 0, 17, 31 )
+
+[sub_resource type="AtlasTexture" id=6]
+atlas = ExtResource( 2 )
+region = Rect2( 68, 0, 17, 31 )
+
+[sub_resource type="AtlasTexture" id=7]
+atlas = ExtResource( 2 )
+region = Rect2( 85, 0, 17, 31 )
+
+[sub_resource type="AtlasTexture" id=8]
+atlas = ExtResource( 2 )
+region = Rect2( 102, 0, 17, 31 )
+
+[sub_resource type="AtlasTexture" id=9]
+atlas = ExtResource( 2 )
+region = Rect2( 119, 0, 17, 31 )
+
+[sub_resource type="AtlasTexture" id=10]
+atlas = ExtResource( 2 )
+region = Rect2( 136, 0, 17, 31 )
+
+[sub_resource type="AtlasTexture" id=11]
+atlas = ExtResource( 2 )
+region = Rect2( 153, 0, 17, 31 )
+
+[sub_resource type="AtlasTexture" id=12]
+atlas = ExtResource( 2 )
+region = Rect2( 170, 0, 17, 31 )
+
+[sub_resource type="AtlasTexture" id=13]
+atlas = ExtResource( 2 )
+region = Rect2( 187, 0, 17, 31 )
+
+[sub_resource type="AtlasTexture" id=14]
+atlas = ExtResource( 2 )
+region = Rect2( 204, 0, 17, 31 )
+
+[sub_resource type="AtlasTexture" id=15]
+atlas = ExtResource( 2 )
+region = Rect2( 221, 0, 17, 31 )
+
+[sub_resource type="SpriteFrames" id=1]
+animations = [ {
+"frames": [ null, SubResource( 2 ), SubResource( 3 ), SubResource( 4 ), SubResource( 5 ), SubResource( 6 ), SubResource( 7 ), SubResource( 8 ), SubResource( 9 ), SubResource( 10 ), SubResource( 11 ), SubResource( 12 ), SubResource( 13 ), SubResource( 14 ), SubResource( 15 ) ],
+"loop": false,
+"name": "default",
+"speed": 10.0
+} ]
+
+[sub_resource type="AtlasTexture" id=17]
+atlas = ExtResource( 4 )
+region = Rect2( 1200, 0, 120, 164 )
+
+[sub_resource type="SpriteFrames" id=16]
+animations = [ {
+"frames": [ SubResource( 17 ) ],
+"loop": true,
+"name": "down",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 3 ) ],
+"loop": true,
+"name": "right",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 5 ) ],
+"loop": true,
+"name": "up",
+"speed": 5.0
+} ]
+
+[sub_resource type="AtlasTexture" id=18]
+atlas = ExtResource( 6 )
+region = Rect2( 0, 0, 17, 35 )
+
+[sub_resource type="SpriteFrames" id=19]
+animations = [ {
+"frames": [ SubResource( 18 ) ],
+"loop": true,
+"name": "default",
+"speed": 5.0
+} ]
+
+[sub_resource type="Animation" id=21]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("soul_container:playing")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ false ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("asgore:animation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ "up" ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("soul_container:frame")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 14 ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("ColorRect:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ false ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("ColorRect/soul:position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 320, 420 ) ]
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath("ColorRect/soul:modulate")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ) ]
+}
+
+[sub_resource type="Animation" id=20]
+resource_name = "battle_starts"
+length = 5.5
+tracks/0/type = "value"
+tracks/0/path = NodePath("soul_container:playing")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ false, true ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("asgore:animation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 1, 2.1 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ "up", "right", "down" ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("soul_container:frame")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 0 ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("ColorRect:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0, 3, 3.5, 4, 4.1, 4.2, 4.3, 4.4 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ false, true, false, true, false, true, false, true ]
+}
+tracks/4/type = "audio"
+tracks/4/path = NodePath("AnimationPlayer/AudioStreamPlayer")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"clips": [ {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource( 8 )
+}, {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource( 8 )
+}, {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource( 8 )
+}, {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource( 8 )
+}, {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource( 8 )
+}, {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource( 8 )
+}, {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource( 8 )
+} ],
+"times": PoolRealArray( 3, 3.5, 4, 4.1, 4.2, 4.3, 4.4 )
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath("ColorRect/soul:position")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 4.5, 5.3 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 320, 420 ), Vector2( 64, 460 ) ]
+}
+tracks/6/type = "value"
+tracks/6/path = NodePath("ColorRect/soul:modulate")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"times": PoolRealArray( 5.3, 5.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
+}
+
+[node name="barrier" type="Node2D"]
+script = ExtResource( 1 )
+
+[node name="soul_container" type="AnimatedSprite" parent="."]
+position = Vector2( 403, 366 )
+scale = Vector2( 2, 2 )
+frames = SubResource( 1 )
+frame = 14
+
+[node name="asgore" type="AnimatedSprite" parent="."]
+position = Vector2( 320, 325 )
+frames = SubResource( 16 )
+animation = "up"
+
+[node name="frisk" type="AnimatedSprite" parent="."]
+position = Vector2( 320, 420 )
+scale = Vector2( 2, 2 )
+frames = SubResource( 19 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/RESET = SubResource( 21 )
+anims/battle_starts = SubResource( 20 )
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="AnimationPlayer"]
+stream = ExtResource( 8 )
+
+[node name="ColorRect" type="ColorRect" parent="."]
+visible = false
+margin_right = 640.0
+margin_bottom = 480.0
+color = Color( 0, 0, 0, 1 )
+
+[node name="soul" type="Sprite" parent="ColorRect"]
+position = Vector2( 320, 420 )
+texture = ExtResource( 7 )

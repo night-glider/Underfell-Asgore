@@ -1,22 +1,196 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=17 format=2]
 
 [ext_resource path="res://sprites/overworld/throne_room_back.png" type="Texture" id=1]
 [ext_resource path="res://sprites/overworld/throne_room_shadows.png" type="Texture" id=2]
+[ext_resource path="res://sprites/overworld/throne_asgore_right.png" type="Texture" id=3]
+[ext_resource path="res://sprites/overworld/frisk_right.png" type="Texture" id=4]
+[ext_resource path="res://scenes/throne_room2.gd" type="Script" id=5]
+[ext_resource path="res://custom_nodes/dialogue_label.gd" type="Script" id=6]
+[ext_resource path="res://fonts/determination.ttf" type="DynamicFontData" id=7]
+
+[sub_resource type="AtlasTexture" id=1]
+atlas = ExtResource( 3 )
+region = Rect2( 0, 0, 118, 148 )
+
+[sub_resource type="SpriteFrames" id=2]
+animations = [ {
+"frames": [ SubResource( 1 ) ],
+"loop": true,
+"name": "move_right",
+"speed": 5.0
+} ]
+
+[sub_resource type="AtlasTexture" id=3]
+atlas = ExtResource( 4 )
+region = Rect2( 0, 0, 16, 35 )
+
+[sub_resource type="AtlasTexture" id=4]
+atlas = ExtResource( 4 )
+region = Rect2( 16, 0, 16, 35 )
+
+[sub_resource type="AtlasTexture" id=5]
+atlas = ExtResource( 4 )
+region = Rect2( 32, 0, 16, 35 )
+
+[sub_resource type="SpriteFrames" id=6]
+animations = [ {
+"frames": [ SubResource( 3 ), SubResource( 4 ), SubResource( 5 ) ],
+"loop": true,
+"name": "move_right",
+"speed": 5.0
+} ]
+
+[sub_resource type="DynamicFont" id=9]
+size = 48
+font_data = ExtResource( 7 )
+
+[sub_resource type="Animation" id=7]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("CanvasLayer/ColorRect:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("asgore:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 777, 447 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("frisk:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 685, 485 ) ]
+}
+
+[sub_resource type="Animation" id=8]
+resource_name = "to_barier"
+length = 7.0
+tracks/0/type = "value"
+tracks/0/path = NodePath("CanvasLayer/ColorRect:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1, 2, 3, 4, 5, 6, 7 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 0, 0, 0, 0.784314 ), Color( 0, 0, 0, 1 ), Color( 0, 0, 0, 0.784314 ), Color( 0, 0, 0, 1 ), Color( 0, 0, 0, 0.784314 ), Color( 0, 0, 0, 1 ), Color( 0, 0, 0, 0.784314 ), Color( 0, 0, 0, 1 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("asgore:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 7 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 777, 447 ), Vector2( 1394, 447 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("frisk:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 7 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 685, 485 ), Vector2( 1309, 485 ) ]
+}
+tracks/3/type = "method"
+tracks/3/path = NodePath(".")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 7 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "start_dialogue"
+} ]
+}
 
 [node name="Control" type="Node2D"]
+script = ExtResource( 5 )
 
 [node name="backround" type="Sprite" parent="."]
 scale = Vector2( 2, 2 )
 texture = ExtResource( 1 )
 centered = false
 
-[node name="Camera" type="Camera2D" parent="."]
-current = true
-
 [node name="asgore" type="AnimatedSprite" parent="."]
+position = Vector2( 777, 447 )
+frames = SubResource( 2 )
+animation = "move_right"
+
+[node name="frisk" type="AnimatedSprite" parent="."]
+position = Vector2( 685, 485 )
+scale = Vector2( 2, 2 )
+frames = SubResource( 6 )
+animation = "move_right"
+
+[node name="Camera" type="Camera2D" parent="frisk"]
+scale = Vector2( 0.5, 0.5 )
+current = true
 
 [node name="backround2" type="Sprite" parent="."]
 modulate = Color( 1, 1, 1, 0.313726 )
 scale = Vector2( 2, 2 )
 texture = ExtResource( 2 )
 centered = false
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
+modulate = Color( 1, 1, 1, 0 )
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0, 0, 0, 1 )
+
+[node name="DialogueLabel" type="RichTextLabel" parent="CanvasLayer"]
+anchor_left = 0.1
+anchor_top = 0.5
+anchor_right = 0.9
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+custom_fonts/normal_font = SubResource( 9 )
+fit_content_height = true
+scroll_active = false
+deselect_on_focus_loss_enabled = false
+script = ExtResource( 6 )
+messages = [ "THRONE_ASGORE_TRANSITION_DIAL1", "THRONE_ASGORE_TRANSITION_DIAL2" ]
+player_controlled = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/RESET = SubResource( 7 )
+anims/to_barier = SubResource( 8 )
+
+[connection signal="dialogue_ended" from="CanvasLayer/DialogueLabel" to="." method="_on_DialogueLabel_dialogue_ended"]

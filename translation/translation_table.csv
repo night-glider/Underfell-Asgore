@@ -66,3 +66,5 @@ THRONE_ASGORE_DIALOGUE9,*It won't even matter.
 THRONE_ASGORE_DIALOGUE10,*You must understand...
 THRONE_ASGORE_DIALOGUE11,*I can't allow this cruel trick of fate to stop me.
 THRONE_ASGORE_DIALOGUE12,[event take_to_barrier]*My people and I have waited long enough.
+THRONE_ASGORE_TRANSITION_DIAL1,"[center][color=red]*Follow me, child."
+THRONE_ASGORE_TRANSITION_DIAL2,[center][color=red]*Destiny is all that awaits you now.
