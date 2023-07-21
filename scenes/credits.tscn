@@ -3,7 +3,7 @@
 [ext_resource path="res://sprites/logo.png" type="Texture" id=1]
 [ext_resource path="res://scenes/credits.gd" type="Script" id=2]
 [ext_resource path="res://fonts/determination.ttf" type="DynamicFontData" id=3]
-[ext_resource path="res://sprites/credits.png" type="Texture" id=4]
+[ext_resource path="res://sprites/credits_spare.png" type="Texture" id=4]
 
 [sub_resource type="DynamicFont" id=3]
 size = 32
@@ -86,7 +86,7 @@ tracks/0/keys = {
 "times": PoolRealArray( 0, 35 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 0,
-"values": [ Vector2( 320, 240 ), Vector2( 320, 3350 ) ]
+"values": [ Vector2( 320, 240 ), Vector2( 320, 4050 ) ]
 }
 tracks/1/type = "method"
 tracks/1/path = NodePath(".")
@@ -179,7 +179,7 @@ text = "LUX_ROLES"
 align = 1
 autowrap = true
 
-[node name="renders" type="Label" parent="."]
+[node name="star" type="Label" parent="."]
 modulate = Color( 1, 1, 0, 1 )
 anchor_left = 0.5
 anchor_top = 2.0
@@ -188,9 +188,9 @@ anchor_bottom = 2.0
 grow_horizontal = 2
 theme = SubResource( 5 )
 custom_fonts/font = SubResource( 6 )
-text = "RENDERS_NICK"
+text = "STAR_NICK"
 
-[node name="renders2" type="Label" parent="."]
+[node name="star2" type="Label" parent="."]
 anchor_left = 0.15
 anchor_top = 2.0
 anchor_right = 0.86
@@ -198,7 +198,7 @@ anchor_bottom = 2.0
 margin_top = 44.0
 grow_horizontal = 2
 theme = SubResource( 5 )
-text = "RENDERS_ROLES"
+text = "STAR_ROLES"
 align = 1
 autowrap = true
 
@@ -225,7 +225,7 @@ text = "TODY_ROLES"
 align = 1
 autowrap = true
 
-[node name="cool" type="Label" parent="."]
+[node name="best" type="Label" parent="."]
 modulate = Color( 1, 1, 0, 1 )
 anchor_left = 0.5
 anchor_top = 3.0
@@ -234,9 +234,9 @@ anchor_bottom = 3.0
 grow_horizontal = 2
 theme = SubResource( 5 )
 custom_fonts/font = SubResource( 6 )
-text = "COOL_NICK"
+text = "BEST_NICK"
 
-[node name="cool2" type="Label" parent="."]
+[node name="best2" type="Label" parent="."]
 anchor_left = 0.15
 anchor_top = 3.0
 anchor_right = 0.86
@@ -244,7 +244,7 @@ anchor_bottom = 3.0
 margin_top = 44.0
 grow_horizontal = 2
 theme = SubResource( 5 )
-text = "COOL_ROLES"
+text = "BEST_ROLES"
 align = 1
 autowrap = true
 
@@ -257,7 +257,7 @@ anchor_bottom = 3.5
 grow_horizontal = 2
 theme = SubResource( 5 )
 custom_fonts/font = SubResource( 6 )
-text = "ETHAN_NICK"
+text = "DANIEL_NICK"
 
 [node name="ethan2" type="Label" parent="."]
 anchor_left = 0.15
@@ -267,7 +267,7 @@ anchor_bottom = 3.5
 margin_top = 44.0
 grow_horizontal = 2
 theme = SubResource( 5 )
-text = "ETHAN_ROLES"
+text = "DANIEL_ROLES"
 align = 1
 autowrap = true
 
@@ -294,7 +294,7 @@ text = "FELL_ROLES"
 align = 1
 autowrap = true
 
-[node name="best" type="Label" parent="."]
+[node name="b" type="Label" parent="."]
 modulate = Color( 1, 1, 0, 1 )
 anchor_left = 0.5
 anchor_top = 4.5
@@ -303,9 +303,9 @@ anchor_bottom = 4.5
 grow_horizontal = 2
 theme = SubResource( 5 )
 custom_fonts/font = SubResource( 6 )
-text = "BEST_NICK"
+text = "KOSTA_NICK"
 
-[node name="best2" type="Label" parent="."]
+[node name="b2" type="Label" parent="."]
 anchor_left = 0.15
 anchor_top = 4.5
 anchor_right = 0.86
@@ -313,7 +313,7 @@ anchor_bottom = 4.5
 margin_top = 44.0
 grow_horizontal = 2
 theme = SubResource( 5 )
-text = "BEST_ROLES"
+text = "KOSTA_ROLES"
 align = 1
 autowrap = true
 
@@ -326,7 +326,7 @@ anchor_bottom = 5.0
 grow_horizontal = 2
 theme = SubResource( 5 )
 custom_fonts/font = SubResource( 6 )
-text = "PRINCE_NICK"
+text = "CURSED_NICK"
 
 [node name="prince2" type="Label" parent="."]
 anchor_left = 0.15
@@ -336,7 +336,7 @@ anchor_bottom = 5.0
 margin_top = 44.0
 grow_horizontal = 2
 theme = SubResource( 5 )
-text = "PRINCE_ROLES"
+text = "CURSED_ROLES"
 align = 1
 autowrap = true
 
@@ -349,7 +349,7 @@ anchor_bottom = 5.5
 grow_horizontal = 2
 theme = SubResource( 5 )
 custom_fonts/font = SubResource( 6 )
-text = "DANIEL_NICK"
+text = "REVEN_NICK"
 
 [node name="daniel2" type="Label" parent="."]
 anchor_left = 0.15
@@ -359,11 +359,11 @@ anchor_bottom = 5.5
 margin_top = 44.0
 grow_horizontal = 2
 theme = SubResource( 5 )
-text = "DANIEL_ROLES"
+text = "REVEN_ROLES"
 align = 1
 autowrap = true
 
-[node name="contributers" type="Label" parent="."]
+[node name="nick" type="Label" parent="."]
 modulate = Color( 1, 1, 0, 1 )
 anchor_left = 0.5
 anchor_top = 6.0
@@ -372,9 +372,9 @@ anchor_bottom = 6.0
 grow_horizontal = 2
 theme = SubResource( 5 )
 custom_fonts/font = SubResource( 6 )
-text = "CONTRIBUTER_CREDIT"
+text = "YULE_NICK"
 
-[node name="contributers2" type="Label" parent="."]
+[node name="roles" type="Label" parent="."]
 anchor_left = 0.15
 anchor_top = 6.0
 anchor_right = 0.86
@@ -382,15 +382,84 @@ anchor_bottom = 6.0
 margin_top = 44.0
 grow_horizontal = 2
 theme = SubResource( 5 )
-text = "CONTRIBUTERS"
+text = "YULE_ROLES"
+align = 1
+autowrap = true
+
+[node name="nick2" type="Label" parent="."]
+modulate = Color( 1, 1, 0, 1 )
+anchor_left = 0.5
+anchor_top = 6.5
+anchor_right = 0.5
+anchor_bottom = 6.5
+grow_horizontal = 2
+theme = SubResource( 5 )
+custom_fonts/font = SubResource( 6 )
+text = "RENDERS_NICK"
+
+[node name="roles2" type="Label" parent="."]
+anchor_left = 0.15
+anchor_top = 6.5
+anchor_right = 0.86
+anchor_bottom = 6.5
+margin_top = 44.0
+grow_horizontal = 2
+theme = SubResource( 5 )
+text = "RENDERS_ROLES"
+align = 1
+autowrap = true
+
+[node name="nick3" type="Label" parent="."]
+modulate = Color( 1, 1, 0, 1 )
+anchor_left = 0.5
+anchor_top = 7.0
+anchor_right = 0.5
+anchor_bottom = 7.0
+grow_horizontal = 2
+theme = SubResource( 5 )
+custom_fonts/font = SubResource( 6 )
+text = "COOL_NICK"
+
+[node name="roles3" type="Label" parent="."]
+anchor_left = 0.15
+anchor_top = 7.0
+anchor_right = 0.86
+anchor_bottom = 7.0
+margin_top = 44.0
+grow_horizontal = 2
+theme = SubResource( 5 )
+text = "COOL_ROLES"
+align = 1
+autowrap = true
+
+[node name="nick4" type="Label" parent="."]
+modulate = Color( 1, 1, 0, 1 )
+anchor_left = 0.5
+anchor_top = 7.5
+anchor_right = 0.5
+anchor_bottom = 7.5
+grow_horizontal = 2
+theme = SubResource( 5 )
+custom_fonts/font = SubResource( 6 )
+text = "ETHAN_NICK"
+
+[node name="roles4" type="Label" parent="."]
+anchor_left = 0.15
+anchor_top = 7.5
+anchor_right = 0.86
+anchor_bottom = 7.5
+margin_top = 44.0
+grow_horizontal = 2
+theme = SubResource( 5 )
+text = "ETHAN_ROLES"
 align = 1
 autowrap = true
 
 [node name="thanks" type="Label" parent="."]
 anchor_left = 0.1
-anchor_top = 6.5
+anchor_top = 8.0
 anchor_right = 0.9
-anchor_bottom = 6.5
+anchor_bottom = 8.0
 grow_horizontal = 2
 theme = SubResource( 5 )
 text = "SPECIAL_THANKS"
@@ -399,9 +468,9 @@ autowrap = true
 
 [node name="TextureRect" type="TextureRect" parent="."]
 anchor_left = 0.5
-anchor_top = 7.0
+anchor_top = 8.5
 anchor_right = 0.5
-anchor_bottom = 7.0
+anchor_bottom = 8.5
 margin_top = 150.0
 grow_horizontal = 2
 grow_vertical = 2

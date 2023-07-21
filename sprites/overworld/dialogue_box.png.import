@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/credits.png-293935ff3d118b19b263a88db300bdf8.stex"
+path="res://.import/dialogue_box.png-920366ec9499b494f9a1c25ed294bfb0.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://sprites/credits.png"
-dest_files=[ "res://.import/credits.png-293935ff3d118b19b263a88db300bdf8.stex" ]
+source_file="res://sprites/overworld/dialogue_box.png"
+dest_files=[ "res://.import/dialogue_box.png-920366ec9499b494f9a1c25ed294bfb0.stex" ]
 
 [params]
 

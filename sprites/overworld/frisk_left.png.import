@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/credits_hard.png-65b05d35598e79907f92d231742fe3c9.stex"
+path="res://.import/frisk_left.png-865caec0b57fe7fb4f6c526345fc4272.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://sprites/credits_hard.png"
-dest_files=[ "res://.import/credits_hard.png-65b05d35598e79907f92d231742fe3c9.stex" ]
+source_file="res://sprites/overworld/frisk_left.png"
+dest_files=[ "res://.import/frisk_left.png-865caec0b57fe7fb4f6c526345fc4272.stex" ]
 
 [params]
 

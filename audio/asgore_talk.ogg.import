@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/asgore_talk.ogg-337f080633c5c8de44dc409856dce734.oggstr"
+
+[deps]
+
+source_file="res://audio/asgore_talk.ogg"
+dest_files=[ "res://.import/asgore_talk.ogg-337f080633c5c8de44dc409856dce734.oggstr" ]
+
+[params]
+
+loop=false
+loop_offset=0

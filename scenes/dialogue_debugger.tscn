@@ -38,26 +38,26 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 
 [node name="LineEdit" type="LineEdit" parent="search_panel/VBoxContainer"]
-margin_right = 511.0
+margin_right = 319.0
 margin_bottom = 24.0
 size_flags_horizontal = 3
 
 [node name="find_keys" type="Button" parent="search_panel/VBoxContainer"]
 margin_top = 28.0
-margin_right = 511.0
+margin_right = 319.0
 margin_bottom = 48.0
 text = "find in keys"
 
 [node name="find_values" type="Button" parent="search_panel/VBoxContainer"]
 margin_top = 52.0
-margin_right = 511.0
+margin_right = 319.0
 margin_bottom = 72.0
 text = "find in values"
 
 [node name="ItemList" type="ItemList" parent="search_panel/VBoxContainer"]
 margin_top = 76.0
-margin_right = 511.0
-margin_bottom = 600.0
+margin_right = 319.0
+margin_bottom = 480.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 

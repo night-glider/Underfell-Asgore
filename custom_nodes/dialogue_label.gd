@@ -3,11 +3,12 @@ class_name DialogueLabel
 
 export var messages := ["HELLO_WORLD"]
 export var sound_bits := {
-	"null": null
+	"null": null,
+	"asgore": preload("res://audio/asgore_talk.ogg")
 }
-export var silent_symbols := [",", ".", "-", " "]
+export var silent_symbols := [",", ".", "-", " ", "[", "]"]
 export var text_speed := 0.5
-
+export var player_controlled = false
 
 signal dialogue_started
 signal message_next
@@ -63,6 +64,7 @@ func next_message():
 		emit_signal("dialogue_ended")
 		return
 	
+	messages[message_id] = tr(messages[message_id])
 	bbcode_text = _remove_custom_tags(messages[message_id])
 	tags = _parse_custom_tags( messages[message_id] )
 	tags.pop_front()
@@ -176,9 +178,9 @@ func _advance_text():
 	visible_characters = clamp(visible_characters, 1, len(text))
 	
 	if floor(chars_to_display) >= 1:
-		if visible_characters > 0:
+		if visible_characters > 1:
 			if not text[visible_characters-1] in silent_symbols:
-				audio_player.play()
+					audio_player.play()
 	chars_to_display-=floor(chars_to_display)
 	
 	
@@ -199,5 +201,19 @@ func _advance_text():
 			emit_signal("dialogue_custom_event", tags[0]["value"])
 		tags.pop_front()
 
+func _process_player_control():
+	if not player_controlled:
+		return
+	
+	if message_id >= messages.size():
+		return
+	
+	if Input.is_action_just_pressed("cancel"):
+		skip_message()
+	if Input.is_action_just_pressed("interact"):
+		if percent_visible >= 1:
+			next_message()
+
 func _process(delta):
 	_advance_text()
+	_process_player_control()
