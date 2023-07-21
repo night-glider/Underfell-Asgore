@@ -7,7 +7,7 @@ export var sound_bits := {
 	"asgore": preload("res://audio/asgore_talk.ogg")
 }
 export var silent_symbols := [",", ".", "-", " ", "[", "]"]
-export var text_speed := 0.5
+export var text_speed := 0.25
 export var player_controlled = false
 
 signal dialogue_started

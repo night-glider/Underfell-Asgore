@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=2]
+[gd_scene load_steps=22 format=2]
 
 [ext_resource path="res://sprites/overworld/frisk_right.png" type="Texture" id=1]
 [ext_resource path="res://sprites/overworld/frisk_left.png" type="Texture" id=2]
@@ -6,88 +6,80 @@
 [ext_resource path="res://sprites/overworld/frisk_down.png" type="Texture" id=4]
 [ext_resource path="res://objects/overworld_frisk.gd" type="Script" id=5]
 
-[sub_resource type="AtlasTexture" id=1]
+[sub_resource type="AtlasTexture" id=19]
 atlas = ExtResource( 4 )
-region = Rect2( 0, 0, 34, 68 )
+region = Rect2( 0, 0, 17, 34 )
 
-[sub_resource type="AtlasTexture" id=2]
+[sub_resource type="AtlasTexture" id=20]
 atlas = ExtResource( 4 )
-region = Rect2( 34, 0, 34, 68 )
+region = Rect2( 17, 0, 17, 34 )
 
-[sub_resource type="AtlasTexture" id=3]
+[sub_resource type="AtlasTexture" id=21]
 atlas = ExtResource( 4 )
-region = Rect2( 68, 0, 34, 68 )
+region = Rect2( 34, 0, 17, 34 )
 
-[sub_resource type="AtlasTexture" id=4]
+[sub_resource type="AtlasTexture" id=22]
 atlas = ExtResource( 4 )
-region = Rect2( 102, 0, 34, 68 )
+region = Rect2( 51, 0, 17, 34 )
 
-[sub_resource type="AtlasTexture" id=5]
+[sub_resource type="AtlasTexture" id=35]
 atlas = ExtResource( 2 )
-region = Rect2( 0, 0, 32, 68 )
+region = Rect2( 32, 0, 16, 35 )
 
-[sub_resource type="AtlasTexture" id=6]
+[sub_resource type="AtlasTexture" id=33]
 atlas = ExtResource( 2 )
-region = Rect2( 32, 0, 32, 68 )
+region = Rect2( 0, 0, 16, 35 )
 
-[sub_resource type="AtlasTexture" id=7]
+[sub_resource type="AtlasTexture" id=34]
 atlas = ExtResource( 2 )
-region = Rect2( 64, 0, 32, 68 )
+region = Rect2( 16, 0, 16, 35 )
 
-[sub_resource type="AtlasTexture" id=8]
-atlas = ExtResource( 2 )
-region = Rect2( 96, 0, 32, 68 )
-
-[sub_resource type="AtlasTexture" id=10]
+[sub_resource type="AtlasTexture" id=36]
 atlas = ExtResource( 1 )
-region = Rect2( 32, 0, 32, 68 )
+region = Rect2( 0, 0, 16, 35 )
 
-[sub_resource type="AtlasTexture" id=9]
+[sub_resource type="AtlasTexture" id=37]
 atlas = ExtResource( 1 )
-region = Rect2( 0, 0, 32, 68 )
+region = Rect2( 16, 0, 16, 35 )
 
-[sub_resource type="AtlasTexture" id=12]
+[sub_resource type="AtlasTexture" id=38]
 atlas = ExtResource( 1 )
-region = Rect2( 96, 0, 32, 68 )
+region = Rect2( 32, 0, 16, 35 )
 
-[sub_resource type="AtlasTexture" id=11]
-atlas = ExtResource( 1 )
-region = Rect2( 64, 0, 32, 68 )
-
-[sub_resource type="AtlasTexture" id=13]
+[sub_resource type="AtlasTexture" id=29]
 atlas = ExtResource( 3 )
-region = Rect2( 0, 0, 34, 68 )
+region = Rect2( 0, 0, 17, 35 )
 
-[sub_resource type="AtlasTexture" id=14]
+[sub_resource type="AtlasTexture" id=30]
 atlas = ExtResource( 3 )
-region = Rect2( 34, 0, 34, 68 )
+region = Rect2( 17, 0, 17, 35 )
 
-[sub_resource type="AtlasTexture" id=15]
+[sub_resource type="AtlasTexture" id=31]
 atlas = ExtResource( 3 )
-region = Rect2( 68, 0, 34, 68 )
+region = Rect2( 34, 0, 17, 35 )
 
-[sub_resource type="AtlasTexture" id=16]
+[sub_resource type="AtlasTexture" id=32]
 atlas = ExtResource( 3 )
-region = Rect2( 102, 0, 34, 68 )
+region = Rect2( 51, 0, 17, 35 )
 
 [sub_resource type="SpriteFrames" id=17]
 animations = [ {
-"frames": [ SubResource( 1 ), SubResource( 2 ), SubResource( 3 ), SubResource( 4 ) ],
+"frames": [ SubResource( 19 ), SubResource( 20 ), SubResource( 21 ), SubResource( 22 ) ],
 "loop": true,
 "name": "move_down",
 "speed": 5.0
 }, {
-"frames": [ SubResource( 5 ), SubResource( 6 ), SubResource( 7 ), SubResource( 8 ) ],
+"frames": [ SubResource( 35 ), SubResource( 33 ), SubResource( 34 ) ],
 "loop": true,
 "name": "move_left",
 "speed": 5.0
 }, {
-"frames": [ SubResource( 10 ), SubResource( 9 ), SubResource( 12 ), SubResource( 11 ) ],
+"frames": [ SubResource( 36 ), SubResource( 37 ), SubResource( 38 ) ],
 "loop": true,
 "name": "move_right",
 "speed": 5.0
 }, {
-"frames": [ SubResource( 13 ), SubResource( 14 ), SubResource( 15 ), SubResource( 16 ) ],
+"frames": [ SubResource( 29 ), SubResource( 30 ), SubResource( 31 ), SubResource( 32 ) ],
 "loop": true,
 "name": "move_up",
 "speed": 5.0
@@ -101,6 +93,7 @@ script = ExtResource( 5 )
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
 position = Vector2( 0, -34 )
+scale = Vector2( 2, 2 )
 frames = SubResource( 17 )
 animation = "move_down"
 

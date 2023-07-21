@@ -1,0 +1,22 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://sprites/overworld/throne_room_back.png" type="Texture" id=1]
+[ext_resource path="res://sprites/overworld/throne_room_shadows.png" type="Texture" id=2]
+
+[node name="Control" type="Node2D"]
+
+[node name="backround" type="Sprite" parent="."]
+scale = Vector2( 2, 2 )
+texture = ExtResource( 1 )
+centered = false
+
+[node name="Camera" type="Camera2D" parent="."]
+current = true
+
+[node name="asgore" type="AnimatedSprite" parent="."]
+
+[node name="backround2" type="Sprite" parent="."]
+modulate = Color( 1, 1, 1, 0.313726 )
+scale = Vector2( 2, 2 )
+texture = ExtResource( 2 )
+centered = false

@@ -1,4 +1,4 @@
-[gd_scene load_steps=31 format=2]
+[gd_scene load_steps=32 format=2]
 
 [ext_resource path="res://sprites/overworld/throne_room_back.png" type="Texture" id=1]
 [ext_resource path="res://objects/overworld_frisk.tscn" type="PackedScene" id=2]
@@ -10,6 +10,7 @@
 [ext_resource path="res://fonts/determination.ttf" type="DynamicFontData" id=8]
 [ext_resource path="res://sprites/faces/asgore_faces.png" type="Texture" id=9]
 [ext_resource path="res://audio/asgore_takes_to_barrier.ogg" type="AudioStream" id=10]
+[ext_resource path="res://sprites/overworld/throne_room_shadows.png" type="Texture" id=11]
 
 [sub_resource type="AtlasTexture" id=17]
 atlas = ExtResource( 9 )
@@ -223,6 +224,12 @@ position = Vector2( 298, 586 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="trigger1"]
 shape = SubResource( 1 )
+
+[node name="backround2" type="Sprite" parent="."]
+modulate = Color( 1, 1, 1, 0.313726 )
+scale = Vector2( 2, 2 )
+texture = ExtResource( 11 )
+centered = false
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 anims/RESET = SubResource( 19 )
