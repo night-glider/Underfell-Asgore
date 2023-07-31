@@ -8,4 +8,4 @@ func start_dialogue():
 	$CanvasLayer/DialogueLabel.start_dialogue()
 
 func _on_DialogueLabel_dialogue_ended():
-	OS.alert("fuck")
+	get_tree().change_scene("res://scenes/barrier.tscn")

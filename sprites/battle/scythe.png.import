@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/frisk_down.png-f0db8c3b68428b06be9f5e892cb6078c.stex"
+path="res://.import/scythe.png-771acefe7406ca1892150dfc7fe75bb5.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://sprites/overworld/frisk_down.png"
-dest_files=[ "res://.import/frisk_down.png-f0db8c3b68428b06be9f5e892cb6078c.stex" ]
+source_file="res://sprites/battle/scythe.png"
+dest_files=[ "res://.import/scythe.png-771acefe7406ca1892150dfc7fe75bb5.stex" ]
 
 [params]
 

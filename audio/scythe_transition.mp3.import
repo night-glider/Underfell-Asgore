@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/scythe_transition.mp3-d6d073663c9669a32a16247046e8f932.mp3str"
+
+[deps]
+
+source_file="res://audio/scythe_transition.mp3"
+dest_files=[ "res://.import/scythe_transition.mp3-d6d073663c9669a32a16247046e8f932.mp3str" ]
+
+[params]
+
+loop=false
+loop_offset=0

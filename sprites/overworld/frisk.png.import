@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/frisk_right.png-558eab56fe6d0cd7fb9153ab86460cba.stex"
+path="res://.import/frisk.png-eda0dbc3bdf8fc554c6c4741804ac570.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://sprites/overworld/frisk_right.png"
-dest_files=[ "res://.import/frisk_right.png-558eab56fe6d0cd7fb9153ab86460cba.stex" ]
+source_file="res://sprites/overworld/frisk.png"
+dest_files=[ "res://.import/frisk.png-eda0dbc3bdf8fc554c6c4741804ac570.stex" ]
 
 [params]
 

@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/Gaze of a Ruined King.mp3-8091d624f7d7e411bf61a619a4f57198.mp3str"
+
+[deps]
+
+source_file="res://audio/Gaze of a Ruined King.mp3"
+dest_files=[ "res://.import/Gaze of a Ruined King.mp3-8091d624f7d7e411bf61a619a4f57198.mp3str" ]
+
+[params]
+
+loop=false
+loop_offset=0

@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/frisk_up.png-f9d1d1c7963c48ec1e899f9ef21d834b.stex"
+path="res://.import/mercy_button_broken.png-85a3192af2f2b319391b8c32bbab1aab.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://sprites/overworld/frisk_up.png"
-dest_files=[ "res://.import/frisk_up.png-f9d1d1c7963c48ec1e899f9ef21d834b.stex" ]
+source_file="res://sprites/battle/mercy_button_broken.png"
+dest_files=[ "res://.import/mercy_button_broken.png-85a3192af2f2b319391b8c32bbab1aab.stex" ]
 
 [params]
 

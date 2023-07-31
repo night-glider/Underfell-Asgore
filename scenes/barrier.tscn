@@ -1,11 +1,11 @@
-[gd_scene load_steps=30 format=2]
+[gd_scene load_steps=31 format=2]
 
 [ext_resource path="res://scenes/barrier.gd" type="Script" id=1]
 [ext_resource path="res://sprites/overworld/soul_container.png" type="Texture" id=2]
 [ext_resource path="res://sprites/overworld/throne_asgore_right.png" type="Texture" id=3]
 [ext_resource path="res://sprites/overworld/throne_asgore_stand_up.png" type="Texture" id=4]
 [ext_resource path="res://sprites/overworld/throne_asgore_up.png" type="Texture" id=5]
-[ext_resource path="res://sprites/overworld/frisk_up.png" type="Texture" id=6]
+[ext_resource path="res://sprites/overworld/frisk.png" type="Texture" id=6]
 [ext_resource path="res://sprites/battle/soul.png" type="Texture" id=7]
 [ext_resource path="res://audio/battle_flash.wav" type="AudioStream" id=8]
 
@@ -73,18 +73,22 @@ animations = [ {
 "speed": 10.0
 } ]
 
-[sub_resource type="AtlasTexture" id=17]
+[sub_resource type="AtlasTexture" id=24]
 atlas = ExtResource( 4 )
-region = Rect2( 1200, 0, 120, 164 )
+region = Rect2( 0, 0, 60, 82 )
+
+[sub_resource type="AtlasTexture" id=23]
+atlas = ExtResource( 3 )
+region = Rect2( 0, 0, 48, 68 )
 
 [sub_resource type="SpriteFrames" id=16]
 animations = [ {
-"frames": [ SubResource( 17 ) ],
+"frames": [ SubResource( 24 ) ],
 "loop": true,
 "name": "down",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 3 ) ],
+"frames": [ SubResource( 23 ) ],
 "loop": true,
 "name": "right",
 "speed": 5.0
@@ -95,13 +99,13 @@ animations = [ {
 "speed": 5.0
 } ]
 
-[sub_resource type="AtlasTexture" id=18]
+[sub_resource type="AtlasTexture" id=22]
 atlas = ExtResource( 6 )
-region = Rect2( 0, 0, 17, 35 )
+region = Rect2( 0, 34, 17, 34 )
 
 [sub_resource type="SpriteFrames" id=19]
 animations = [ {
-"frames": [ SubResource( 18 ) ],
+"frames": [ SubResource( 22 ) ],
 "loop": true,
 "name": "default",
 "speed": 5.0
@@ -180,6 +184,18 @@ tracks/5/keys = {
 "transitions": PoolRealArray( 1 ),
 "update": 0,
 "values": [ Color( 1, 1, 1, 1 ) ]
+}
+tracks/6/type = "value"
+tracks/6/path = NodePath("ColorRect2:color")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 0, 0, 0, 1 ) ]
 }
 
 [sub_resource type="Animation" id=20]
@@ -295,6 +311,18 @@ tracks/6/keys = {
 "update": 0,
 "values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
 }
+tracks/7/type = "value"
+tracks/7/path = NodePath("ColorRect2:color")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/keys = {
+"times": PoolRealArray( 0, 0.2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 0, 0, 0, 1 ), Color( 0, 0, 0, 0 ) ]
+}
 
 [node name="barrier" type="Node2D"]
 script = ExtResource( 1 )
@@ -307,6 +335,7 @@ frame = 14
 
 [node name="asgore" type="AnimatedSprite" parent="."]
 position = Vector2( 320, 325 )
+scale = Vector2( 2, 2 )
 frames = SubResource( 16 )
 animation = "up"
 
@@ -331,3 +360,10 @@ color = Color( 0, 0, 0, 1 )
 [node name="soul" type="Sprite" parent="ColorRect"]
 position = Vector2( 320, 420 )
 texture = ExtResource( 7 )
+
+[node name="ColorRect2" type="ColorRect" parent="."]
+margin_right = 640.0
+margin_bottom = 480.0
+color = Color( 0, 0, 0, 1 )
+
+[connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_AnimationPlayer_animation_finished"]

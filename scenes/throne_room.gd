@@ -54,4 +54,5 @@ func _on_dialogue_custom_event(data):
 func show_gui():
 	$gui.visible = true
 
-
+func next_room():
+	get_tree().change_scene("res://scenes/throne_room2.tscn")
