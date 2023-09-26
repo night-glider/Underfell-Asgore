@@ -708,7 +708,7 @@ tracks/10/keys = {
 
 [sub_resource type="Animation" id=55]
 resource_name = "scythe_rotation"
-length = 6.0
+length = 4.0
 tracks/0/type = "value"
 tracks/0/path = NodePath("ColorRect:visible")
 tracks/0/interp = 1
@@ -752,7 +752,7 @@ tracks/3/loop_wrap = true
 tracks/3/imported = false
 tracks/3/enabled = true
 tracks/3/keys = {
-"times": PoolRealArray( 5.3 ),
+"times": PoolRealArray( 3 ),
 "transitions": PoolRealArray( 1 ),
 "values": [ {
 "args": [  ],
@@ -1005,12 +1005,12 @@ anims/scythe_rotation = SubResource( 55 )
 anims/scythe_swing = SubResource( 59 )
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="AnimationPlayer"]
-stream = ExtResource( 17 )
+stream = ExtResource( 16 )
 
 [node name="DialogueLabel" type="RichTextLabel" parent="."]
-anchor_left = 0.05
+anchor_left = 0.04
 anchor_top = 0.6
-anchor_right = 0.95
+anchor_right = 0.96
 anchor_bottom = 1.0
 custom_fonts/normal_font = SubResource( 60 )
 script = ExtResource( 13 )
