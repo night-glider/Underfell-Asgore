@@ -21,4 +21,5 @@ func _draw():
 
 
 func _on_AnimationPlayer_animation_finished(anim_name):
-	get_tree().change_scene("res://scenes/battle_intro.tscn")
+	if not Engine.editor_hint:
+		get_tree().change_scene("res://scenes/battle_intro.tscn")
