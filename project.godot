@@ -9,27 +9,39 @@
 config_version=4
 
 _global_script_classes=[ {
+"base": "Node",
+"class": "Attack",
+"language": "GDScript",
+"path": "res://custom_classes/attack.gd"
+}, {
+"base": "Resource",
+"class": "AttackProperties",
+"language": "GDScript",
+"path": "res://custom_classes/attack_properties.gd"
+}, {
 "base": "Camera2D",
 "class": "CameraExtended",
 "language": "GDScript",
-"path": "res://custom_nodes/camera_extended.gd"
+"path": "res://custom_classes/camera_extended.gd"
 }, {
 "base": "RichTextLabel",
 "class": "DialogueLabel",
 "language": "GDScript",
-"path": "res://custom_nodes/dialogue_label.gd"
+"path": "res://custom_classes/dialogue_label.gd"
 }, {
 "base": "Node",
 "class": "KeyboardMenu",
 "language": "GDScript",
-"path": "res://custom_nodes/keyboard_menu.gd"
+"path": "res://custom_classes/keyboard_menu.gd"
 }, {
 "base": "Node",
 "class": "Periodic",
 "language": "GDScript",
-"path": "res://custom_nodes/periodic.gd"
+"path": "res://custom_classes/periodic.gd"
 } ]
 _global_script_class_icons={
+"Attack": "",
+"AttackProperties": "",
 "CameraExtended": "",
 "DialogueLabel": "",
 "KeyboardMenu": "",

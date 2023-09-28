@@ -1,0 +1,101 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://scenes/battle_framework.tscn" type="PackedScene" id=1]
+[ext_resource path="res://scenes/battle_debug.gd" type="Script" id=2]
+[ext_resource path="res://objects/player.tscn" type="PackedScene" id=3]
+
+[node name="battle_debug" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 2 )
+
+[node name="player" parent="." instance=ExtResource( 3 )]
+
+[node name="battle_framework" parent="." instance=ExtResource( 1 )]
+
+[node name="properties" type="TabContainer" parent="."]
+anchor_right = 0.35
+anchor_bottom = 0.5
+
+[node name="easy" type="ScrollContainer" parent="properties"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 4.0
+margin_top = 32.0
+margin_right = -4.0
+margin_bottom = -4.0
+
+[node name="easy" type="GridContainer" parent="properties/easy"]
+columns = 2
+
+[node name="hard" type="ScrollContainer" parent="properties"]
+visible = false
+margin_right = 12.0
+margin_bottom = 12.0
+
+[node name="hard" type="GridContainer" parent="properties/hard"]
+columns = 2
+
+[node name="insane" type="GridContainer" parent="properties"]
+visible = false
+margin_top = 24.0
+margin_right = 40.0
+margin_bottom = 40.0
+columns = 2
+
+[node name="Label" type="Label" parent="properties/insane"]
+margin_right = 40.0
+margin_bottom = 14.0
+size_flags_horizontal = 3
+text = "under construction"
+
+[node name="controls" type="GridContainer" parent="."]
+anchor_left = 0.7
+anchor_right = 1.0
+columns = 2
+
+[node name="Label" type="Label" parent="controls"]
+margin_top = 1.0
+margin_right = 55.0
+margin_bottom = 15.0
+text = "difficulty"
+
+[node name="difficulty" type="HSlider" parent="controls"]
+margin_left = 59.0
+margin_right = 192.0
+margin_bottom = 16.0
+size_flags_horizontal = 3
+max_value = 1.0
+step = 0.1
+tick_count = 11
+
+[node name="Label2" type="Label" parent="controls"]
+margin_top = 23.0
+margin_right = 55.0
+margin_bottom = 37.0
+text = "attack"
+
+[node name="attack" type="OptionButton" parent="controls"]
+margin_left = 59.0
+margin_top = 20.0
+margin_right = 192.0
+margin_bottom = 40.0
+
+[node name="start" type="Button" parent="controls"]
+margin_top = 44.0
+margin_right = 55.0
+margin_bottom = 64.0
+text = "Start"
+
+[node name="copy" type="Button" parent="controls"]
+margin_left = 59.0
+margin_top = 44.0
+margin_right = 192.0
+margin_bottom = 64.0
+text = "copy settings"
+
+[connection signal="attack_ended" from="battle_framework" to="." method="_on_battle_framework_attack_ended"]
+[connection signal="attack_started" from="battle_framework" to="." method="_on_battle_framework_attack_started"]
+[connection signal="item_selected" from="controls/attack" to="." method="_on_attack_item_selected"]
+[connection signal="pressed" from="controls/start" to="." method="_on_start_pressed"]
+[connection signal="pressed" from="controls/copy" to="." method="_on_copy_pressed"]

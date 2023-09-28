@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=2]
 
-[ext_resource path="res://custom_nodes/dialogue_label.gd" type="Script" id=1]
+[ext_resource path="res://custom_classes/dialogue_label.gd" type="Script" id=1]
 [ext_resource path="res://scenes/dialogue_debugger.gd" type="Script" id=2]
 [ext_resource path="res://audio/test_soundbit.mp3" type="AudioStream" id=3]
 

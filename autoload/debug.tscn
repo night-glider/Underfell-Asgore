@@ -32,11 +32,19 @@ margin_right = 192.0
 margin_bottom = 44.0
 text = "dialogue debugger"
 
-[node name="clear_save" type="Button" parent="Panel/VBoxContainer"]
+[node name="attacks_debugger" type="Button" parent="Panel/VBoxContainer"]
 margin_top = 48.0
 margin_right = 192.0
 margin_bottom = 71.0
+text = "attacks debugger"
+
+[node name="clear_save" type="Button" parent="Panel/VBoxContainer"]
+margin_top = 75.0
+margin_right = 192.0
+margin_bottom = 98.0
+custom_colors/font_color = Color( 1, 0, 0, 1 )
 text = "clear save"
 
 [connection signal="pressed" from="Panel/VBoxContainer/dialogue_debugger" to="." method="_on_dialogue_debugger_pressed"]
+[connection signal="pressed" from="Panel/VBoxContainer/attacks_debugger" to="." method="_on_attacks_debugger_pressed"]
 [connection signal="pressed" from="Panel/VBoxContainer/clear_save" to="." method="_on_clear_save_pressed"]

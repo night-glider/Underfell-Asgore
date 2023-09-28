@@ -5,6 +5,7 @@ export var active = false
 
 func _ready():
 	$AnimationPlayer.play("fade_out")
+	print(get_property_list())
 
 func _process(delta):
 	if active:

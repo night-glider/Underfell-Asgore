@@ -5,7 +5,7 @@
 [ext_resource path="res://sprites/overworld/throne_asgore_right.png" type="Texture" id=3]
 [ext_resource path="res://sprites/overworld/frisk.png" type="Texture" id=4]
 [ext_resource path="res://scenes/throne_room2.gd" type="Script" id=5]
-[ext_resource path="res://custom_nodes/dialogue_label.gd" type="Script" id=6]
+[ext_resource path="res://custom_classes/dialogue_label.gd" type="Script" id=6]
 [ext_resource path="res://fonts/determination.ttf" type="DynamicFontData" id=7]
 
 [sub_resource type="AtlasTexture" id=14]

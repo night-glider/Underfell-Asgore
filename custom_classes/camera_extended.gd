@@ -57,6 +57,8 @@ func _process(delta):
 	update()
 
 func _draw():
+	if flash_color.a8 == 0:
+		return
 	draw_rect(
 		Rect2(-10,-10, 650,490),
 		flash_color,
