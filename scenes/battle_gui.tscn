@@ -1,0 +1,103 @@
+[gd_scene load_steps=17 format=2]
+
+[ext_resource path="res://fonts/determination.ttf" type="DynamicFontData" id=1]
+[ext_resource path="res://sprites/battle/chara_lv1.png" type="Texture" id=2]
+[ext_resource path="res://sprites/battle/fight_button.png" type="Texture" id=3]
+[ext_resource path="res://sprites/battle/act_button.png" type="Texture" id=4]
+[ext_resource path="res://sprites/battle/item_button.png" type="Texture" id=5]
+
+[sub_resource type="DynamicFont" id=1]
+font_data = ExtResource( 1 )
+
+[sub_resource type="Theme" id=2]
+default_font = SubResource( 1 )
+
+[sub_resource type="AtlasTexture" id=47]
+atlas = ExtResource( 3 )
+region = Rect2( 0, 0, 102, 39 )
+
+[sub_resource type="AtlasTexture" id=52]
+atlas = ExtResource( 3 )
+region = Rect2( 0, 39, 102, 39 )
+
+[sub_resource type="SpriteFrames" id=53]
+animations = [ {
+"frames": [ SubResource( 47 ) ],
+"loop": true,
+"name": "default",
+"speed": 5.0
+}, {
+"frames": [ SubResource( 52 ) ],
+"loop": true,
+"name": "selected",
+"speed": 5.0
+} ]
+
+[sub_resource type="AtlasTexture" id=50]
+atlas = ExtResource( 4 )
+region = Rect2( 0, 0, 102, 39 )
+
+[sub_resource type="AtlasTexture" id=54]
+atlas = ExtResource( 4 )
+region = Rect2( 0, 39, 102, 39 )
+
+[sub_resource type="SpriteFrames" id=55]
+animations = [ {
+"frames": [ SubResource( 50 ) ],
+"loop": true,
+"name": "default",
+"speed": 5.0
+}, {
+"frames": [ SubResource( 54 ) ],
+"loop": true,
+"name": "selected",
+"speed": 5.0
+} ]
+
+[sub_resource type="AtlasTexture" id=51]
+atlas = ExtResource( 5 )
+region = Rect2( 0, 0, 102, 39 )
+
+[sub_resource type="AtlasTexture" id=56]
+atlas = ExtResource( 5 )
+region = Rect2( 0, 39, 102, 39 )
+
+[sub_resource type="SpriteFrames" id=57]
+animations = [ {
+"frames": [ SubResource( 51 ) ],
+"loop": true,
+"name": "default",
+"speed": 5.0
+}, {
+"frames": [ SubResource( 56 ) ],
+"loop": true,
+"name": "selected",
+"speed": 5.0
+} ]
+
+[node name="battle_gui" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+theme = SubResource( 2 )
+
+[node name="Sprite" type="Sprite" parent="."]
+position = Vector2( 40, 403 )
+texture = ExtResource( 2 )
+centered = false
+
+[node name="main_buttons" type="Node2D" parent="."]
+
+[node name="fight" type="AnimatedSprite" parent="main_buttons"]
+position = Vector2( 33, 433 )
+frames = SubResource( 53 )
+centered = false
+
+[node name="act" type="AnimatedSprite" parent="main_buttons"]
+position = Vector2( 185, 433 )
+frames = SubResource( 55 )
+centered = false
+
+[node name="item" type="AnimatedSprite" parent="main_buttons"]
+position = Vector2( 344, 433 )
+frames = SubResource( 57 )
+centered = false

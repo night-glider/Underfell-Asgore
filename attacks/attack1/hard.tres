@@ -10,5 +10,7 @@ properties = {
 "box_pos_x": 320,
 "box_pos_y": 320,
 "box_size_x": 0,
-"box_size_y": 0
+"box_size_y": 0,
+"player_spawn_x": 320,
+"player_spawn_y": 320
 }

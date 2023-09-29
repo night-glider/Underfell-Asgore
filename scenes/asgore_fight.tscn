@@ -1,0 +1,67 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://scenes/fight_background.gd" type="Script" id=1]
+[ext_resource path="res://sprites/battle/background_particle.png" type="Texture" id=2]
+[ext_resource path="res://scenes/battle_gui.tscn" type="PackedScene" id=3]
+
+[sub_resource type="Gradient" id=2]
+offsets = PoolRealArray( 0, 0.375, 1 )
+colors = PoolColorArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0 )
+
+[sub_resource type="GradientTexture" id=3]
+gradient = SubResource( 2 )
+width = 32
+
+[sub_resource type="ParticlesMaterial" id=1]
+emission_shape = 2
+emission_box_extents = Vector3( 320, 0, 1 )
+flag_disable_z = true
+direction = Vector3( 0, -1, 0 )
+spread = 0.0
+gravity = Vector3( 0, 0, 0 )
+initial_velocity = 200.0
+angular_velocity = 50.0
+angular_velocity_random = 1.0
+orbit_velocity = 0.0
+orbit_velocity_random = 0.0
+angle = 180.0
+angle_random = 1.0
+scale = 2.0
+color_ramp = SubResource( 3 )
+
+[sub_resource type="ParticlesMaterial" id=4]
+emission_shape = 2
+emission_box_extents = Vector3( 320, 0, 1 )
+flag_disable_z = true
+direction = Vector3( 0, -1, 0 )
+spread = 0.0
+gravity = Vector3( 0, 0, 0 )
+initial_velocity = 150.0
+angular_velocity = 50.0
+angular_velocity_random = 1.0
+orbit_velocity = 0.0
+orbit_velocity_random = 0.0
+angle = 180.0
+angle_random = 1.0
+color_ramp = SubResource( 3 )
+
+[node name="fight" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="fight_background" type="Node2D" parent="."]
+script = ExtResource( 1 )
+
+[node name="Particles2D" type="Particles2D" parent="."]
+position = Vector2( 320, 500 )
+amount = 4
+process_material = SubResource( 1 )
+texture = ExtResource( 2 )
+
+[node name="Particles2D2" type="Particles2D" parent="."]
+position = Vector2( 320, 500 )
+amount = 4
+process_material = SubResource( 4 )
+texture = ExtResource( 2 )
+
+[node name="battle_gui" parent="." instance=ExtResource( 3 )]

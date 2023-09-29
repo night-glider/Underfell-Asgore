@@ -40,6 +40,7 @@ func start_attack(attack:Attack):
 		default_box_tween_speed)
 	player.global_position.x = current_attack.player_spawn_x
 	player.global_position.y = current_attack.player_spawn_y
+	player.can_control = true
 	
 	emit_signal("attack_started", current_attack)
 
@@ -48,6 +49,7 @@ func stop_attack():
 	if is_instance_valid(current_attack):
 		current_attack.destroy()
 	move_box(default_box_pos, default_box_size, default_box_tween_speed)
+	player.can_control = false
 	
 	emit_signal("attack_ended", current_attack)
 

@@ -708,7 +708,7 @@ tracks/10/keys = {
 
 [sub_resource type="Animation" id=55]
 resource_name = "scythe_rotation"
-length = 4.0
+length = 6.0
 tracks/0/type = "value"
 tracks/0/path = NodePath("ColorRect:visible")
 tracks/0/interp = 1
@@ -752,7 +752,7 @@ tracks/3/loop_wrap = true
 tracks/3/imported = false
 tracks/3/enabled = true
 tracks/3/keys = {
-"times": PoolRealArray( 3 ),
+"times": PoolRealArray( 5.3 ),
 "transitions": PoolRealArray( 1 ),
 "values": [ {
 "args": [  ],

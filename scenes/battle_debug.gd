@@ -123,7 +123,11 @@ func gather_props_from_grid(grid:GridContainer):
 func _on_copy_pressed():
 	var result = gather_props_from_grid($properties/easy/easy)
 	OS.clipboard = result
-	OS.alert("it's copied in ur clipboard!\nEASY properties\n" + result)
+	OS.alert("it's copied to ur clipboard!\nEASY properties\n" + result)
 	result = gather_props_from_grid($properties/hard/hard)
 	OS.clipboard = result
-	OS.alert("it's copied in ur clipboard!\nHARD properties\n" + result)
+	OS.alert("it's copied to ur clipboard!\nHARD properties\n" + result)
+
+
+func _on_player_hp_changed(new_hp):
+	$hp.text = "hp: " + str(new_hp) + "/" + str($player.max_hp)

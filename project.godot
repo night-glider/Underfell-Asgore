@@ -38,6 +38,16 @@ _global_script_classes=[ {
 "class": "Periodic",
 "language": "GDScript",
 "path": "res://custom_classes/periodic.gd"
+}, {
+"base": "Sprite",
+"class": "Player",
+"language": "GDScript",
+"path": "res://objects/player.gd"
+}, {
+"base": "Area2D",
+"class": "Projectile",
+"language": "GDScript",
+"path": "res://custom_classes/projectile.gd"
 } ]
 _global_script_class_icons={
 "Attack": "",
@@ -45,7 +55,9 @@ _global_script_class_icons={
 "CameraExtended": "",
 "DialogueLabel": "",
 "KeyboardMenu": "",
-"Periodic": ""
+"Periodic": "",
+"Player": "",
+"Projectile": ""
 }
 
 [application]
@@ -58,6 +70,10 @@ config/icon="res://icon.png"
 
 GlobalAudio="*res://autoload/GlobalAudio.gd"
 Debug="*res://autoload/debug.tscn"
+
+[debug]
+
+settings/fps/force_fps=60
 
 [display]
 
