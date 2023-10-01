@@ -6,6 +6,13 @@ func _ready():
 	remove_child(camera)
 	$frisk.add_child(camera)
 	$gui.visible = false
+	
+	var timer = Timer.new()
+	timer.connect("timeout", self, "at_long_last_play")
+	timer.one_shot = true
+	add_child(timer)
+	timer.start(3)
+	
 
 func _on_trigger1_body_entered(body:Node):
 	if body.name != "frisk":
@@ -56,3 +63,6 @@ func show_gui():
 
 func next_room():
 	get_tree().change_scene("res://scenes/throne_room2.tscn")
+
+func at_long_last_play():
+	$at_long_last.play()

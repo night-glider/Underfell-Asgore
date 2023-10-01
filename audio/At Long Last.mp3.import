@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/At Long Last.mp3-b304909976de79775216e3c277fac0af.mp3str"
+
+[deps]
+
+source_file="res://audio/At Long Last.mp3"
+dest_files=[ "res://.import/At Long Last.mp3-b304909976de79775216e3c277fac0af.mp3str" ]
+
+[params]
+
+loop=false
+loop_offset=0
