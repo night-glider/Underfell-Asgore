@@ -66,10 +66,27 @@ THRONE_ASGORE_DIALOGUE9,*It won't even matter.
 THRONE_ASGORE_DIALOGUE10,*You must understand...
 THRONE_ASGORE_DIALOGUE11,*I can't allow this cruel trick of fate to stop me.
 THRONE_ASGORE_DIALOGUE12,[event take_to_barrier]*My people and I have waited long enough.
-THRONE_ASGORE_TRANSITION_DIAL1,"[snd asgore][center][color=red]*Follow me, child."
-THRONE_ASGORE_TRANSITION_DIAL2,[center][color=red]*Destiny is all that awaits you now.
+THRONE_ASGORE_TRANSITION_DIAL1,"[snd asgore][center][color=red]*Come, child"
+THRONE_ASGORE_TRANSITION_DIAL2,[center][color=red]*Your fate is waiting.
 BATTLE_INTRO1,(A strange light fills the room.)
 BATTLE_INTRO2,"(The distant, towering figure above you doesn't move at all as his lifeless eyes coldly stare you down.)"
 BATTLE_INTRO3,"(You stare back, knowing it could very well be your first and last act of defiance.)"
 BATTLE_INTRO4,"(As your journey draws to a close, you face one final challenge.)"
 BATTLE_INTRO5,(You are filled with [wait 30][spd 0.25][color=red]DETERMINATION![/color])
+ITEM_HEALED,* You recovered {0} HP.
+ITEM_HEALED_MAX,* Your HP was maxed out.
+ITEM_PIE,* Butterscotch Pie
+ITEM_PIE_DESC,"* You ate the Butterscotch Pie.
+TODO MESSAGE ABOUT ASGORE'S ATK"
+ITEM_DONUT,* Spider Donut
+ITEM_DONUT_DESC,* You ate the Spider Donut.
+ITEM_DOG,* Hot Dog...?
+ITEM_DOG_DESC,* You ate the Hot Dog...?
+ITEM_SEA,* Sea Tea
+ITEM_SEA_DESC,* You ate the Sea Tea.
+ITEM_JUNK,* Junk Food
+ITEM_JUNK_DESC,* You ate the Junk Food.
+ITEM_CHISPS,* Chisps
+ITEM_CHISPS_DESC,* You ate the Potato Chisps.
+TEST_DIAL1,[event enemy_dial] enemy dial
+TEST_DIAL2,[event box_dial] box dial

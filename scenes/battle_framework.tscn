@@ -17,3 +17,9 @@ border_width = 5.0
 editor_only = false
 
 [node name="tween" type="Tween" parent="box"]
+
+[node name="ColorRect" type="ColorRect" parent="box"]
+show_behind_parent = true
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0, 0, 0, 1 )

@@ -1,8 +1,11 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://scenes/fight_background.gd" type="Script" id=1]
 [ext_resource path="res://sprites/battle/background_particle.png" type="Texture" id=2]
 [ext_resource path="res://scenes/battle_gui.tscn" type="PackedScene" id=3]
+[ext_resource path="res://objects/player.tscn" type="PackedScene" id=4]
+[ext_resource path="res://scenes/asgore_fight.gd" type="Script" id=5]
+[ext_resource path="res://scenes/battle_framework.tscn" type="PackedScene" id=6]
 
 [sub_resource type="Gradient" id=2]
 offsets = PoolRealArray( 0, 0.375, 1 )
@@ -48,6 +51,7 @@ color_ramp = SubResource( 3 )
 [node name="fight" type="Control"]
 anchor_right = 1.0
 anchor_bottom = 1.0
+script = ExtResource( 5 )
 
 [node name="fight_background" type="Node2D" parent="."]
 script = ExtResource( 1 )
@@ -64,4 +68,8 @@ amount = 4
 process_material = SubResource( 4 )
 texture = ExtResource( 2 )
 
+[node name="battle_framework" parent="." instance=ExtResource( 6 )]
+
 [node name="battle_gui" parent="." instance=ExtResource( 3 )]
+
+[node name="player" parent="." instance=ExtResource( 4 )]
