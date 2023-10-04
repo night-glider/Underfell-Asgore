@@ -73,3 +73,5 @@ texture = ExtResource( 2 )
 [node name="battle_gui" parent="." instance=ExtResource( 3 )]
 
 [node name="player" parent="." instance=ExtResource( 4 )]
+
+[connection signal="act_pressed" from="battle_gui" to="." method="_on_battle_gui_act_pressed"]

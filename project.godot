@@ -9,6 +9,11 @@
 config_version=4
 
 _global_script_classes=[ {
+"base": "Resource",
+"class": "ActOption",
+"language": "GDScript",
+"path": "res://custom_classes/act_option.gd"
+}, {
 "base": "Node",
 "class": "Attack",
 "language": "GDScript",
@@ -28,6 +33,11 @@ _global_script_classes=[ {
 "class": "DialogueLabel",
 "language": "GDScript",
 "path": "res://custom_classes/dialogue_label.gd"
+}, {
+"base": "AnimatedSprite",
+"class": "Enemy",
+"language": "GDScript",
+"path": "res://custom_classes/enemy.gd"
 }, {
 "base": "Resource",
 "class": "HealItem",
@@ -55,10 +65,12 @@ _global_script_classes=[ {
 "path": "res://custom_classes/projectile.gd"
 } ]
 _global_script_class_icons={
+"ActOption": "",
 "Attack": "",
 "AttackProperties": "",
 "CameraExtended": "",
 "DialogueLabel": "",
+"Enemy": "",
 "HealItem": "",
 "KeyboardMenu": "",
 "Periodic": "",
@@ -69,7 +81,7 @@ _global_script_class_icons={
 [application]
 
 config/name="Underfell Asgore"
-run/main_scene="res://scenes/disclaimer.tscn"
+run/main_scene="res://scenes/asgore_fight.tscn"
 config/icon="res://icon.png"
 
 [autoload]

@@ -1,4 +1,4 @@
-[gd_scene load_steps=35 format=2]
+[gd_scene load_steps=62 format=2]
 
 [ext_resource path="res://fonts/Mars_Needs_Cunnilingus.ttf" type="DynamicFontData" id=1]
 [ext_resource path="res://sprites/battle/chara_lv1.png" type="Texture" id=2]
@@ -14,6 +14,15 @@
 [ext_resource path="res://custom_classes/dialogue_label.gd" type="Script" id=12]
 [ext_resource path="res://sprites/battle/dialogue_cloud.png" type="Texture" id=13]
 [ext_resource path="res://fonts/determination.ttf" type="DynamicFontData" id=14]
+[ext_resource path="res://sprites/battle/target.png" type="Texture" id=15]
+[ext_resource path="res://sprites/battle/target_line.png" type="Texture" id=16]
+[ext_resource path="res://scenes/target_line.gd" type="Script" id=17]
+[ext_resource path="res://sprites/battle/player_attack_vfx.png" type="Texture" id=18]
+[ext_resource path="res://custom_classes/periodic.gd" type="Script" id=19]
+[ext_resource path="res://sprites/battle/enemy_hp_under.png" type="Texture" id=20]
+[ext_resource path="res://sprites/battle/enemy_hp_progress.png" type="Texture" id=21]
+[ext_resource path="res://fonts/attack.ttf" type="DynamicFontData" id=22]
+[ext_resource path="res://custom_classes/act_option.gd" type="Script" id=23]
 
 [sub_resource type="DynamicFont" id=1]
 size = 24
@@ -58,6 +67,16 @@ heal = 5
 short_name = "ITEM_SEA"
 description = "ITEM_SEA_DESC"
 
+[sub_resource type="Resource" id=83]
+script = ExtResource( 23 )
+name = "ACT_CHECK"
+option_id = "check"
+
+[sub_resource type="Resource" id=84]
+script = ExtResource( 23 )
+name = "ACT_REFUSE"
+option_id = "refuse"
+
 [sub_resource type="DynamicFont" id=65]
 font_data = ExtResource( 14 )
 
@@ -85,6 +104,283 @@ animations = [ {
 "name": "selected",
 "speed": 5.0
 } ]
+
+[sub_resource type="AtlasTexture" id=67]
+atlas = ExtResource( 16 )
+region = Rect2( 0, 0, 14, 128 )
+
+[sub_resource type="AtlasTexture" id=68]
+atlas = ExtResource( 16 )
+region = Rect2( 0, 0, 14, 128 )
+
+[sub_resource type="AtlasTexture" id=69]
+atlas = ExtResource( 16 )
+region = Rect2( 14, 0, 14, 128 )
+
+[sub_resource type="SpriteFrames" id=70]
+animations = [ {
+"frames": [ SubResource( 67 ) ],
+"loop": true,
+"name": "default",
+"speed": 20.0
+}, {
+"frames": [ SubResource( 68 ), SubResource( 69 ) ],
+"loop": true,
+"name": "selected",
+"speed": 10.0
+} ]
+
+[sub_resource type="AtlasTexture" id=74]
+atlas = ExtResource( 18 )
+region = Rect2( 0, 0, 16, 66 )
+
+[sub_resource type="AtlasTexture" id=75]
+atlas = ExtResource( 18 )
+region = Rect2( 16, 0, 16, 66 )
+
+[sub_resource type="AtlasTexture" id=76]
+atlas = ExtResource( 18 )
+region = Rect2( 32, 0, 16, 66 )
+
+[sub_resource type="AtlasTexture" id=77]
+atlas = ExtResource( 18 )
+region = Rect2( 48, 0, 16, 66 )
+
+[sub_resource type="AtlasTexture" id=78]
+atlas = ExtResource( 18 )
+region = Rect2( 64, 0, 16, 66 )
+
+[sub_resource type="AtlasTexture" id=79]
+atlas = ExtResource( 18 )
+region = Rect2( 80, 0, 16, 66 )
+
+[sub_resource type="SpriteFrames" id=73]
+animations = [ {
+"frames": [ SubResource( 74 ), SubResource( 75 ), SubResource( 76 ), SubResource( 77 ), SubResource( 78 ), SubResource( 79 ), null ],
+"loop": false,
+"name": "default",
+"speed": 10.0
+} ]
+
+[sub_resource type="Animation" id=71]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("target_line:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("background:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("background:scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 1, 1 ) ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("target_line:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ false ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("background:visible")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ false ]
+}
+
+[sub_resource type="Animation" id=72]
+resource_name = "fade_out"
+tracks/0/type = "value"
+tracks/0/path = NodePath("background:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5, 0.6 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("background:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.5, 0.6 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 1, 1 ), Vector2( 0.25, 1 ), Vector2( 1, 1 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("target_line:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0.5 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("background:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0.5 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
+
+[sub_resource type="DynamicFont" id=80]
+font_data = ExtResource( 22 )
+
+[sub_resource type="Animation" id=82]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("damage_label:rect_position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 240, -324.5 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("damage_label:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("damage_label:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ false ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("enemy_hp:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ false ]
+}
+
+[sub_resource type="Animation" id=81]
+resource_name = "damage_dealt"
+length = 2.0
+tracks/0/type = "value"
+tracks/0/path = NodePath("damage_label:rect_position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5, 1 ),
+"transitions": PoolRealArray( 1, 1.7411, 1 ),
+"update": 0,
+"values": [ Vector2( 240, -300 ), Vector2( 240, -324.5 ), Vector2( 240, -300 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("damage_label:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("damage_label:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ true, false ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("enemy_hp:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0, 2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ true, false ]
+}
 
 [sub_resource type="AtlasTexture" id=50]
 atlas = ExtResource( 4 )
@@ -138,6 +434,7 @@ anchor_bottom = 1.0
 theme = SubResource( 2 )
 script = ExtResource( 6 )
 healing_items = [ SubResource( 59 ), SubResource( 60 ), SubResource( 61 ), SubResource( 60 ), SubResource( 62 ), SubResource( 63 ), SubResource( 64 ), SubResource( 63 ) ]
+act_options = [ SubResource( 83 ), SubResource( 84 ) ]
 enemy_dialogue_theme = SubResource( 66 )
 
 [node name="chara_lv1" type="Sprite" parent="."]
@@ -152,10 +449,73 @@ position = Vector2( 33, 433 )
 frames = SubResource( 53 )
 centered = false
 
+[node name="background" type="Sprite" parent="main_buttons/fight"]
+visible = false
+position = Vector2( 287, -113 )
+texture = ExtResource( 15 )
+
+[node name="target_line" type="AnimatedSprite" parent="main_buttons/fight"]
+visible = false
+position = Vector2( 286, -113 )
+frames = SubResource( 70 )
+animation = "selected"
+playing = true
+script = ExtResource( 17 )
+
+[node name="player_attack" type="AnimatedSprite" parent="main_buttons/fight"]
+position = Vector2( 285, -300 )
+frames = SubResource( 73 )
+frame = 6
+playing = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="main_buttons/fight"]
+anims/RESET = SubResource( 71 )
+anims/fade_out = SubResource( 72 )
+
+[node name="damage_label" type="Label" parent="main_buttons/fight"]
+visible = false
+anchor_left = 0.5
+anchor_top = 0.25
+anchor_right = 0.5
+anchor_bottom = 0.25
+margin_left = 189.0
+margin_top = -334.25
+margin_right = 283.0
+margin_bottom = -311.25
+grow_horizontal = 2
+grow_vertical = 2
+custom_fonts/font = SubResource( 80 )
+text = "MISS"
+align = 1
+
+[node name="enemy_hp" type="TextureProgress" parent="main_buttons/fight"]
+visible = false
+margin_left = 183.0
+margin_top = -273.0
+margin_right = 385.0
+margin_bottom = -257.0
+value = 50.0
+texture_under = ExtResource( 20 )
+texture_progress = ExtResource( 21 )
+texture_progress_offset = Vector2( 1, 1 )
+
+[node name="enemy_hp_anim" type="AnimationPlayer" parent="main_buttons/fight"]
+anims/RESET = SubResource( 82 )
+anims/damage_dealt = SubResource( 81 )
+
 [node name="act" type="AnimatedSprite" parent="main_buttons"]
 position = Vector2( 185, 433 )
 frames = SubResource( 55 )
 centered = false
+
+[node name="GridContainer" type="GridContainer" parent="main_buttons/act"]
+visible = false
+margin_left = -104.0
+margin_top = -180.0
+margin_right = 416.0
+margin_bottom = -60.0
+custom_constants/vseparation = 0
+columns = 2
 
 [node name="item" type="AnimatedSprite" parent="main_buttons"]
 position = Vector2( 344, 433 )
@@ -202,7 +562,8 @@ margin_bottom = 424.0
 custom_fonts/font = SubResource( 58 )
 text = "10/20"
 
-[node name="DialogueCloud" type="Sprite" parent="."]
+[node name="dial_cloud" type="Sprite" parent="."]
+visible = false
 position = Vector2( 400, 50 )
 texture = ExtResource( 13 )
 centered = false
@@ -217,5 +578,9 @@ fit_content_height = true
 scroll_active = false
 script = ExtResource( 12 )
 
+[node name="Periodic" type="Node" parent="."]
+script = ExtResource( 19 )
+
+[connection signal="attack_ended" from="main_buttons/fight/target_line" to="." method="_on_target_line_attack_ended"]
 [connection signal="dialogue_custom_event" from="dial" to="." method="_on_DialogueLabel_dialogue_custom_event"]
 [connection signal="dialogue_ended" from="dial" to="." method="_on_DialogueLabel_dialogue_ended"]

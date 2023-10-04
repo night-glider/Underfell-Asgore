@@ -9,9 +9,9 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 script = ExtResource( 2 )
 
-[node name="player" parent="." instance=ExtResource( 3 )]
-
 [node name="battle_framework" parent="." instance=ExtResource( 1 )]
+
+[node name="player" parent="." instance=ExtResource( 3 )]
 
 [node name="properties" type="TabContainer" parent="."]
 anchor_right = 0.35
@@ -104,9 +104,9 @@ margin_right = 40.0
 text = "hp: 20/20"
 align = 1
 
-[connection signal="hp_changed" from="player" to="." method="_on_player_hp_changed"]
 [connection signal="attack_ended" from="battle_framework" to="." method="_on_battle_framework_attack_ended"]
 [connection signal="attack_started" from="battle_framework" to="." method="_on_battle_framework_attack_started"]
+[connection signal="hp_changed" from="player" to="." method="_on_player_hp_changed"]
 [connection signal="item_selected" from="controls/attack" to="." method="_on_attack_item_selected"]
 [connection signal="pressed" from="controls/start" to="." method="_on_start_pressed"]
 [connection signal="pressed" from="controls/copy" to="." method="_on_copy_pressed"]
