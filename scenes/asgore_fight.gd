@@ -18,9 +18,9 @@ func _on_battle_gui_waiting_for_next_state(last_action, additional_args):
 		$battle_gui.to_main_buttons()
 		return
 	
-	var attack = preload("res://attacks/attack1/attack.tscn").instance()
-	var easy = preload("res://attacks/attack1/easy.tres")
-	var hard = preload("res://attacks/attack1/hard.tres")
+	var attack = preload("res://attacks/attack2/attack.tscn").instance()
+	var easy = preload("res://attacks/attack2/easy.tres")
+	var hard = preload("res://attacks/attack2/hard.tres")
 	attack.set_difficulty(easy, hard, randf())
 	$battle_gui.enemy_attacks(attack)
 

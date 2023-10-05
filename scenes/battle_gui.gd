@@ -221,7 +221,7 @@ func player_attack_ended():
 	$main_buttons/fight/AnimationPlayer.play("fade_out")
 	$main_buttons/fight/target_line.fade_in = true
 	$main_buttons/fight/enemy_hp_anim.play("damage_dealt")
-	$Periodic.add_method_oneshot(self, "ask_for_next_stage", [state, []], 0.5)
+	$Periodic.add_method_oneshot(self, "ask_for_next_state", [state, []], 0.5)
 	#ask_for_next_state(state, [])
 
 func enemy_attacks(attack:Attack):

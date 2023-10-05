@@ -1,15 +1,8 @@
 extends Area2D
 class_name Projectile
 
-enum damage_type {
-	normal,
-	blue,
-	orange
-}
-
 export var damage:int = 5
-#TODO
-export var type:damage_type = damage_type.normal
+export(int, "normal", "blue", "orange") var type = 0
 
 func player_hitted():
 	queue_free()

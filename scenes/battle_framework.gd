@@ -65,6 +65,6 @@ func _process(delta):
 	_force_player_in_box()
 
 func _force_player_in_box():
-	player.position.x = clamp(player.position.x, box.rect_position.x+10, box.rect_position.x + box.rect_size.x-10)
-	player.position.y = clamp(player.position.y, box.rect_position.y+10, box.rect_position.y + box.rect_size.y-10)
+	player.position.x = clamp(player.position.x, box.rect_position.x+10, box.rect_position.x + box.rect_size.x-11)
+	player.position.y = clamp(player.position.y, box.rect_position.y+11, box.rect_position.y + box.rect_size.y-10)
 	

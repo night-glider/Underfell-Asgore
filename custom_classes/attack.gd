@@ -8,8 +8,8 @@ export var box_size_y:=136
 export var player_spawn_x:=320
 export var player_spawn_y:=320
 
-var player:Node2D = null
-var framework:Node = null
+var player:Player
+var framework
 
 func set_difficulty(easy:AttackProperties, hard:AttackProperties, difficulty:float):
 	for prop in get_property_list():

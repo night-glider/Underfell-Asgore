@@ -1,7 +1,7 @@
 extends Sprite
 class_name Player
 
-export var speed := 1.0
+export var speed := 2.0
 export var max_hp := 20
 export var invincibility_duration := 1.0
 export var can_control = false
@@ -44,6 +44,10 @@ func _on_hitbox_area_entered(area):
 	if invincible:
 		return
 	if area is Projectile:
+		if area.type == 1 and prev_pos == position:
+			return
+		if area.type == 2 and prev_pos != position:
+			return
 		take_hit(area.damage)
 		area.player_hitted()
 		enable_invincibility()
