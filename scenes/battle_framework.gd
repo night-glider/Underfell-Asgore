@@ -1,5 +1,7 @@
 extends Control
 
+class_name BattleFramework
+
 onready var box:ReferenceRect = $box
 onready var box_tween := $box/tween
 
@@ -17,7 +19,7 @@ var current_attack:Attack = null
 func _ready():
 	move_box(Vector2(320, 320), Vector2(570,136), 0)
 
-func init(player):
+func init(player:Player):
 	self.player = player
 
 func move_box(pos: Vector2, size: Vector2, time: float = -1):

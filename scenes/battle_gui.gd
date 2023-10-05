@@ -1,14 +1,18 @@
 extends Control
 
+class_name BattleGui
+
 enum states {
 	MAIN_BUTTONS
 	PLAYER_ATTACKS
 	ACT_CHOICE
 	ITEM_CHOICE
 	DIALOGUE
+	ENEMY_ATTACKS
 }
 
 signal act_pressed(option_id)
+signal waiting_for_next_state(last_action, additional_args)
 
 export(Array, Resource) var healing_items = []
 export(Array, Resource) var act_options = []
@@ -22,16 +26,18 @@ onready var main_buttons = [
 ]
 
 var player:Player
+var battle_framework:BattleFramework
 var active:=false
 var state = states.MAIN_BUTTONS
 
-var current_main_option:int = 0 
+var current_main_option:int = 0
 var current_item_option:= Vector2.ZERO
 var current_act_option:= Vector2.ZERO
 
 
-func init(player:Player):
+func init(player:Player, battle_framework:BattleFramework):
 	self.player = player
+	self.battle_framework = battle_framework
 	player.connect("hp_changed", self, "hp_changed")
 	
 	for item in healing_items:
@@ -49,6 +55,7 @@ func init(player:Player):
 	main_buttons[current_main_option].animation = "selected"
 	hp_changed(player.hp)
 	active = true
+	to_main_buttons()
 
 func _process(delta):
 	if not active:
@@ -197,7 +204,7 @@ func _on_DialogueLabel_dialogue_ended():
 	_on_DialogueLabel_dialogue_custom_event("box_dial")
 	$dial.player_controlled = false
 	$dial.visible = false
-	to_main_buttons()
+	ask_for_next_state(state, [])
 
 
 func _on_target_line_attack_ended(damage):
@@ -214,4 +221,12 @@ func player_attack_ended():
 	$main_buttons/fight/AnimationPlayer.play("fade_out")
 	$main_buttons/fight/target_line.fade_in = true
 	$main_buttons/fight/enemy_hp_anim.play("damage_dealt")
-	to_main_buttons()
+	$Periodic.add_method_oneshot(self, "ask_for_next_stage", [state, []], 0.5)
+	#ask_for_next_state(state, [])
+
+func enemy_attacks(attack:Attack):
+	state = states.ENEMY_ATTACKS
+	battle_framework.start_attack(attack)
+
+func ask_for_next_state(last_action:int, additional_args:Array):
+	emit_signal("waiting_for_next_state", last_action, additional_args)

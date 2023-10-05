@@ -1,4 +1,4 @@
-[gd_scene load_steps=62 format=2]
+[gd_scene load_steps=63 format=2]
 
 [ext_resource path="res://fonts/Mars_Needs_Cunnilingus.ttf" type="DynamicFontData" id=1]
 [ext_resource path="res://sprites/battle/chara_lv1.png" type="Texture" id=2]
@@ -21,7 +21,7 @@
 [ext_resource path="res://custom_classes/periodic.gd" type="Script" id=19]
 [ext_resource path="res://sprites/battle/enemy_hp_under.png" type="Texture" id=20]
 [ext_resource path="res://sprites/battle/enemy_hp_progress.png" type="Texture" id=21]
-[ext_resource path="res://fonts/attack.ttf" type="DynamicFontData" id=22]
+[ext_resource path="res://fonts/damage.ttf" type="DynamicFontData" id=22]
 [ext_resource path="res://custom_classes/act_option.gd" type="Script" id=23]
 
 [sub_resource type="DynamicFont" id=1]
@@ -277,7 +277,11 @@ tracks/3/keys = {
 }
 
 [sub_resource type="DynamicFont" id=80]
+size = 32
 font_data = ExtResource( 22 )
+
+[sub_resource type="StyleBoxFlat" id=85]
+bg_color = Color( 0, 0, 0, 1 )
 
 [sub_resource type="Animation" id=82]
 length = 0.001
@@ -291,7 +295,7 @@ tracks/0/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 0,
-"values": [ Vector2( 240, -324.5 ) ]
+"values": [ Vector2( 240, -300 ) ]
 }
 tracks/1/type = "value"
 tracks/1/path = NodePath("damage_label:modulate")
@@ -328,6 +332,18 @@ tracks/3/keys = {
 "transitions": PoolRealArray( 1 ),
 "update": 0,
 "values": [ false ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("damage_label:rect_size")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 26, 23 ) ]
 }
 
 [sub_resource type="Animation" id=81]
@@ -380,6 +396,18 @@ tracks/3/keys = {
 "transitions": PoolRealArray( 1, 1 ),
 "update": 1,
 "values": [ true, false ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("damage_label:rect_size")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 0, 0 ) ]
 }
 
 [sub_resource type="AtlasTexture" id=50]
@@ -459,6 +487,7 @@ visible = false
 position = Vector2( 286, -113 )
 frames = SubResource( 70 )
 animation = "selected"
+frame = 1
 playing = true
 script = ExtResource( 17 )
 
@@ -479,14 +508,17 @@ anchor_top = 0.25
 anchor_right = 0.5
 anchor_bottom = 0.25
 margin_left = 189.0
-margin_top = -334.25
-margin_right = 283.0
-margin_bottom = -311.25
+margin_top = -309.75
+margin_right = 297.0
+margin_bottom = -277.75
 grow_horizontal = 2
 grow_vertical = 2
+custom_colors/font_color = Color( 1, 0, 0, 1 )
 custom_fonts/font = SubResource( 80 )
+custom_styles/normal = SubResource( 85 )
 text = "MISS"
 align = 1
+valign = 1
 
 [node name="enemy_hp" type="TextureProgress" parent="main_buttons/fight"]
 visible = false

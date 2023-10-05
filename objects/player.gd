@@ -13,8 +13,10 @@ signal hp_changed(new_hp)
 
 var hp = max_hp
 var invincible := false
+var prev_pos = Vector2.ZERO
 
 func _process(delta):
+	prev_pos = position
 	if not can_control:
 		return
 	var input = Vector2(Input.get_axis("left", "right"), Input.get_axis("up", "down"))

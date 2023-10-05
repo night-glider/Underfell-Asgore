@@ -8,7 +8,7 @@ func _process(delta):
 
 func _draw():
 	var height = 15 + sin(n) * 10
-	var col = Color("FF6F47")
+	var col = Color("DA96FF") #"FF6F47" old color
 	for i in 16:
 		draw_rect(
 			Rect2(0, 480-i*height - height, 640, height),
