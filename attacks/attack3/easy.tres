@@ -1,0 +1,24 @@
+[gd_resource type="Resource" load_steps=2 format=2]
+
+[ext_resource path="res://custom_classes/attack_properties.gd" type="Script" id=1]
+
+[resource]
+script = ExtResource( 1 )
+paste_properties_here = ""
+properties = {
+"attack_duration": 10.0,
+"box_pos_x": 320,
+"box_pos_y": 320,
+"box_size_x": 136,
+"box_size_y": 136,
+"linear_speed": 3.0,
+"player_spawn_x": 320,
+"player_spawn_y": 320,
+"projectile_count": 36,
+"rotation_speed_drag": 0.995,
+"rotation_speed_max": 0.02,
+"rotation_speed_min": 0.005,
+"spawn_end_timing": 10.0,
+"spawn_interval": 1.0,
+"spawn_radius": 450
+}

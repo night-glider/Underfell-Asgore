@@ -25,5 +25,10 @@ func _on_battle_gui_waiting_for_next_state(last_action, additional_args):
 	$battle_gui.enemy_attacks(attack)
 
 
-func _on_battle_framework_attack_ended(attack):
+func _on_battle_framework_attack_ended(attack:Attack):
 	$battle_gui.to_main_buttons()
+
+
+func _on_battle_gui_item_consumed(item:HealItem):
+	if item.short_name == "ITEM_PIE":
+		$player.additional_damage += 1

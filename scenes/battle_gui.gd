@@ -13,6 +13,7 @@ enum states {
 
 signal act_pressed(option_id)
 signal waiting_for_next_state(last_action, additional_args)
+signal item_consumed(item)
 
 export(Array, Resource) var healing_items = []
 export(Array, Resource) var act_options = []
@@ -123,6 +124,7 @@ func process_item_choice():
 		$main_buttons/item.animation = "default"
 		hide_player()
 		start_dialogue([message])
+		emit_signal("item_consumed", item)
 	
 	if Input.is_action_just_pressed("cancel"):
 		$main_buttons/item/GridContainer.visible = false

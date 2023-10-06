@@ -1,15 +1,20 @@
 extends Control
 
 var attacks = {
-	"[1] blank attack": {
+	"[1] blank": {
 		"attack": preload("res://attacks/attack1/attack.tscn"),
 		"easy": preload("res://attacks/attack1/easy.tres"),
 		"hard": preload("res://attacks/attack1/hard.tres")
 		},
-	"[2] hands attack": {
+	"[2] hands": {
 		"attack": preload("res://attacks/attack2/attack.tscn"),
 		"easy": preload("res://attacks/attack2/easy.tres"),
 		"hard": preload("res://attacks/attack2/hard.tres")
+		},
+	"[3] b/o circles": {
+		"attack": preload("res://attacks/attack3/attack.tscn"),
+		"easy": preload("res://attacks/attack3/easy.tres"),
+		"hard": preload("res://attacks/attack3/hard.tres")
 		}
 }
 var current_attack:Attack = null

@@ -12,6 +12,7 @@ onready var invincibility_timer = $invincibility
 signal hp_changed(new_hp)
 
 var hp = max_hp
+var additional_damage = 0
 var invincible := false
 var prev_pos = Vector2.ZERO
 
@@ -24,6 +25,7 @@ func _process(delta):
 
 
 func take_hit(damage):
+	damage += additional_damage
 	if hp - damage <= 0 and hp > 1:
 		hp = 1
 		emit_signal("hp_changed", hp)
