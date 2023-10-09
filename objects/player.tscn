@@ -1,13 +1,40 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://objects/player.gd" type="Script" id=1]
 [ext_resource path="res://sprites/battle/soul.png" type="Texture" id=2]
 [ext_resource path="res://custom_classes/camera_extended.gd" type="Script" id=3]
+[ext_resource path="res://sprites/battle/green_soul_shield.png" type="Texture" id=4]
+[ext_resource path="res://sprites/battle/green_soul_background.png" type="Texture" id=5]
 
 [sub_resource type="CircleShape2D" id=1]
 radius = 7.0
 
+[sub_resource type="AtlasTexture" id=2]
+atlas = ExtResource( 4 )
+region = Rect2( 0, 0, 16, 60 )
+
+[sub_resource type="AtlasTexture" id=3]
+atlas = ExtResource( 4 )
+region = Rect2( 16, 0, 16, 60 )
+
+[sub_resource type="SpriteFrames" id=4]
+animations = [ {
+"frames": [ SubResource( 2 ) ],
+"loop": true,
+"name": "default",
+"speed": 5.0
+}, {
+"frames": [ SubResource( 3 ) ],
+"loop": true,
+"name": "hit",
+"speed": 5.0
+} ]
+
+[sub_resource type="RectangleShape2D" id=5]
+extents = Vector2( 10, 30 )
+
 [node name="player" type="Sprite"]
+self_modulate = Color( 1, 0, 0, 1 )
 texture = ExtResource( 2 )
 script = ExtResource( 1 )
 
@@ -28,6 +55,25 @@ anchor_mode = 0
 current = true
 script = ExtResource( 3 )
 
+[node name="shield_background" type="Sprite" parent="."]
+visible = false
+texture = ExtResource( 5 )
+
+[node name="shield" type="AnimatedSprite" parent="."]
+visible = false
+frames = SubResource( 4 )
+offset = Vector2( 25, 0 )
+
+[node name="hitbox" type="Area2D" parent="shield"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="shield/hitbox"]
+position = Vector2( 20, 0 )
+shape = SubResource( 5 )
+
+[node name="Timer" type="Timer" parent="shield"]
+
 [connection signal="area_entered" from="hitbox" to="." method="_on_hitbox_area_entered"]
 [connection signal="timeout" from="invincibility" to="." method="_on_invincibility_timeout"]
 [connection signal="timeout" from="flash" to="." method="_on_flash_timeout"]
+[connection signal="area_entered" from="shield/hitbox" to="." method="_on_shield_area_entered"]
+[connection signal="timeout" from="shield/Timer" to="." method="_on_shield_timer_timeout"]

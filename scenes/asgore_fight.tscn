@@ -448,6 +448,7 @@ script = ExtResource( 5 )
 
 [node name="fight_background" type="Node2D" parent="."]
 script = ExtResource( 1 )
+col = Color( 0.505882, 0.454902, 0.941176, 1 )
 
 [node name="Particles2D" type="Particles2D" parent="."]
 position = Vector2( 320, 500 )
@@ -466,7 +467,7 @@ position = Vector2( 320, 150 )
 scale = Vector2( 2, 2 )
 frames = SubResource( 101 )
 animation = "New Anim"
-frame = 41
+frame = 71
 playing = true
 
 [node name="battle_framework" parent="." instance=ExtResource( 6 )]

@@ -15,6 +15,11 @@ var attacks = {
 		"attack": preload("res://attacks/attack3/attack.tscn"),
 		"easy": preload("res://attacks/attack3/easy.tres"),
 		"hard": preload("res://attacks/attack3/hard.tres")
+		},
+	"[4] green": {
+		"attack": preload("res://attacks/attack4/attack.tscn"),
+		"easy": preload("res://attacks/attack4/easy.tres"),
+		"hard": preload("res://attacks/attack4/hard.tres")
 		}
 }
 var current_attack:Attack = null

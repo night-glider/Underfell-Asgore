@@ -1,6 +1,11 @@
 extends Sprite
 class_name Player
 
+enum soul_modes {
+	NORMAL
+	GREEN
+}
+
 export var speed := 2.0
 export var max_hp := 20
 export var invincibility_duration := 1.0
@@ -16,20 +21,57 @@ var hp = max_hp
 var additional_damage = 0
 var invincible := false
 var prev_pos = Vector2.ZERO
+var mode = soul_modes.GREEN
+var shield_target_angle = 0
 
 func _ready():
 	remove_child(camera)
 	get_parent().call_deferred("add_child", camera)
 	camera.position = Vector2.ZERO
+	
+	mode_normal()
 
 func _process(delta):
 	prev_pos = position
 	if not can_control:
 		return
+	
+	match mode:
+		soul_modes.NORMAL:
+			process_normal_mode()
+		soul_modes.GREEN:
+			process_green_mode()
+
+func process_normal_mode():
 	var input = Vector2(Input.get_axis("left", "right"), Input.get_axis("up", "down"))
 	position += input.normalized() * speed
-	
 
+func process_green_mode():
+	if Input.is_action_just_pressed("left"):
+		shield_target_angle = PI
+	if Input.is_action_just_pressed("right"):
+		shield_target_angle = 0
+	if Input.is_action_just_pressed("up"):
+		shield_target_angle = -PI/2
+	if Input.is_action_just_pressed("down"):
+		shield_target_angle = PI/2
+	
+	$shield.rotation = lerp_angle($shield.rotation, shield_target_angle, 0.5)
+
+func mode_normal():
+	mode = soul_modes.NORMAL
+	self_modulate = Color(1, 0, 0)
+	$shield.visible = false
+	$shield_background.visible = false
+	$shield/hitbox/CollisionShape2D.disabled = true
+
+func mode_green():
+	mode = soul_modes.GREEN
+	self_modulate = Color("00C000")
+	$shield.visible = true
+	$shield_background.visible = true
+	$shield/hitbox/CollisionShape2D.disabled = false
+	
 
 func take_hit(damage):
 	damage += additional_damage
@@ -74,3 +116,15 @@ func _on_flash_timeout():
 		modulate.a = 0.5
 	else:
 		modulate.a = 1
+
+
+
+func _on_shield_area_entered(area):
+	if area is Projectile:
+		area.queue_free()
+		$shield.play("hit")
+		$shield/Timer.start(0.1)
+
+
+func _on_shield_timer_timeout():
+	$shield.play("default")

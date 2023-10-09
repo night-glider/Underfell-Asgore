@@ -198,6 +198,9 @@ func to_main_buttons():
 	$dial.change_messages([main_menu_text])
 	$dial.start_dialogue()
 
+func to_main_buttons_delay(delay:float):
+	$Periodic.add_method_oneshot(self, "to_main_buttons", [], delay)
+
 func _on_DialogueLabel_dialogue_custom_event(data):
 	if data == "enemy_dial":
 		$dial.rect_position = Vector2(430,55)

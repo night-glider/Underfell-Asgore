@@ -27,7 +27,7 @@ func _on_battle_gui_waiting_for_next_state(last_action, additional_args):
 
 
 func _on_battle_framework_attack_ended(attack:Attack):
-	$battle_gui.to_main_buttons()
+	$battle_gui.to_main_buttons_delay(1)
 
 
 func _on_battle_gui_item_consumed(item:HealItem):
