@@ -30,6 +30,7 @@ var player:Player
 var battle_framework:BattleFramework
 var active:=false
 var state = states.MAIN_BUTTONS
+var main_menu_text = ""
 
 var current_main_option:int = 0
 var current_item_option:= Vector2.ZERO
@@ -157,16 +158,19 @@ func fight_button_pressed():
 	state = states.PLAYER_ATTACKS
 	$main_buttons/fight/background.visible = true
 	$main_buttons/fight/target_line.visible = true
+	$dial.stop_dialogue_silently()
 	hide_player()
 	var side = randi() % 2
 	$main_buttons/fight/target_line.start_attack(side, 1000)
 
 func act_button_pressed():
 	$main_buttons/act/GridContainer.visible = true
+	$dial.stop_dialogue_silently()
 	state = states.ACT_CHOICE
 
 func item_button_pressed():
 	$main_buttons/item/GridContainer.visible = true
+	$dial.stop_dialogue_silently()
 	state = states.ITEM_CHOICE
 
 func hide_player():
@@ -189,6 +193,10 @@ func to_main_buttons():
 	current_option.animation = "selected"
 	player.position = current_option.position + Vector2(18,20)
 	state = states.MAIN_BUTTONS
+	
+	$dial.player_controlled = false
+	$dial.change_messages([main_menu_text])
+	$dial.start_dialogue()
 
 func _on_DialogueLabel_dialogue_custom_event(data):
 	if data == "enemy_dial":
@@ -227,6 +235,7 @@ func player_attack_ended():
 	#ask_for_next_state(state, [])
 
 func enemy_attacks(attack:Attack):
+	$dial.stop_dialogue_silently()
 	state = states.ENEMY_ATTACKS
 	battle_framework.start_attack(attack)
 

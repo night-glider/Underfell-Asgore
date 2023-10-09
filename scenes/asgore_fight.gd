@@ -3,6 +3,7 @@ extends Control
 func _ready():
 	$player.hp = 1
 	$battle_framework.init($player)
+	$battle_gui.main_menu_text = "BATTLE_ASGORE_ATTACKS"
 	$battle_gui.init($player, $battle_framework)
 
 
@@ -32,3 +33,6 @@ func _on_battle_framework_attack_ended(attack:Attack):
 func _on_battle_gui_item_consumed(item:HealItem):
 	if item.short_name == "ITEM_PIE":
 		$player.additional_damage += 1
+
+func get_main_menu_text():
+	return "BATTLE_ASGORE_ATTACKS"

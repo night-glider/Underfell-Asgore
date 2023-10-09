@@ -42,6 +42,9 @@ func stop_dialogue():
 	
 	emit_signal("dialogue_ended")
 
+func stop_dialogue_silently():
+	bbcode_text = ""
+
 func change_messages(new_array:Array):
 	messages = new_array.duplicate()
 	

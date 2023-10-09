@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://objects/player.gd" type="Script" id=1]
 [ext_resource path="res://sprites/battle/soul.png" type="Texture" id=2]
+[ext_resource path="res://custom_classes/camera_extended.gd" type="Script" id=3]
 
 [sub_resource type="CircleShape2D" id=1]
 radius = 7.0
@@ -21,6 +22,11 @@ one_shot = true
 
 [node name="flash" type="Timer" parent="."]
 wait_time = 0.1
+
+[node name="player_camera" type="Camera2D" parent="."]
+anchor_mode = 0
+current = true
+script = ExtResource( 3 )
 
 [connection signal="area_entered" from="hitbox" to="." method="_on_hitbox_area_entered"]
 [connection signal="timeout" from="invincibility" to="." method="_on_invincibility_timeout"]

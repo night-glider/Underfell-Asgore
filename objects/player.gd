@@ -8,6 +8,7 @@ export var can_control = false
 
 onready var flash_timer = $flash
 onready var invincibility_timer = $invincibility
+onready var camera = $player_camera
 
 signal hp_changed(new_hp)
 
@@ -16,12 +17,18 @@ var additional_damage = 0
 var invincible := false
 var prev_pos = Vector2.ZERO
 
+func _ready():
+	remove_child(camera)
+	get_parent().call_deferred("add_child", camera)
+	camera.position = Vector2.ZERO
+
 func _process(delta):
 	prev_pos = position
 	if not can_control:
 		return
 	var input = Vector2(Input.get_axis("left", "right"), Input.get_axis("up", "down"))
 	position += input.normalized() * speed
+	
 
 
 func take_hit(damage):
@@ -53,6 +60,7 @@ func _on_hitbox_area_entered(area):
 		take_hit(area.damage)
 		area.player_hitted()
 		enable_invincibility()
+		camera.shake(10,2)
 
 
 func _on_invincibility_timeout():
