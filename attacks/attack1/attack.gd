@@ -3,6 +3,7 @@ extends Attack
 export var attack_duration:=10.5
 
 func start():
+	spawn_healing_bullet()
 	$Timer.start(attack_duration)
 	
 	for i in 25:

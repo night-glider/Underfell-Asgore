@@ -10,6 +10,7 @@ export var speed := 2.0
 export var max_hp := 20
 export var invincibility_duration := 1.0
 export var can_control = false
+export var game_over_active := true
 
 onready var flash_timer = $flash
 onready var invincibility_timer = $invincibility
@@ -82,6 +83,9 @@ func take_hit(damage):
 	hp-=damage
 	hp = clamp(hp, 0, max_hp)
 	
+	if hp == 0 and game_over_active:
+		get_tree().change_scene("res://scenes/game_over.tscn")
+	
 	emit_signal("hp_changed", hp)
 
 
@@ -101,8 +105,9 @@ func _on_hitbox_area_entered(area):
 			return
 		take_hit(area.damage)
 		area.player_hitted()
-		enable_invincibility()
-		camera.shake(10,2)
+		if(area.damage > 0):
+			enable_invincibility()
+			camera.shake(10,2)
 
 
 func _on_invincibility_timeout():

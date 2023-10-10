@@ -5,22 +5,27 @@ var attacks = {
 		"attack": preload("res://attacks/attack1/attack.tscn"),
 		"easy": preload("res://attacks/attack1/easy.tres"),
 		"hard": preload("res://attacks/attack1/hard.tres")
-		},
+	},
 	"[2] hands": {
 		"attack": preload("res://attacks/attack2/attack.tscn"),
 		"easy": preload("res://attacks/attack2/easy.tres"),
 		"hard": preload("res://attacks/attack2/hard.tres")
-		},
+	},
 	"[3] b/o circles": {
 		"attack": preload("res://attacks/attack3/attack.tscn"),
 		"easy": preload("res://attacks/attack3/easy.tres"),
 		"hard": preload("res://attacks/attack3/hard.tres")
-		},
+	},
 	"[4] green": {
 		"attack": preload("res://attacks/attack4/attack.tscn"),
 		"easy": preload("res://attacks/attack4/easy.tres"),
 		"hard": preload("res://attacks/attack4/hard.tres")
-		}
+		},
+	"[5] meteor rain": {
+		"attack": preload("res://attacks/attack5/attack.tscn"),
+		"easy": preload("res://attacks/attack5/easy.tres"),
+		"hard": preload("res://attacks/attack5/hard.tres")
+	}
 }
 var current_attack:Attack = null
 

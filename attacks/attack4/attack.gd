@@ -2,13 +2,13 @@ extends Attack
 
 const projectile = preload("res://attacks/attack4/projectile.tscn")
 
-export var attack_duration:=10.5
-export var projectile_speed:=2.0
-export var spawn_timing:=0.5
+export var attack_duration:float
+export var projectile_speed:float
+export var spawn_timing:float
 
 func start():
 	$Timer.start(attack_duration)
-	
+	$healing.start(attack_duration-4)
 	player.mode_green()
 	
 	$Periodic.add_method(self, "spawn_projectile", [], spawn_timing)
@@ -25,3 +25,7 @@ func spawn_projectile():
 func _on_Timer_timeout():
 	player.mode_normal()
 	framework.stop_attack()
+
+
+func _on_healing_timeout():
+	spawn_healing_bullet()

@@ -487,7 +487,6 @@ visible = false
 position = Vector2( 286, -113 )
 frames = SubResource( 70 )
 animation = "selected"
-frame = 1
 playing = true
 script = ExtResource( 17 )
 
@@ -587,7 +586,7 @@ texture_under = ExtResource( 7 )
 texture_progress = ExtResource( 8 )
 
 [node name="hp" type="Label" parent="."]
-margin_left = 350.0
+margin_left = 315.0
 margin_top = 400.0
 margin_right = 421.0
 margin_bottom = 424.0
@@ -605,8 +604,9 @@ margin_left = 39.0
 margin_top = 255.0
 margin_right = 599.0
 margin_bottom = 385.0
-text = "* Make peace, not war pls"
-fit_content_height = true
+bbcode_enabled = true
+bbcode_text = "* Make peace not war pls"
+text = "* Make peace not war pls"
 scroll_active = false
 script = ExtResource( 12 )
 

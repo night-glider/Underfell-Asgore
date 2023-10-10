@@ -14,6 +14,7 @@ var hands_spawned := 0
 
 func start():
 	$destruction.start(attack_duration)
+	$healing.start(attack_duration-4)
 	$Periodic.add_method(self, "spawn_hands", [], attacks_interval, attack_delay, attack_duration-attacks_interval)
 
 func _on_destruction_timeout():
@@ -50,3 +51,7 @@ func throw_projectiles():
 			if node.position.distance_squared_to(Vector2(320,320)) > 40000:
 				node.queue_free()
 			node.throw_at_target(player.global_position, projectiles_acceleration)
+
+
+func _on_healing_timeout():
+	spawn_healing_bullet()

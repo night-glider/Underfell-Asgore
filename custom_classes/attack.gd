@@ -24,6 +24,12 @@ func init(framework, player):
 	self.player = player
 
 
+func spawn_healing_bullet():
+	var new_bullet = preload("res://attacks/flowey_projectile.tscn").instance()
+	get_parent().add_child(new_bullet)
+	new_bullet.position = Vector2(rand_range(0,640), 490)
+	new_bullet.init(player)
+
 
 func destroy():
 	destroy_trash()

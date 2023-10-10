@@ -14,7 +14,7 @@ export var spawn_end_timing:float
 
 func start():
 	$Timer.start(attack_duration)
-	
+	$healing.start(attack_duration-4)
 	$Periodic.add_method(self, "spawn_circle", [], spawn_interval, 0, spawn_end_timing)
 
 func spawn_circle():
@@ -46,3 +46,7 @@ func create_projectiles(type:int):
 
 func _on_Timer_timeout():
 	framework.stop_attack()
+
+
+func _on_healing_timeout():
+	spawn_healing_bullet()

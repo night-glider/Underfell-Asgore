@@ -1,19 +1,17 @@
 [gd_scene load_steps=3 format=2]
 
-[ext_resource path="res://attacks/attack2/attack.gd" type="Script" id=1]
+[ext_resource path="res://attacks/attack5/attack.gd" type="Script" id=1]
 [ext_resource path="res://custom_classes/periodic.gd" type="Script" id=2]
 
 [node name="Node" type="Node"]
 script = ExtResource( 1 )
 
-[node name="destruction" type="Timer" parent="."]
-one_shot = true
+[node name="Timer" type="Timer" parent="."]
+
+[node name="healing" type="Timer" parent="."]
 
 [node name="Periodic" type="Node" parent="."]
 script = ExtResource( 2 )
 
-[node name="healing" type="Timer" parent="."]
-one_shot = true
-
-[connection signal="timeout" from="destruction" to="." method="_on_destruction_timeout"]
+[connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
 [connection signal="timeout" from="healing" to="." method="_on_healing_timeout"]
