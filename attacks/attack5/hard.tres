@@ -13,11 +13,12 @@ properties = {
 "box_size_y": 136,
 "player_spawn_x": 320,
 "player_spawn_y": 320,
-"projecile_small_damping": 0.9,
+"projecile_small_damping": 0.8,
 "projectile_big_detonate_y_max": 400.0,
-"projectile_big_detonate_y_min": 200.0,
-"projectile_big_spd": 2.0,
-"projectile_big_timing": 0.5,
-"projectile_small_count": 8,
-"projectile_small_spd": 2.0
+"projectile_big_detonate_y_min": 300.0,
+"projectile_big_spd": 3.0,
+"projectile_big_timing": 0.25,
+"projectile_small_count": 10,
+"projectile_small_spd": 20.0,
+"projectile_small_spd_min": 1.0
 }
