@@ -24,7 +24,7 @@ var attacks = [
 		"hard": preload("res://attacks/attack5/hard.tres")
 	}
 ]
-var enemy_hp = 1000
+var enemy_hp = 100
 
 func _ready():
 	$player.hp = 1
@@ -60,9 +60,9 @@ func _on_battle_gui_act_pressed(option_id):
 
 
 func _on_battle_gui_waiting_for_next_state(last_action, additional_args):
-	if last_action != BattleGui.states.PLAYER_ATTACKS:
-		$battle_gui.to_main_buttons()
-		return
+	#if last_action != BattleGui.states.PLAYER_ATTACKS:
+	#	$battle_gui.to_main_buttons()
+	#	return
 	
 	var attack_data = attacks[randi() % len(attacks)]
 	var attack = attack_data["attack"].instance()
@@ -81,3 +81,12 @@ func _on_battle_gui_item_consumed(item:HealItem):
 
 func get_main_menu_text():
 	return "BATTLE_ASGORE_ATTACKS"
+
+
+func _on_battle_gui_enemy_hp_changed(new_hp):
+	if new_hp > 0:
+		return
+	
+	OS.alert("neutral ending is here")
+	$battle_gui.deactivate()
+	$battle_framework.visible = false

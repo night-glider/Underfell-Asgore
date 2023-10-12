@@ -12,3 +12,6 @@ func scythe_rotation():
 
 func scythe_swing():
 	$AnimationPlayer.play("scythe_swing")
+
+func to_battle():
+	get_tree().change_scene("res://scenes/asgore_fight.tscn")

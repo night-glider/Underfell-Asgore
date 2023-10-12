@@ -14,6 +14,7 @@ enum states {
 signal act_pressed(option_id)
 signal waiting_for_next_state(last_action, additional_args)
 signal item_consumed(item)
+signal enemy_hp_changed(new_hp)
 
 export(Array, Resource) var healing_items = []
 export(Array, Resource) var act_options = []
@@ -244,6 +245,7 @@ func player_attack_ended(damage):
 	$main_buttons/fight/target_line.fade_in = true
 	$main_buttons/fight/enemy_hp_anim.play("damage_dealt")
 	enemy_hp-=damage
+	emit_signal("enemy_hp_changed", enemy_hp)
 	$Periodic.add_method_oneshot(self, "ask_for_next_state", [state, []], 0.5)
 
 func enemy_attacks(attack:Attack):
@@ -253,3 +255,8 @@ func enemy_attacks(attack:Attack):
 
 func ask_for_next_state(last_action:int, additional_args:Array):
 	emit_signal("waiting_for_next_state", last_action, additional_args)
+
+func deactivate():
+	$Periodic.queue_free()
+	active = false
+	hide_player()

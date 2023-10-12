@@ -467,7 +467,7 @@ position = Vector2( 320, 150 )
 scale = Vector2( 2, 2 )
 frames = SubResource( 101 )
 animation = "New Anim"
-frame = 13
+frame = 57
 playing = true
 
 [node name="battle_framework" parent="." instance=ExtResource( 6 )]
@@ -478,5 +478,6 @@ playing = true
 
 [connection signal="attack_ended" from="battle_framework" to="." method="_on_battle_framework_attack_ended"]
 [connection signal="act_pressed" from="battle_gui" to="." method="_on_battle_gui_act_pressed"]
+[connection signal="enemy_hp_changed" from="battle_gui" to="." method="_on_battle_gui_enemy_hp_changed"]
 [connection signal="item_consumed" from="battle_gui" to="." method="_on_battle_gui_item_consumed"]
 [connection signal="waiting_for_next_state" from="battle_gui" to="." method="_on_battle_gui_waiting_for_next_state"]

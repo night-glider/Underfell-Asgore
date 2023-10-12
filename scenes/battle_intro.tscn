@@ -901,6 +901,20 @@ tracks/8/keys = {
 "update": 0,
 "values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
 }
+tracks/9/type = "method"
+tracks/9/path = NodePath(".")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/keys = {
+"times": PoolRealArray( 3 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "to_battle"
+} ]
+}
 
 [sub_resource type="DynamicFont" id=60]
 size = 32
@@ -1005,7 +1019,7 @@ anims/scythe_rotation = SubResource( 55 )
 anims/scythe_swing = SubResource( 59 )
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="AnimationPlayer"]
-stream = ExtResource( 16 )
+stream = ExtResource( 17 )
 
 [node name="DialogueLabel" type="RichTextLabel" parent="."]
 anchor_left = 0.04
