@@ -462,12 +462,12 @@ amount = 4
 process_material = SubResource( 4 )
 texture = ExtResource( 2 )
 
-[node name="AnimatedSprite" type="AnimatedSprite" parent="."]
+[node name="asgore" type="AnimatedSprite" parent="."]
 position = Vector2( 320, 150 )
 scale = Vector2( 2, 2 )
 frames = SubResource( 101 )
 animation = "New Anim"
-frame = 91
+frame = 93
 playing = true
 
 [node name="battle_framework" parent="." instance=ExtResource( 6 )]

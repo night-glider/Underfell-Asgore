@@ -141,13 +141,18 @@ func gather_props_from_grid(grid:GridContainer):
 	return result
 
 func _on_copy_pressed():
-	var result = gather_props_from_grid($properties/easy/easy)
-	OS.clipboard = result
-	OS.alert("it's copied to ur clipboard!\nEASY properties\n" + result)
-	result = gather_props_from_grid($properties/hard/hard)
-	OS.clipboard = result
-	OS.alert("it's copied to ur clipboard!\nHARD properties\n" + result)
+	var result = "PROPERTIES FOR ATTACK " + $controls/attack.get_item_text($controls/attack.get_selected_id()) + "\n"
+	result += "---[EASY SETTINGS]---\n"
+	result += gather_props_from_grid($properties/easy/easy)
+	result += "---[HARD SETTINGS]---\n"
+	result += gather_props_from_grid($properties/hard/hard)
+	$Popup/Panel/TextEdit.text = result
+	$Popup.popup()
 
 
 func _on_player_hp_changed(new_hp):
 	$hp.text = "hp: " + str(new_hp) + "/" + str($player.max_hp)
+
+
+func _on_done_pressed():
+	$Popup.visible = false

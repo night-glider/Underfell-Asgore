@@ -481,7 +481,6 @@ visible = false
 position = Vector2( 286, -113 )
 frames = SubResource( 70 )
 animation = "selected"
-frame = 1
 playing = true
 script = ExtResource( 17 )
 
