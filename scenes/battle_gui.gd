@@ -31,13 +31,14 @@ var battle_framework:BattleFramework
 var active:=false
 var state = states.MAIN_BUTTONS
 var main_menu_text = ""
+var enemy_hp = 100
 
 var current_main_option:int = 0
 var current_item_option:= Vector2.ZERO
 var current_act_option:= Vector2.ZERO
 
 
-func init(player:Player, battle_framework:BattleFramework):
+func init(player:Player, battle_framework:BattleFramework, enemy_hp:int):
 	self.player = player
 	self.battle_framework = battle_framework
 	player.connect("hp_changed", self, "hp_changed")
@@ -53,6 +54,10 @@ func init(player:Player, battle_framework:BattleFramework):
 		new_label.text = option.name
 		new_label.size_flags_horizontal = SIZE_EXPAND
 		$main_buttons/act/GridContainer.add_child(new_label)
+	
+	self.enemy_hp = enemy_hp
+	$main_buttons/fight/enemy_hp.max_value = enemy_hp
+	$main_buttons/fight/enemy_hp.value = enemy_hp
 	
 	main_buttons[current_main_option].animation = "selected"
 	hp_changed(player.hp)
@@ -76,7 +81,7 @@ func _process(delta):
 		
 
 func process_enemy_hp_bar():
-	$main_buttons/fight/enemy_hp.value = lerp($main_buttons/fight/enemy_hp.value, 0, 0.1)
+	$main_buttons/fight/enemy_hp.value = lerp($main_buttons/fight/enemy_hp.value, enemy_hp, 0.02)
 
 func process_main_buttons():
 	var direction = int(Input.is_action_just_pressed("right")) - int(Input.is_action_just_pressed("left"))
@@ -229,15 +234,16 @@ func _on_target_line_attack_ended(damage):
 		$main_buttons/fight/player_attack.frame = 0
 		$main_buttons/fight/player_attack.play("default")
 		$main_buttons/fight/damage_label.text = str(damage)
-		$Periodic.add_method_oneshot(self, "player_attack_ended", [], 0.5)
+		$Periodic.add_method_oneshot(self, "player_attack_ended", [damage], 0.5)
 	else:
-		player_attack_ended()
+		player_attack_ended(damage)
 		$main_buttons/fight/damage_label.text = "MISS"
 
-func player_attack_ended():
+func player_attack_ended(damage):
 	$main_buttons/fight/AnimationPlayer.play("fade_out")
 	$main_buttons/fight/target_line.fade_in = true
 	$main_buttons/fight/enemy_hp_anim.play("damage_dealt")
+	enemy_hp-=damage
 	$Periodic.add_method_oneshot(self, "ask_for_next_state", [state, []], 0.5)
 
 func enemy_attacks(attack:Attack):

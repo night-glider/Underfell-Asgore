@@ -24,12 +24,13 @@ var attacks = [
 		"hard": preload("res://attacks/attack5/hard.tres")
 	}
 ]
+var enemy_hp = 1000
 
 func _ready():
 	$player.hp = 1
 	$battle_framework.init($player)
 	$battle_gui.main_menu_text = "BATTLE_ASGORE_ATTACKS"
-	$battle_gui.init($player, $battle_framework)
+	$battle_gui.init($player, $battle_framework, enemy_hp)
 	
 	refuse_dials.append(["REFUSE_DIAL1_1", "REFUSE_DIAL1_2"])
 	refuse_dials.append(["REFUSE_DIAL2_1", "REFUSE_DIAL2_2", "REFUSE_DIAL2_3"])
@@ -63,9 +64,10 @@ func _on_battle_gui_waiting_for_next_state(last_action, additional_args):
 		$battle_gui.to_main_buttons()
 		return
 	
-	var attack = preload("res://attacks/attack2/attack.tscn").instance()
-	var easy = preload("res://attacks/attack2/easy.tres")
-	var hard = preload("res://attacks/attack2/hard.tres")
+	var attack_data = attacks[randi() % len(attacks)]
+	var attack = attack_data["attack"].instance()
+	var easy = attack_data["easy"]
+	var hard = attack_data["hard"]
 	attack.set_difficulty(easy, hard, randf())
 	$battle_gui.enemy_attacks(attack)
 
