@@ -1,4 +1,4 @@
-[gd_scene load_steps=63 format=2]
+[gd_scene load_steps=62 format=2]
 
 [ext_resource path="res://fonts/Mars_Needs_Cunnilingus.ttf" type="DynamicFontData" id=1]
 [ext_resource path="res://sprites/battle/chara_lv1.png" type="Texture" id=2]
@@ -60,12 +60,6 @@ script = ExtResource( 11 )
 heal = 5
 short_name = "ITEM_CHISPS"
 description = "ITEM_CHISPS_DESC"
-
-[sub_resource type="Resource" id=64]
-script = ExtResource( 11 )
-heal = 5
-short_name = "ITEM_SEA"
-description = "ITEM_SEA_DESC"
 
 [sub_resource type="Resource" id=83]
 script = ExtResource( 23 )
@@ -461,7 +455,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 theme = SubResource( 2 )
 script = ExtResource( 6 )
-healing_items = [ SubResource( 59 ), SubResource( 60 ), SubResource( 61 ), SubResource( 60 ), SubResource( 62 ), SubResource( 63 ), SubResource( 64 ), SubResource( 63 ) ]
+healing_items = [ SubResource( 59 ), SubResource( 60 ), SubResource( 61 ), SubResource( 60 ), SubResource( 62 ), SubResource( 63 ) ]
 act_options = [ SubResource( 83 ), SubResource( 84 ) ]
 enemy_dialogue_theme = SubResource( 66 )
 
@@ -487,6 +481,7 @@ visible = false
 position = Vector2( 286, -113 )
 frames = SubResource( 70 )
 animation = "selected"
+frame = 1
 playing = true
 script = ExtResource( 17 )
 
@@ -542,9 +537,9 @@ centered = false
 [node name="GridContainer" type="GridContainer" parent="main_buttons/act"]
 visible = false
 margin_left = -104.0
-margin_top = -180.0
+margin_top = -145.0
 margin_right = 416.0
-margin_bottom = -60.0
+margin_bottom = -25.0
 custom_constants/vseparation = 0
 columns = 2
 
@@ -556,9 +551,9 @@ centered = false
 [node name="GridContainer" type="GridContainer" parent="main_buttons/item"]
 visible = false
 margin_left = -270.0
-margin_top = -180.0
+margin_top = -145.0
 margin_right = 250.0
-margin_bottom = -60.0
+margin_bottom = -25.0
 custom_constants/vseparation = 0
 columns = 2
 

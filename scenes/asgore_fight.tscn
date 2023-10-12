@@ -467,7 +467,7 @@ position = Vector2( 320, 150 )
 scale = Vector2( 2, 2 )
 frames = SubResource( 101 )
 animation = "New Anim"
-frame = 63
+frame = 91
 playing = true
 
 [node name="battle_framework" parent="." instance=ExtResource( 6 )]

@@ -43,6 +43,7 @@ func start_attack(attack:Attack):
 	player.global_position.x = current_attack.player_spawn_x
 	player.global_position.y = current_attack.player_spawn_y
 	player.can_control = true
+	box_visible(true)
 	
 	emit_signal("attack_started", current_attack)
 
@@ -51,7 +52,8 @@ func stop_attack():
 	if is_instance_valid(current_attack):
 		current_attack.destroy()
 	move_box(default_box_pos, default_box_size, default_box_tween_speed)
-	player.can_control = false
+	
+	box_visible(false)
 	
 	emit_signal("attack_ended", current_attack)
 
@@ -68,3 +70,10 @@ func _force_player_in_box():
 	player.position.x = clamp(player.position.x, box.rect_position.x+10, box.rect_position.x + box.rect_size.x-11)
 	player.position.y = clamp(player.position.y, box.rect_position.y+11, box.rect_position.y + box.rect_size.y-10)
 
+func box_visible(val:bool):
+	if val == true:
+		box.modulate.a = 1
+		return
+	
+	$box/tween_visibility.interpolate_property(box, "modulate", Color(1,1,1,1), Color(1,1,1,0), 0.75)
+	$box/tween_visibility.start()

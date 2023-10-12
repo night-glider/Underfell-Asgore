@@ -58,6 +58,7 @@ func init(player:Player, battle_framework:BattleFramework):
 	hp_changed(player.hp)
 	active = true
 	to_main_buttons()
+	_on_DialogueLabel_dialogue_custom_event("box_dial")
 
 func _process(delta):
 	if not active:
@@ -162,6 +163,7 @@ func fight_button_pressed():
 	hide_player()
 	var side = randi() % 2
 	$main_buttons/fight/target_line.start_attack(side, 1000)
+	battle_framework.box_visible(true)
 
 func act_button_pressed():
 	$main_buttons/act/GridContainer.visible = true
@@ -194,7 +196,10 @@ func to_main_buttons():
 	player.position = current_option.position + Vector2(18,20)
 	state = states.MAIN_BUTTONS
 	
+	player.can_control = false
+	
 	$dial.player_controlled = false
+	$dial.visible = true
 	$dial.change_messages([main_menu_text])
 	$dial.start_dialogue()
 
@@ -208,7 +213,7 @@ func _on_DialogueLabel_dialogue_custom_event(data):
 		$dial.theme = enemy_dialogue_theme
 		$dial_cloud.visible = true
 	if data == "box_dial":
-		$dial.rect_position = Vector2(39,255)
+		$dial.rect_position = Vector2(39,255+30)
 		$dial.rect_size = Vector2(560, 130)
 		$dial.theme = null
 		$dial_cloud.visible = false
@@ -218,7 +223,6 @@ func _on_DialogueLabel_dialogue_ended():
 	$dial.player_controlled = false
 	$dial.visible = false
 	ask_for_next_state(state, [])
-
 
 func _on_target_line_attack_ended(damage):
 	if damage > 0:
@@ -235,7 +239,6 @@ func player_attack_ended():
 	$main_buttons/fight/target_line.fade_in = true
 	$main_buttons/fight/enemy_hp_anim.play("damage_dealt")
 	$Periodic.add_method_oneshot(self, "ask_for_next_state", [state, []], 0.5)
-	#ask_for_next_state(state, [])
 
 func enemy_attacks(attack:Attack):
 	$dial.stop_dialogue_silently()

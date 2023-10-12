@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/soul_shard.png-105d065e7dd0b7d8fd77004f01c64d84.stex"
+path="res://.import/soul_broken.png-674b385f4c2867f1a12dc39c847e41a2.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://sprites/battle/soul_shard.png"
-dest_files=[ "res://.import/soul_shard.png-105d065e7dd0b7d8fd77004f01c64d84.stex" ]
+source_file="res://sprites/battle/soul_broken.png"
+dest_files=[ "res://.import/soul_broken.png-674b385f4c2867f1a12dc39c847e41a2.stex" ]
 
 [params]
 

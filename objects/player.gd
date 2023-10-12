@@ -84,6 +84,7 @@ func take_hit(damage):
 	hp = clamp(hp, 0, max_hp)
 	
 	if hp == 0 and game_over_active:
+		GlobalGeneral.player_game_over_pos = position
 		get_tree().change_scene("res://scenes/game_over.tscn")
 	
 	emit_signal("hp_changed", hp)

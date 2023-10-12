@@ -11,7 +11,7 @@ export var text_speed := 0.25
 export var player_controlled = false
 
 signal dialogue_started
-signal message_next
+signal message_next(index)
 signal dialogue_ended
 signal message_finished
 signal dialogue_custom_event(data)
@@ -73,7 +73,7 @@ func next_message():
 	tags.pop_front()
 	active = true
 	
-	emit_signal("message_next")
+	emit_signal("message_next", message_id)
 
 func skip_message():
 	percent_visible = 1

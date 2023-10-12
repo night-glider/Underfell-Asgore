@@ -100,6 +100,7 @@ config/icon="res://icon.png"
 
 GlobalAudio="*res://autoload/GlobalAudio.gd"
 Debug="*res://autoload/debug.tscn"
+GlobalGeneral="*res://autoload/GlobalGeneral.gd"
 
 [debug]
 
