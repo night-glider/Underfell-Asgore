@@ -260,3 +260,9 @@ func deactivate():
 	$Periodic.queue_free()
 	active = false
 	hide_player()
+	$main_buttons/fight/AnimationPlayer.stop()
+	$main_buttons/fight/enemy_hp_anim.stop()
+	$main_buttons/fight/background.visible = false
+	$main_buttons/fight/target_line.visible = false
+	$main_buttons/fight/damage_label.visible = false
+	$main_buttons/fight/enemy_hp.visible = false

@@ -1,0 +1,412 @@
+[gd_scene load_steps=21 format=2]
+
+[ext_resource path="res://scenes/bad_ending.gd" type="Script" id=1]
+[ext_resource path="res://sprites/battle/asgore_defeated_shocked.png" type="Texture" id=2]
+[ext_resource path="res://sprites/battle/asgore_defeated.png" type="Texture" id=3]
+[ext_resource path="res://custom_classes/dialogue_label.gd" type="Script" id=4]
+[ext_resource path="res://sprites/battle/dialogue_cloud.png" type="Texture" id=5]
+[ext_resource path="res://fonts/determination.ttf" type="DynamicFontData" id=6]
+[ext_resource path="res://sprites/battle/asgore_shadow.png" type="Texture" id=7]
+[ext_resource path="res://sprites/battle/scythe.png" type="Texture" id=8]
+[ext_resource path="res://custom_classes/camera_extended.gd" type="Script" id=9]
+[ext_resource path="res://sprites/battle/death_particle.png" type="Texture" id=10]
+[ext_resource path="res://sprites/battle/soul.png" type="Texture" id=11]
+[ext_resource path="res://sprites/battle/soul_glow.png" type="Texture" id=12]
+
+[sub_resource type="SpriteFrames" id=198]
+animations = [ {
+"frames": [ ExtResource( 3 ) ],
+"loop": true,
+"name": "defeated",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 2 ) ],
+"loop": true,
+"name": "defeated_shocked",
+"speed": 5.0
+} ]
+
+[sub_resource type="DynamicFont" id=65]
+font_data = ExtResource( 6 )
+
+[sub_resource type="Theme" id=66]
+default_font = SubResource( 65 )
+RichTextLabel/colors/default_color = Color( 0, 0, 0, 1 )
+
+[sub_resource type="Animation" id=200]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("scythe_cutscene:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ false ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("scythe_cutscene/scythe:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 346, 151 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Particles2D:emitting")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ false ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("soul:modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ) ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("SoulGlow:modulate")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ) ]
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath("SoulGlow:scale")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 1, 1 ) ]
+}
+tracks/6/type = "value"
+tracks/6/path = NodePath("asgore:visible")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ true ]
+}
+tracks/7/type = "value"
+tracks/7/path = NodePath("dial_cloud:visible")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ true ]
+}
+tracks/8/type = "value"
+tracks/8/path = NodePath("ColorRect:color")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ) ]
+}
+tracks/9/type = "value"
+tracks/9/path = NodePath("ColorRect:visible")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ true ]
+}
+
+[sub_resource type="Animation" id=199]
+resource_name = "suicide"
+length = 10.0
+tracks/0/type = "value"
+tracks/0/path = NodePath("scythe_cutscene:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 3.01 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ true, false ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("scythe_cutscene/scythe:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.5, 0.6, 3.01 ),
+"transitions": PoolRealArray( 0.297302, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 346, 151 ), Vector2( 356, 161 ), Vector2( 506, 211 ), Vector2( 516, 216 ) ]
+}
+tracks/2/type = "method"
+tracks/2/path = NodePath("CameraExtended")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0.5, 0.51, 3 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"values": [ {
+"args": [ 15, 5.0 ],
+"method": "shake"
+}, {
+"args": [ 5, 0, 1, Color( 1, 1, 1, 1 ) ],
+"method": "flash"
+}, {
+"args": [ 10, 0, 1, Color( 1, 1, 1, 1 ) ],
+"method": "flash"
+} ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("Particles2D:emitting")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 3 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("soul:modulate")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0, 4, 7 ),
+"transitions": PoolRealArray( 1, 2.14355, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath("SoulGlow:modulate")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 7, 10 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
+}
+tracks/6/type = "value"
+tracks/6/path = NodePath("SoulGlow:scale")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"times": PoolRealArray( 7, 10 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 1, 1 ), Vector2( 10, 10 ) ]
+}
+tracks/7/type = "value"
+tracks/7/path = NodePath("asgore:visible")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/keys = {
+"times": PoolRealArray( 2.1 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
+tracks/8/type = "value"
+tracks/8/path = NodePath("dial_cloud:visible")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/keys = {
+"times": PoolRealArray( 2.1 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
+tracks/9/type = "value"
+tracks/9/path = NodePath("ColorRect:color")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/keys = {
+"times": PoolRealArray( 0, 1, 3 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
+}
+tracks/10/type = "value"
+tracks/10/path = NodePath("ColorRect:visible")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/keys = {
+"times": PoolRealArray( 0, 3 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ true, false ]
+}
+
+[sub_resource type="Gradient" id=202]
+offsets = PoolRealArray( 0, 0.552941, 1 )
+colors = PoolColorArray( 1, 1, 1, 0.588235, 1, 1, 1, 0.588235, 1, 1, 1, 0 )
+
+[sub_resource type="GradientTexture" id=203]
+gradient = SubResource( 202 )
+width = 128
+
+[sub_resource type="ParticlesMaterial" id=201]
+emission_shape = 1
+emission_sphere_radius = 70.0
+flag_disable_z = true
+spread = 180.0
+gravity = Vector3( 0, 0, 0 )
+initial_velocity = 30.0
+orbit_velocity = 0.0
+orbit_velocity_random = 0.0
+tangential_accel = 31.91
+damping = 10.0
+scale = 2.0
+color_ramp = SubResource( 203 )
+
+[node name="bad_ending" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 1 )
+
+[node name="asgore" type="AnimatedSprite" parent="."]
+position = Vector2( 320, 150 )
+scale = Vector2( 2, 2 )
+frames = SubResource( 198 )
+animation = "defeated"
+playing = true
+
+[node name="dial_cloud" type="Sprite" parent="."]
+position = Vector2( 400, 50 )
+texture = ExtResource( 5 )
+centered = false
+
+[node name="dial" type="RichTextLabel" parent="."]
+margin_left = 430.0
+margin_top = 55.0
+margin_right = 630.0
+margin_bottom = 145.0
+theme = SubResource( 66 )
+bbcode_enabled = true
+bbcode_text = "* Make peace not war pls"
+text = "* Make peace not war pls"
+scroll_active = false
+script = ExtResource( 4 )
+messages = [ "BAD_ENDING_DIAL1", "BAD_ENDING_DIAL2", "BAD_ENDING_DIAL3", "BAD_ENDING_DIAL4", "BAD_ENDING_DIAL5", "BAD_ENDING_DIAL6", "BAD_ENDING_DIAL7", "BAD_ENDING_DIAL8", "BAD_ENDING_DIAL9", "BAD_ENDING_DIAL10", "BAD_ENDING_DIAL11" ]
+player_controlled = true
+
+[node name="soul" type="Sprite" parent="."]
+modulate = Color( 1, 1, 1, 0 )
+position = Vector2( 320, 150 )
+rotation = 3.14159
+texture = ExtResource( 11 )
+
+[node name="scythe_cutscene" type="ColorRect" parent="."]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -10.0
+margin_top = -10.0
+margin_right = 10.0
+margin_bottom = 10.0
+
+[node name="asgore" type="Sprite" parent="scythe_cutscene"]
+position = Vector2( 320, 150 )
+scale = Vector2( 2, 2 )
+texture = ExtResource( 7 )
+
+[node name="scythe" type="Sprite" parent="scythe_cutscene"]
+position = Vector2( 346, 151 )
+rotation = 3.92699
+scale = Vector2( 2, 2 )
+texture = ExtResource( 8 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/RESET = SubResource( 200 )
+anims/suicide = SubResource( 199 )
+
+[node name="CameraExtended" type="Camera2D" parent="."]
+anchor_mode = 0
+current = true
+script = ExtResource( 9 )
+
+[node name="Particles2D" type="Particles2D" parent="."]
+position = Vector2( 320, 150 )
+emitting = false
+amount = 200
+lifetime = 3.0
+one_shot = true
+explosiveness = 1.0
+process_material = SubResource( 201 )
+texture = ExtResource( 10 )
+
+[node name="SoulGlow" type="Sprite" parent="."]
+modulate = Color( 1, 1, 1, 0 )
+position = Vector2( 320, 150 )
+texture = ExtResource( 12 )
+
+[node name="ColorRect" type="ColorRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 1, 1, 1, 0 )
+
+[connection signal="dialogue_ended" from="dial" to="." method="_on_dial_dialogue_ended"]
+[connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_AnimationPlayer_animation_finished"]

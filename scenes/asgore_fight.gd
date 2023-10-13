@@ -24,7 +24,7 @@ var attacks = [
 		"hard": preload("res://attacks/attack5/hard.tres")
 	}
 ]
-var enemy_hp = 100
+var enemy_hp = 50
 
 func _ready():
 	$player.hp = 1
@@ -87,6 +87,11 @@ func _on_battle_gui_enemy_hp_changed(new_hp):
 	if new_hp > 0:
 		return
 	
-	OS.alert("neutral ending is here")
 	$battle_gui.deactivate()
 	$battle_framework.visible = false
+	$asgore.shake()
+	$asgore.play("defeated_shocked")
+	$AnimationPlayer.play("gui_fade_in")
+
+func to_bad_ending():
+	get_tree().change_scene("res://scenes/bad_ending.tscn")
