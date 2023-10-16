@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=2]
+[gd_scene load_steps=29 format=2]
 
 [ext_resource path="res://sprites/battle/game_over.png" type="Texture" id=1]
 [ext_resource path="res://scenes/game_over.gd" type="Script" id=2]
@@ -12,6 +12,10 @@
 [ext_resource path="res://fonts/8bit_operator.ttf" type="DynamicFontData" id=10]
 [ext_resource path="res://custom_classes/periodic.gd" type="Script" id=11]
 [ext_resource path="res://sprites/battle/asgore_shadow.png" type="Texture" id=12]
+[ext_resource path="res://audio/asgore_takes_to_barrier.ogg" type="AudioStream" id=13]
+[ext_resource path="res://audio/break2.wav" type="AudioStream" id=14]
+[ext_resource path="res://audio/asgore_moves.wav" type="AudioStream" id=15]
+[ext_resource path="res://audio/lament.mp3" type="AudioStream" id=16]
 
 [sub_resource type="DynamicFont" id=8]
 size = 24
@@ -178,6 +182,30 @@ tracks/12/keys = {
 "update": 0,
 "values": [ 0.0 ]
 }
+tracks/13/type = "value"
+tracks/13/path = NodePath("ColorRect2:visible")
+tracks/13/interp = 1
+tracks/13/loop_wrap = true
+tracks/13/imported = false
+tracks/13/enabled = true
+tracks/13/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ false ]
+}
+tracks/14/type = "value"
+tracks/14/path = NodePath("AnimationPlayer/AudioStreamPlayer:volume_db")
+tracks/14/interp = 1
+tracks/14/loop_wrap = true
+tracks/14/imported = false
+tracks/14/enabled = true
+tracks/14/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 0.0 ]
+}
 
 [sub_resource type="Animation" id=12]
 resource_name = "continue_no"
@@ -244,10 +272,24 @@ tracks/4/keys = {
 "method": "start_asgore_dialogue"
 } ]
 }
+tracks/5/type = "audio"
+tracks/5/path = NodePath("AnimationPlayer/AudioStreamPlayer")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"clips": [ {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource( 15 )
+} ],
+"times": PoolRealArray( 0.1 )
+}
 
 [sub_resource type="Animation" id=13]
 resource_name = "continue_no_ending"
-length = 6.0
+length = 12.0
 tracks/0/type = "value"
 tracks/0/path = NodePath("ColorRect_bad_ending:color")
 tracks/0/interp = 1
@@ -255,48 +297,76 @@ tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 5 ),
-"transitions": PoolRealArray( 1, 1 ),
+"times": PoolRealArray( 0, 5, 6 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
 "update": 0,
-"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 1 ) ]
 }
-tracks/1/type = "method"
-tracks/1/path = NodePath(".")
+tracks/1/type = "value"
+tracks/1/path = NodePath("souls:anchor_top")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/imported = false
 tracks/1/enabled = true
 tracks/1/keys = {
-"times": PoolRealArray( 6 ),
-"transitions": PoolRealArray( 1 ),
-"values": [ {
-"args": [  ],
-"method": "crash_game"
-} ]
-}
-tracks/2/type = "value"
-tracks/2/path = NodePath("souls:anchor_top")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/keys = {
 "times": PoolRealArray( 0, 6 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 0,
 "values": [ 0.9, 0.7 ]
 }
-tracks/3/type = "value"
-tracks/3/path = NodePath("soul:animation")
+tracks/2/type = "value"
+tracks/2/path = NodePath("soul:animation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 5.9 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ "default" ]
+}
+tracks/3/type = "audio"
+tracks/3/path = NodePath("AnimationPlayer/AudioStreamPlayer")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/imported = false
 tracks/3/enabled = true
 tracks/3/keys = {
-"times": PoolRealArray( 5.9 ),
-"transitions": PoolRealArray( 1 ),
+"clips": [ {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource( 13 )
+}, {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource( 16 )
+} ],
+"times": PoolRealArray( 1.4, 6.3 )
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("ColorRect2:visible")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0, 6 ),
+"transitions": PoolRealArray( 1, 1 ),
 "update": 1,
-"values": [ "default" ]
+"values": [ false, true ]
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath("AnimationPlayer/AudioStreamPlayer:volume_db")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0, 6, 6.3, 10 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 0,
+"values": [ 0.0, 0.0, -80.0, 0.0 ]
 }
 
 [sub_resource type="Animation" id=2]
@@ -415,6 +485,20 @@ tracks/3/keys = {
 "transitions": PoolRealArray( 1, 1 ),
 "update": 1,
 "values": [ false, true ]
+}
+tracks/4/type = "audio"
+tracks/4/path = NodePath("AnimationPlayer/AudioStreamPlayer")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"clips": [ {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource( 14 )
+} ],
+"times": PoolRealArray( 0.9 )
 }
 
 [sub_resource type="Animation" id=7]
@@ -541,6 +625,9 @@ anims/fade_in_2 = SubResource( 10 )
 anims/fade_out = SubResource( 7 )
 anims/fade_out_2 = SubResource( 11 )
 
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="AnimationPlayer"]
+stream = ExtResource( 15 )
+
 [node name="Particles2D" type="Particles2D" parent="."]
 position = Vector2( 320, 320 )
 emitting = false
@@ -645,6 +732,14 @@ frames = SubResource( 3 )
 anchor_right = 1.0
 anchor_bottom = 1.0
 color = Color( 1, 1, 1, 0 )
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+
+[node name="ColorRect2" type="ColorRect" parent="."]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0, 0, 0, 1 )
 
 [connection signal="dialogue_ended" from="DialogueLabel" to="." method="_on_DialogueLabel_dialogue_ended"]
 [connection signal="message_next" from="DialogueLabel" to="." method="_on_DialogueLabel_message_next"]

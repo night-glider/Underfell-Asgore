@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=2]
+[gd_scene load_steps=26 format=2]
 
 [ext_resource path="res://custom_classes/dialogue_label.gd" type="Script" id=1]
 [ext_resource path="res://sprites/overworld/dialogue_box.png" type="Texture" id=2]
@@ -7,6 +7,10 @@
 [ext_resource path="res://scenes/bad_ending_epiloge.gd" type="Script" id=5]
 [ext_resource path="res://sprites/overworld/throne_asgore_up.png" type="Texture" id=6]
 [ext_resource path="res://sprites/overworld/toriel.png" type="Texture" id=7]
+[ext_resource path="res://audio/asgore_talk.ogg" type="AudioStream" id=8]
+[ext_resource path="res://audio/talk_default.wav" type="AudioStream" id=9]
+[ext_resource path="res://audio/talk_toriel.wav" type="AudioStream" id=10]
+[ext_resource path="res://audio/closure.mp3" type="AudioStream" id=11]
 
 [sub_resource type="SpriteFrames" id=21]
 animations = [ {
@@ -251,6 +255,12 @@ custom_fonts/normal_font = SubResource( 20 )
 text = "where am i"
 script = ExtResource( 1 )
 messages = [ "BAD_ENDING_EPILOGUE1", "BAD_ENDING_EPILOGUE2", "BAD_ENDING_EPILOGUE3", "BAD_ENDING_EPILOGUE4", "BAD_ENDING_EPILOGUE5", "BAD_ENDING_EPILOGUE6", "BAD_ENDING_EPILOGUE7", "BAD_ENDING_EPILOGUE8", "BAD_ENDING_EPILOGUE9", "BAD_ENDING_EPILOGUE10", "BAD_ENDING_EPILOGUE11", "BAD_ENDING_EPILOGUE12", "BAD_ENDING_EPILOGUE13", "BAD_ENDING_EPILOGUE14", "BAD_ENDING_EPILOGUE15", "BAD_ENDING_EPILOGUE16" ]
+sound_bits = {
+"asgore": ExtResource( 8 ),
+"default": ExtResource( 9 ),
+"null": null,
+"toriel": ExtResource( 10 )
+}
 player_controlled = true
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
@@ -263,6 +273,10 @@ anims/start = SubResource( 30 )
 anchor_right = 1.0
 anchor_bottom = 1.0
 color = Color( 1, 1, 1, 0 )
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 11 )
+autoplay = true
 
 [connection signal="dialogue_custom_event" from="dialogue_box/DialogueLabel" to="." method="_on_DialogueLabel_dialogue_custom_event"]
 [connection signal="dialogue_ended" from="dialogue_box/DialogueLabel" to="." method="_on_DialogueLabel_dialogue_ended"]

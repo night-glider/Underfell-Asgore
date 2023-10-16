@@ -1,0 +1,23 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/talk_default.wav-5a5e9eae258d69f86f14ecbc7b860dc9.sample"
+
+[deps]
+
+source_file="res://audio/talk_default.wav"
+dest_files=[ "res://.import/talk_default.wav-5a5e9eae258d69f86f14ecbc7b860dc9.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

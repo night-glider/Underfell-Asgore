@@ -23,6 +23,7 @@ func _process(delta):
 		queue_free()
 
 func detonate():
+	GlobalAudio.play_sound( preload("res://audio/bomb.wav") )
 	for i in proj_count:
 		var new_proj = preload("res://attacks/attack5/projectile_small.tscn").instance()
 		get_parent().add_child(new_proj)

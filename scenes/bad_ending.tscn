@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=2]
+[gd_scene load_steps=25 format=2]
 
 [ext_resource path="res://scenes/bad_ending.gd" type="Script" id=1]
 [ext_resource path="res://sprites/battle/asgore_defeated_shocked.png" type="Texture" id=2]
@@ -12,6 +12,10 @@
 [ext_resource path="res://sprites/battle/death_particle.png" type="Texture" id=10]
 [ext_resource path="res://sprites/battle/soul.png" type="Texture" id=11]
 [ext_resource path="res://sprites/battle/soul_glow.png" type="Texture" id=12]
+[ext_resource path="res://audio/battle_flash.wav" type="AudioStream" id=13]
+[ext_resource path="res://audio/scythe_transition.mp3" type="AudioStream" id=14]
+[ext_resource path="res://audio/asgore_takes_to_barrier.ogg" type="AudioStream" id=15]
+[ext_resource path="res://audio/dust.wav" type="AudioStream" id=16]
 
 [sub_resource type="SpriteFrames" id=198]
 animations = [ {
@@ -294,10 +298,32 @@ tracks/10/loop_wrap = true
 tracks/10/imported = false
 tracks/10/enabled = true
 tracks/10/keys = {
-"times": PoolRealArray( 0, 3 ),
+"times": PoolRealArray( 0, 3.05 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 1,
 "values": [ true, false ]
+}
+tracks/11/type = "audio"
+tracks/11/path = NodePath("AnimationPlayer/AudioStreamPlayer")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/keys = {
+"clips": [ {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource( 13 )
+}, {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource( 14 )
+}, {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource( 16 )
+} ],
+"times": PoolRealArray( 0, 0.5, 3 )
 }
 
 [sub_resource type="Gradient" id=202]
@@ -382,6 +408,9 @@ texture = ExtResource( 8 )
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 anims/RESET = SubResource( 200 )
 anims/suicide = SubResource( 199 )
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="AnimationPlayer"]
+stream = ExtResource( 15 )
 
 [node name="CameraExtended" type="Camera2D" parent="."]
 anchor_mode = 0

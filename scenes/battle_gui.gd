@@ -38,6 +38,9 @@ var current_main_option:int = 0
 var current_item_option:= Vector2.ZERO
 var current_act_option:= Vector2.ZERO
 
+const choice_sound = preload("res://audio/choice.wav")
+const select_sound = preload("res://audio/select.wav")
+
 
 func init(player:Player, battle_framework:BattleFramework, enemy_hp:int):
 	self.player = player
@@ -92,9 +95,11 @@ func process_main_buttons():
 		var current_option = main_buttons[current_main_option]
 		current_option.animation = "selected"
 		player.position = current_option.position + Vector2(18,20)
+		GlobalAudio.play_sound(select_sound)
 	
 	if Input.is_action_just_pressed("interact"):
 		Input.action_release("interact")
+		GlobalAudio.play_sound(choice_sound)
 		if current_main_option == 0:
 			fight_button_pressed()
 		if current_main_option == 1:
@@ -105,12 +110,16 @@ func process_main_buttons():
 func process_item_choice():
 	if Input.is_action_just_pressed("left"):
 		current_item_option.x = clamp(current_item_option.x - 1, 0, 1)
+		GlobalAudio.play_sound(select_sound)
 	if Input.is_action_just_pressed("right"):
 		current_item_option.x = clamp(current_item_option.x + 1, 0, 1)
+		GlobalAudio.play_sound(select_sound)
 	if Input.is_action_just_pressed("up"):
 		current_item_option.y = clamp(current_item_option.y - 1, 0, 3)
+		GlobalAudio.play_sound(select_sound)
 	if Input.is_action_just_pressed("down"):
 		current_item_option.y = clamp(current_item_option.y + 1, 0, 3)
+		GlobalAudio.play_sound(select_sound)
 	
 	var item_index = current_item_option.x + current_item_option.y * 2
 	
@@ -133,6 +142,7 @@ func process_item_choice():
 		hide_player()
 		start_dialogue([message])
 		emit_signal("item_consumed", item)
+		GlobalAudio.play_sound(choice_sound)
 	
 	if Input.is_action_just_pressed("cancel"):
 		$main_buttons/item/GridContainer.visible = false
@@ -141,8 +151,10 @@ func process_item_choice():
 func process_act_choice():
 	if Input.is_action_just_pressed("left"):
 		current_act_option.x = clamp(current_act_option.x - 1, 0, 1)
+		GlobalAudio.play_sound(select_sound)
 	if Input.is_action_just_pressed("right"):
 		current_act_option.x = clamp(current_act_option.x + 1, 0, 1)
+		GlobalAudio.play_sound(select_sound)
 	
 	var index = current_act_option.x + current_act_option.y * 2
 	
@@ -156,6 +168,7 @@ func process_act_choice():
 		$main_buttons/act/GridContainer.visible = false
 		hide_player()
 		emit_signal("act_pressed", option.option_id)
+		GlobalAudio.play_sound(choice_sound)
 	
 	if Input.is_action_just_pressed("cancel"):
 		$main_buttons/act/GridContainer.visible = false
@@ -236,6 +249,7 @@ func _on_target_line_attack_ended(damage):
 		$main_buttons/fight/player_attack.play("default")
 		$main_buttons/fight/damage_label.text = str(damage)
 		$Periodic.add_method_oneshot(self, "player_attack_ended", [damage], 0.5)
+		GlobalAudio.play_sound( preload("res://audio/player_attack.wav") )
 	else:
 		player_attack_ended(damage)
 		$main_buttons/fight/damage_label.text = "MISS"
@@ -247,6 +261,8 @@ func player_attack_ended(damage):
 	enemy_hp-=damage
 	emit_signal("enemy_hp_changed", enemy_hp)
 	$Periodic.add_method_oneshot(self, "ask_for_next_state", [state, []], 0.5)
+	if damage > 0:
+		GlobalAudio.play_sound( preload("res://audio/enemy_hitted.wav") )
 
 func enemy_attacks(attack:Attack):
 	$dial.stop_dialogue_silently()

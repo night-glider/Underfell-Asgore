@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/blade_of_ruined_king.mp3-b2cb90efb529eee839bae4638efb2dc6.mp3str"
+
+[deps]
+
+source_file="res://audio/blade_of_ruined_king.mp3"
+dest_files=[ "res://.import/blade_of_ruined_king.mp3-b2cb90efb529eee839bae4638efb2dc6.mp3str" ]
+
+[params]
+
+loop=false
+loop_offset=0

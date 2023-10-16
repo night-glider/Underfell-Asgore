@@ -1,4 +1,4 @@
-[gd_scene load_steps=113 format=2]
+[gd_scene load_steps=114 format=2]
 
 [ext_resource path="res://scenes/fight_background.gd" type="Script" id=1]
 [ext_resource path="res://sprites/battle/background_particle.png" type="Texture" id=2]
@@ -9,6 +9,7 @@
 [ext_resource path="res://sprites/battle/asgore_in_fight.png" type="Texture" id=7]
 [ext_resource path="res://scenes/asgore.gd" type="Script" id=8]
 [ext_resource path="res://sprites/battle/asgore_defeated_shocked.png" type="Texture" id=9]
+[ext_resource path="res://audio/blade_of_ruined_king.mp3" type="AudioStream" id=10]
 
 [sub_resource type="Gradient" id=2]
 offsets = PoolRealArray( 0, 0.375, 1 )
@@ -602,7 +603,7 @@ texture = ExtResource( 2 )
 position = Vector2( 320, 150 )
 scale = Vector2( 2, 2 )
 frames = SubResource( 101 )
-frame = 71
+frame = 13
 playing = true
 script = ExtResource( 8 )
 
@@ -615,6 +616,11 @@ script = ExtResource( 8 )
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 anims/RESET = SubResource( 199 )
 anims/gui_fade_in = SubResource( 198 )
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 10 )
+autoplay = true
+bus = "music"
 
 [connection signal="attack_ended" from="battle_framework" to="." method="_on_battle_framework_attack_ended"]
 [connection signal="act_pressed" from="battle_gui" to="." method="_on_battle_gui_act_pressed"]

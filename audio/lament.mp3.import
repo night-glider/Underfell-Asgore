@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/lament.mp3-bb333d2973a7c890682be33de8eded22.mp3str"
+
+[deps]
+
+source_file="res://audio/lament.mp3"
+dest_files=[ "res://.import/lament.mp3-bb333d2973a7c890682be33de8eded22.mp3str" ]
+
+[params]
+
+loop=false
+loop_offset=0

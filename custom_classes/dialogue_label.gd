@@ -4,7 +4,8 @@ class_name DialogueLabel
 export(Array, String) var messages := ["HELLO_WORLD"]
 export var sound_bits := {
 	"null": null,
-	"asgore": preload("res://audio/asgore_talk.ogg")
+	"asgore": preload("res://audio/asgore_talk.ogg"),
+	"default": preload("res://audio/talk_default.wav")
 }
 export var silent_symbols := [",", ".", "-", " ", "[", "]"]
 export var text_speed := 0.25

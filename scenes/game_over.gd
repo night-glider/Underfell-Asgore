@@ -41,9 +41,11 @@ func process_choice_input():
 	if Input.is_action_just_pressed("left"):
 		$choice/YES.modulate = Color.yellow
 		$choice/NO.modulate = Color.white
+		GlobalAudio.play_sound( preload("res://audio/select.wav") )
 	if Input.is_action_just_pressed("right"):
 		$choice/NO.modulate = Color.yellow
 		$choice/YES.modulate = Color.white
+		GlobalAudio.play_sound( preload("res://audio/select.wav") )
 	
 	if Input.is_action_just_pressed("interact"):
 		if $choice/YES.modulate == Color.yellow:
@@ -51,10 +53,12 @@ func process_choice_input():
 			$Particles2D.emitting = true
 			$choice.visible = false
 			$AnimationPlayer.play("fade_out_2")
+			GlobalAudio.play_sound( preload("res://audio/choice.wav") )
 		
 		if $choice/NO.modulate == Color.yellow:
 			$choice.visible = false
 			$AnimationPlayer.play("continue_no")
+			GlobalAudio.play_sound( preload("res://audio/choice.wav") )
 
 
 func _on_DialogueLabel_message_next(message_id):

@@ -75,7 +75,8 @@ func mode_green():
 	
 
 func take_hit(damage):
-	damage += additional_damage
+	if damage > 0:
+		damage += additional_damage
 	if hp - damage <= 0 and hp > 1:
 		hp = 1
 		emit_signal("hp_changed", hp)
@@ -86,6 +87,11 @@ func take_hit(damage):
 	if hp == 0 and game_over_active:
 		GlobalGeneral.player_game_over_pos = position
 		get_tree().change_scene("res://scenes/game_over.tscn")
+	
+	if damage < 0:
+		GlobalAudio.play_sound( preload("res://audio/heal.wav") )
+	else:
+		GlobalAudio.play_sound( preload("res://audio/player_hit.wav") )
 	
 	emit_signal("hp_changed", hp)
 
@@ -130,6 +136,7 @@ func _on_shield_area_entered(area):
 		area.queue_free()
 		$shield.play("hit")
 		$shield/Timer.start(0.1)
+		GlobalAudio.play_sound(preload("res://audio/shield_hitted.wav"))
 
 
 func _on_shield_timer_timeout():
