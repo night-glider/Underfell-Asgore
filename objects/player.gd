@@ -4,6 +4,7 @@ class_name Player
 enum soul_modes {
 	NORMAL
 	GREEN
+	PURPLE
 }
 
 export var speed := 2.0
@@ -24,6 +25,8 @@ var invincible := false
 var prev_pos = Vector2.ZERO
 var mode = soul_modes.GREEN
 var shield_target_angle = 0
+var purple_mode_string_controller:Object = null
+var constant_speed := Vector2.ZERO
 
 func _ready():
 	remove_child(camera)
@@ -42,6 +45,10 @@ func _process(delta):
 			process_normal_mode()
 		soul_modes.GREEN:
 			process_green_mode()
+		soul_modes.PURPLE:
+			process_purple_mode()
+	
+	position += constant_speed
 
 func process_normal_mode():
 	var input = Vector2(Input.get_axis("left", "right"), Input.get_axis("up", "down"))
@@ -59,20 +66,45 @@ func process_green_mode():
 	
 	$shield.rotation = lerp_angle($shield.rotation, shield_target_angle, 0.5)
 
+func process_purple_mode():
+	if Input.is_action_pressed("left"):
+		position.x -= speed
+	if Input.is_action_pressed("right"):
+		position.x += speed
+	if Input.is_action_just_pressed("up"):
+		purple_mode_string_controller.player_pressed_up()
+	if Input.is_action_just_pressed("down"):
+		purple_mode_string_controller.player_pressed_down()
+	
+	position.y = purple_mode_string_controller.get_player_y_pos()
+
 func mode_normal():
 	mode = soul_modes.NORMAL
 	self_modulate = Color(1, 0, 0)
+	$soul_background.modulate = self_modulate
 	$shield.visible = false
 	$shield_background.visible = false
 	$shield/hitbox/CollisionShape2D.disabled = true
+	$AnimationPlayer.play("mode_changed")
 
 func mode_green():
 	mode = soul_modes.GREEN
 	self_modulate = Color("00C000")
+	$soul_background.modulate = self_modulate
 	$shield.visible = true
 	$shield_background.visible = true
 	$shield/hitbox/CollisionShape2D.disabled = false
-	
+	$AnimationPlayer.play("mode_changed")
+
+func mode_purple(purple_mode_string_controller):
+	mode = soul_modes.PURPLE
+	self_modulate = Color("D535D9")
+	$soul_background.modulate = self_modulate
+	$shield.visible = false
+	$shield_background.visible = false
+	$shield/hitbox/CollisionShape2D.disabled = true
+	self.purple_mode_string_controller = purple_mode_string_controller
+	$AnimationPlayer.play("mode_changed")
 
 func take_hit(damage):
 	if damage > 0:
@@ -100,7 +132,12 @@ func enable_invincibility():
 	invincible = true
 	flash_timer.start()
 	invincibility_timer.start(invincibility_duration)
-	
+
+func apply_constant_speed(speed):
+	constant_speed = speed
+
+func reset_constant_speed():
+	constant_speed = Vector2.ZERO
 
 func _on_hitbox_area_entered(area):
 	if invincible:

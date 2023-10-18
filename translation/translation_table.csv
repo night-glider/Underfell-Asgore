@@ -54,22 +54,29 @@ DISCLAIMER,DISCLAIMER
 DISCLAIMER_TEXT,"This is a non-profit fangame and all characters are property of Toby Fox. We; the Underfell Asgore team recommend that you play UNDERTALE first, as this game contains spoilers for the original game.
 
 With that being said, we hope you enjoy!"
-THRONE_ASGORE_DIALOGUE1,[snd asgore][event face_asgore1]*I've been waiting for you.
-THRONE_ASGORE_DIALOGUE2,[event asgore_stand_up][event face_asgore0][wait 150]*It must have been an awful journey...
-THRONE_ASGORE_DIALOGUE3,*Especially with the monsters that lurk out there.
-THRONE_ASGORE_DIALOGUE4,"*Unfortunately, you will have to face one more."
-THRONE_ASGORE_DIALOGUE5,"*In truth, when I was told I would be facing someone so small..."
-THRONE_ASGORE_DIALOGUE6,*I didn't want to believe them.
-THRONE_ASGORE_DIALOGUE7,*I didn't deserve it to be true.
-THRONE_ASGORE_DIALOGUE8,*But soon...
-THRONE_ASGORE_DIALOGUE9,*It won't even matter.
-THRONE_ASGORE_DIALOGUE10,*You must understand...
-THRONE_ASGORE_DIALOGUE11,*I can't allow this cruel trick of fate to stop me.
-THRONE_ASGORE_DIALOGUE12,[event take_to_barrier]*My people and I have waited long enough.
-THRONE_ASGORE_TRANSITION_DIAL1,"[snd asgore][center][color=red]*Come, child"
-THRONE_ASGORE_TRANSITION_DIAL2,[center][color=red]*Your fate is waiting.
+THRONE_ASGORE_DIALOGUE1,[snd asgore][event face_asgore1]*Welcome.
+THRONE_ASGORE_DIALOGUE2,*You must have had an awful journey.
+THRONE_ASGORE_DIALOGUE3,*Especially with some of the real monsters that lurk out there.
+THRONE_ASGORE_DIALOGUE4,"*Unfortunately, you will have to face one more tonight."
+THRONE_ASGORE_DIALOGUE5,*I've been waiting for you.
+THRONE_ASGORE_DIALOGUE6,[event asgore_stand_up][event face_asgore0][wait 150]*When they told me a child managed to live through some of the most treacherous conditions imaginable...
+THRONE_ASGORE_DIALOGUE7,"*That they not only survived, but even managed to befriend all who they encountered."
+THRONE_ASGORE_DIALOGUE8,*I almost laughed.
+THRONE_ASGORE_DIALOGUE9,*It had to be another one of his jokes.
+THRONE_ASGORE_DIALOGUE10,*But it wasn't.
+THRONE_ASGORE_DIALOGUE11,*That's why when I realised I would be facing someone so small...
+THRONE_ASGORE_DIALOGUE12,*I didn't want to believe them.
+THRONE_ASGORE_DIALOGUE13,*I didn't deserve it to be true.
+THRONE_ASGORE_DIALOGUE14,[event asgore_turns_away][wait 150]*But... I suppose it won't matter soon.
+THRONE_ASGORE_DIALOGUE15,*You have to understand...
+THRONE_ASGORE_DIALOGUE16,*I can't allow any of this to stop me.
+THRONE_ASGORE_DIALOGUE17,*All of what you've done can't make up for what's been lost.
+THRONE_ASGORE_DIALOGUE18,*My people and I have waited for too long.
+THRONE_ASGORE_DIALOGUE19,*I'm sorry.
+THRONE_ASGORE_TRANSITION_DIAL1,"[snd asgore][center][color=red]*Follow me, child."
+THRONE_ASGORE_TRANSITION_DIAL2,[center][color=red]*Destiny calls to us both.
 BATTLE_INTRO1,(A strange light fills the room.)
-BATTLE_INTRO2,"(The distant, towering figure above you doesn't move at all as his lifeless eyes coldly stare you down.)"
+BATTLE_INTRO2,"(The king's eyes coldly stare you down, as his body remains as unmoving as stone.)"
 BATTLE_INTRO3,"(You stare back, knowing it could very well be your first and last act of defiance.)"
 BATTLE_INTRO4,"(As your journey draws to a close, you face one final challenge.)"
 BATTLE_INTRO5,(You are filled with [wait 30][spd 0.25][color=red]DETERMINATION![/color])
@@ -95,43 +102,66 @@ BATTLE_ASGORE_ATTACKS,"[snd default][center]
 ACT_CHECK,* Check
 ACT_REFUSE,* Refuse
 CHECK_DIAL,[snd default][center]* KING ASGORE - ATK 95 DEF 95
-GAME_OVER_NO_DIAL1,"[snd asgore][center]* Then, the time has finally come..."
-GAME_OVER_NO_DIAL2,[center]* Thank you...
-GAME_OVER_NO_DIAL3,[center]* And...
-GAME_OVER_NO_DIAL4,[center]* I'm sorry.
+GAME_OVER_NO_DIAL1,"[snd asgore][center]* And so, the time has finally come..."
+GAME_OVER_NO_DIAL2,[center]* I'm so sorry...
+GAME_OVER_NO_DIAL3,[center]* But so grateful.
+GAME_OVER_NO_DIAL4,[center]* Your sacrifice will not be in vein.
+GAME_OVER_NO_DIAL5,[wait 60][center]*I promise...
 GAME_OVER_CONTINUE,CONTINUE?
-REFUSE_DIAL1_1,[snd asgore][event enemy_dial]Refusing to fight?
-REFUSE_DIAL1_2,[event enemy_dial]Your kindness is very misplaced.
-REFUSE_DIAL2_1,[snd asgore][event enemy_dial]What is it that you hope to accomplish?
-REFUSE_DIAL2_2,[event enemy_dial]Many of your kind have died at my hand.
-REFUSE_DIAL2_3,"[event enemy_dial]Child or not, don't think I won't kill you as well."
+REFUSE_DIAL1_1,[event box_dial][snd default][center]* You refused to fight.
+REFUSE_DIAL1_2,[center]* [color=red]ASGORE[/color] refuses to accept this.
+REFUSE_DIAL1_3,[snd asgore][event enemy_dial]Refusing to fight?
+REFUSE_DIAL1_4,[event enemy_dial]Your kindness is very misplaced.
+REFUSE_DIAL2_1,[event box_dial][snd default][center]* You still refused to fight.
+REFUSE_DIAL2_2,[center]* [color=red]ASGORE[/color] still refuses to accept this.
+REFUSE_DIAL2_3,[snd asgore][event enemy_dial]Don't make this harder than it already has to be.
 REFUSE_DIAL3_1,"[snd asgore][event enemy_dial]Heed this from me, young one."
 REFUSE_DIAL3_2,[event enemy_dial]Heroics are a lost cause.
-REFUSE_DIAL3_3,[event enemy_dial]Give yourself a fighting chance.
-REFUSE_DIAL4_1,"[snd asgore][event enemy_dial]So naive, just like my daughter when she was younger."
-REFUSE_DIAL4_2,[event enemy_dial]Did you encounter someone named Undyne on your journey?
-REFUSE_DIAL5_1,[snd asgore][event enemy_dial]I raised and cared for her as if she were a blood relative.
-REFUSE_DIAL5_2,"[event enemy_dial]But as she grew older, I knew I would eventually have to tell her the truth."
-REFUSE_DIAL6_1,[snd asgore][event enemy_dial]I wanted her to understand.
-REFUSE_DIAL6_2,[event enemy_dial]I wanted to find a way to take her with me.
-REFUSE_DIAL6_3,"[event enemy_dial]Unfortunately, wanting was not enough."
-REFUSE_DIAL7_1,"[snd asgore][event enemy_dial]As painful as it was, I knew she had to be exiled."
-REFUSE_DIAL7_2,[event enemy_dial]I couldn’t bare the theatrics of a trial.
-REFUSE_DIAL8_1,[snd asgore][event enemy_dial]I wish things could have been different.
-REFUSE_DIAL8_2,"[event enemy_dial]But thanks to you, now they can be."
-REFUSE_DIAL8_3,[event enemy_dial]Would you like to know why?
-REFUSE_DIAL9_1,[snd asgore][event enemy_dial]The numerous determination experiments that my royal scientist conducted…
-REFUSE_DIAL9_2,[event enemy_dial]Made me appreciate how powerful a human SOUL really was.
-REFUSE_DIAL10_1,[snd asgore][event enemy_dial]Through the power of the determination...
-REFUSE_DIAL10_2,[event enemy_dial]I will give us all a second chance.
-REFUSE_DIAL11_1,[snd asgore][event enemy_dial]Everyone will be at peace.
-REFUSE_DIAL11_2,[event enemy_dial]Everyone will be satisfied.
-REFUSE_DIAL12_1,[snd asgore][event enemy_dial]I was the one that ordered the experiments that destroyed countless families.
-REFUSE_DIAL12_2,[event enemy_dial]I made the royal scientist loathe herself.
-REFUSE_DIAL13_1,[snd asgore][event enemy_dial]Think about it...
-REFUSE_DIAL13_2,[event enemy_dial]All of it can be swept away like a bad dream.
-REFUSE_DIAL14_1,[snd asgore][event enemy_dial]One final act of cruelty to save possibly millions.
-REFUSE_DIAL14_2,[event enemy_dial]To save my...
+REFUSE_DIAL4_1,[event box_dial][snd default][center]* You still refused to fight.
+REFUSE_DIAL4_2,[center]* [color=red]ASGORE[/color] questions your motives.
+REFUSE_DIAL4_3,[snd asgore][event enemy_dial]What do you hope to accomplish?
+REFUSE_DIAL4_4,"Heed this from me, young one."
+REFUSE_DIAL4_5,This won't go the way you're hoping.
+REFUSE_DIAL4_6,Give yourself a fighting chance.
+REFUSE_DIAL5_1,[event box_dial][snd default][center]* You still refused to fight.
+REFUSE_DIAL5_2,[center]* [color=red]ASGORE[/color] sees something within you he recognises from his past.
+REFUSE_DIAL5_3,[center]* He begins to reminisce.
+REFUSE_DIAL5_4,"[snd asgore][event enemy_dial]So naive, just like my daughter when she was younger."
+REFUSE_DIAL5_5,Did you encounter someone named Undyne on your journey?
+REFUSE_DIAL6_1,[event box_dial][snd default][center]* You still refused to fight.
+REFUSE_DIAL6_2,[center]* [color=red]ASGORE[/color] continues to elaborate.
+REFUSE_DIAL6_3,[snd asgore][event enemy_dial]I raised and cared for her as if she were a blood relative.
+REFUSE_DIAL6_4,"But as she grew older, I knew I would eventually have to tell her the truth."
+REFUSE_DIAL7_1,[event box_dial][snd default][center]* You still refused to fight.
+REFUSE_DIAL7_2,[event box_dial][snd default][center]* ...
+REFUSE_DIAL7_3,[snd asgore][event enemy_dial]I wanted her to understand.
+REFUSE_DIAL7_4,I wanted to find a way to take her with me.
+REFUSE_DIAL7_5,"Unfortunately, wanting was not enough."
+REFUSE_DIAL8_1,[event box_dial][snd default][center]* ...
+REFUSE_DIAL8_2,"[snd asgore][event enemy_dial]As painful as it was, I knew she had to be exiled."
+REFUSE_DIAL8_3,I couldn’t bare the theatrics of a trial.
+REFUSE_DIAL9_1,[event box_dial][snd default][center]* ...
+REFUSE_DIAL9_2,[snd asgore][event enemy_dial]I wish things could have been different.
+REFUSE_DIAL9_3,"But thanks to you, now they can be."
+REFUSE_DIAL9_4,Would you like to know why?
+REFUSE_DIAL10_1,[event box_dial][snd default][center]* ...
+REFUSE_DIAL10_2,[snd asgore][event enemy_dial]The numerous determination experiments that my royal scientist conducted…
+REFUSE_DIAL10_3,Made me appreciate how powerful a human [color=red]SOUL[/color] really was.
+REFUSE_DIAL11_1,[event box_dial][snd default][center]* ...
+REFUSE_DIAL11_2,[snd asgore][event enemy_dial]Through the power of the determination...
+REFUSE_DIAL11_3,I will give us all a second chance.
+REFUSE_DIAL12_1,[event box_dial][snd default][center]* Dad...
+REFUSE_DIAL12_2,[snd asgore][event enemy_dial]Everyone will be at peace.
+REFUSE_DIAL12_3,Everyone will be satisfied.
+REFUSE_DIAL13_1,[event box_dial][snd default][center]* ...
+REFUSE_DIAL13_2,[snd asgore][event enemy_dial]I was the one that ordered the experiments that destroyed countless families.
+REFUSE_DIAL13_3,I made the royal scientist loathe herself.
+REFUSE_DIAL14_1,"[event box_dial][snd default][center]* Please don't do this, dad..."
+REFUSE_DIAL14_2,[snd asgore][event enemy_dial]Think about it...
+REFUSE_DIAL14_3,All of it can be swept away like a bad dream.
+REFUSE_DIAL15_1,[event box_dial][snd default][center]* ...
+REFUSE_DIAL15_2,[snd asgore][event enemy_dial]One final act of cruelty to save possibly millions.
+REFUSE_DIAL15_3,To save my...
 YES,yes
 NO,no
 MISS,MISS
@@ -140,12 +170,11 @@ BAD_ENDING_DIAL2,This... isn't how it's supposed to end...
 BAD_ENDING_DIAL3,...
 BAD_ENDING_DIAL4,And to think I had it in me to destroy humanity...
 BAD_ENDING_DIAL5,"I really have become pathetic, haven't I...?"
-BAD_ENDING_DIAL6,And weak...
-BAD_ENDING_DIAL7,And so tired.
-BAD_ENDING_DIAL8,"Young one, the fighting is over..."
-BAD_ENDING_DIAL9,So please...
-BAD_ENDING_DIAL10,Just take my soul...
-BAD_ENDING_DIAL11,AND NEVER COME BACK!
+BAD_ENDING_DIAL6,And weak... and so tired.
+BAD_ENDING_DIAL7,"Young one, the fighting is over..."
+BAD_ENDING_DIAL8,So please...
+BAD_ENDING_DIAL9,Just take my soul...
+BAD_ENDING_DIAL10,AND NEVER COME BACK!
 BAD_ENDING_EPILOGUE1,[snd asgore]* Where am I?
 BAD_ENDING_EPILOGUE2,[snd toriel][event fade_out][wait 240][color=gray]* Gorey...
 BAD_ENDING_EPILOGUE3,[color=gray]* Everything is okay...

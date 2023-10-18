@@ -32,20 +32,20 @@ func _ready():
 	$battle_gui.main_menu_text = "BATTLE_ASGORE_ATTACKS"
 	$battle_gui.init($player, $battle_framework, enemy_hp)
 	
-	refuse_dials.append(["REFUSE_DIAL1_1", "REFUSE_DIAL1_2"])
+	refuse_dials.append(["REFUSE_DIAL1_1", "REFUSE_DIAL1_2", "REFUSE_DIAL1_3", "REFUSE_DIAL1_4"])
 	refuse_dials.append(["REFUSE_DIAL2_1", "REFUSE_DIAL2_2", "REFUSE_DIAL2_3"])
-	refuse_dials.append(["REFUSE_DIAL3_1", "REFUSE_DIAL3_2", "REFUSE_DIAL3_3"])
-	refuse_dials.append(["REFUSE_DIAL4_1", "REFUSE_DIAL4_2"])
-	refuse_dials.append(["REFUSE_DIAL5_1", "REFUSE_DIAL5_2"])
-	refuse_dials.append(["REFUSE_DIAL6_1", "REFUSE_DIAL6_2", "REFUSE_DIAL6_3"])
-	refuse_dials.append(["REFUSE_DIAL7_1", "REFUSE_DIAL7_2"])
+	refuse_dials.append(["REFUSE_DIAL4_1", "REFUSE_DIAL4_2", "REFUSE_DIAL4_3", "REFUSE_DIAL4_4", "REFUSE_DIAL4_5", "REFUSE_DIAL4_6"])
+	refuse_dials.append(["REFUSE_DIAL5_1", "REFUSE_DIAL5_2", "REFUSE_DIAL5_3", "REFUSE_DIAL5_4", "REFUSE_DIAL5_5"])
+	refuse_dials.append(["REFUSE_DIAL6_1", "REFUSE_DIAL6_2", "REFUSE_DIAL6_3", "REFUSE_DIAL6_4"])
+	refuse_dials.append(["REFUSE_DIAL7_1", "REFUSE_DIAL7_2", "REFUSE_DIAL7_3", "REFUSE_DIAL7_4", "REFUSE_DIAL7_5"])
 	refuse_dials.append(["REFUSE_DIAL8_1", "REFUSE_DIAL8_2", "REFUSE_DIAL8_3"])
-	refuse_dials.append(["REFUSE_DIAL9_1", "REFUSE_DIAL9_2"])
-	refuse_dials.append(["REFUSE_DIAL10_1", "REFUSE_DIAL10_2"])
-	refuse_dials.append(["REFUSE_DIAL11_1", "REFUSE_DIAL11_2"])
-	refuse_dials.append(["REFUSE_DIAL12_1", "REFUSE_DIAL12_2"])
-	refuse_dials.append(["REFUSE_DIAL13_1", "REFUSE_DIAL13_2"])
-	refuse_dials.append(["REFUSE_DIAL14_1", "REFUSE_DIAL14_2"])
+	refuse_dials.append(["REFUSE_DIAL9_1", "REFUSE_DIAL9_2", "REFUSE_DIAL9_3", "REFUSE_DIAL9_4"])
+	refuse_dials.append(["REFUSE_DIAL10_1", "REFUSE_DIAL10_2", "REFUSE_DIAL10_3"])
+	refuse_dials.append(["REFUSE_DIAL11_1", "REFUSE_DIAL11_2", "REFUSE_DIAL11_3"])
+	refuse_dials.append(["REFUSE_DIAL12_1", "REFUSE_DIAL12_2", "REFUSE_DIAL12_3"])
+	refuse_dials.append(["REFUSE_DIAL13_1", "REFUSE_DIAL13_2", "REFUSE_DIAL13_3"])
+	refuse_dials.append(["REFUSE_DIAL14_1", "REFUSE_DIAL14_2", "REFUSE_DIAL14_3"])
+	refuse_dials.append(["REFUSE_DIAL15_1", "REFUSE_DIAL15_2", "REFUSE_DIAL15_3"])
 
 
 func _on_battle_gui_act_pressed(option_id):

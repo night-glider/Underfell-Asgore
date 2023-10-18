@@ -627,6 +627,7 @@ anims/fade_out_2 = SubResource( 11 )
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="AnimationPlayer"]
 stream = ExtResource( 15 )
+bus = "sound"
 
 [node name="Particles2D" type="Particles2D" parent="."]
 position = Vector2( 320, 320 )
@@ -647,7 +648,7 @@ bbcode_text = "[center]* DONT GIVE UP OR SOMETHING"
 text = "* DONT GIVE UP OR SOMETHING"
 scroll_active = false
 script = ExtResource( 9 )
-messages = [ "GAME_OVER_NO_DIAL1", "GAME_OVER_NO_DIAL2", "GAME_OVER_NO_DIAL3", "GAME_OVER_NO_DIAL4" ]
+messages = [ "GAME_OVER_NO_DIAL1", "GAME_OVER_NO_DIAL2", "GAME_OVER_NO_DIAL3", "GAME_OVER_NO_DIAL4", "GAME_OVER_NO_DIAL5" ]
 
 [node name="Periodic" type="Node" parent="."]
 script = ExtResource( 11 )

@@ -350,6 +350,7 @@ anims/battle_starts = SubResource( 20 )
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="AnimationPlayer"]
 stream = ExtResource( 8 )
+bus = "sound"
 
 [node name="ColorRect" type="ColorRect" parent="."]
 visible = false

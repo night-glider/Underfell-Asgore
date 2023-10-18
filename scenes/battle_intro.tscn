@@ -1020,6 +1020,7 @@ anims/scythe_swing = SubResource( 59 )
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="AnimationPlayer"]
 stream = ExtResource( 17 )
+bus = "sound"
 
 [node name="DialogueLabel" type="RichTextLabel" parent="."]
 anchor_left = 0.04

@@ -1,4 +1,4 @@
-[gd_scene load_steps=34 format=2]
+[gd_scene load_steps=39 format=2]
 
 [ext_resource path="res://sprites/overworld/throne_room_back.png" type="Texture" id=1]
 [ext_resource path="res://objects/overworld_frisk.tscn" type="PackedScene" id=2]
@@ -12,6 +12,8 @@
 [ext_resource path="res://audio/asgore_takes_to_barrier.ogg" type="AudioStream" id=10]
 [ext_resource path="res://sprites/overworld/throne_room_shadows.png" type="Texture" id=11]
 [ext_resource path="res://audio/At Long Last.mp3" type="AudioStream" id=12]
+[ext_resource path="res://sprites/overworld/throne_asgore_up.png" type="Texture" id=13]
+[ext_resource path="res://sprites/overworld/throne_asgore_right.png" type="Texture" id=14]
 
 [sub_resource type="AtlasTexture" id=17]
 atlas = ExtResource( 9 )
@@ -86,6 +88,18 @@ region = Rect2( 540, 0, 60, 82 )
 atlas = ExtResource( 7 )
 region = Rect2( 600, 0, 60, 82 )
 
+[sub_resource type="AtlasTexture" id=34]
+atlas = ExtResource( 7 )
+region = Rect2( 600, 0, 60, 82 )
+
+[sub_resource type="AtlasTexture" id=35]
+atlas = ExtResource( 14 )
+region = Rect2( 0, 0, 48, 68 )
+
+[sub_resource type="AtlasTexture" id=36]
+atlas = ExtResource( 13 )
+region = Rect2( 0, 0, 57, 74 )
+
 [sub_resource type="SpriteFrames" id=13]
 animations = [ {
 "frames": [ SubResource( 21 ) ],
@@ -96,6 +110,11 @@ animations = [ {
 "frames": [ SubResource( 22 ), SubResource( 23 ), SubResource( 24 ), SubResource( 25 ), SubResource( 26 ), SubResource( 27 ), SubResource( 28 ), SubResource( 29 ), SubResource( 30 ), SubResource( 31 ), SubResource( 32 ) ],
 "loop": false,
 "name": "stand_up",
+"speed": 5.0
+}, {
+"frames": [ SubResource( 34 ), SubResource( 35 ), SubResource( 35 ), SubResource( 35 ), SubResource( 36 ), SubResource( 36 ), SubResource( 36 ), SubResource( 36 ), SubResource( 36 ), SubResource( 35 ), SubResource( 35 ), SubResource( 35 ), SubResource( 34 ) ],
+"loop": false,
+"name": "turn_away_and_back",
 "speed": 5.0
 } ]
 
@@ -218,6 +237,9 @@ position = Vector2( 299, 1013 )
 position = Vector2( 300, 380 )
 scale = Vector2( 2, 2 )
 frames = SubResource( 13 )
+animation = "turn_away_and_back"
+frame = 12
+playing = true
 
 [node name="collisions" type="StaticBody2D" parent="."]
 
@@ -265,6 +287,7 @@ stream = ExtResource( 10 )
 
 [node name="at_long_last" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 12 )
+bus = "music"
 
 [connection signal="dialogue_custom_event" from="gui/Control/DialogueLabel" to="." method="_on_dialogue_custom_event"]
 [connection signal="body_entered" from="trigger1" to="." method="_on_trigger1_body_entered"]

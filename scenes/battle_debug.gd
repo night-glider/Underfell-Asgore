@@ -25,7 +25,17 @@ var attacks = {
 		"attack": preload("res://attacks/attack5/attack.tscn"),
 		"easy": preload("res://attacks/attack5/easy.tres"),
 		"hard": preload("res://attacks/attack5/hard.tres")
-	}
+	},
+	"[6] purple": {
+		"attack": preload("res://attacks/attack6/attack.tscn"),
+		"easy": preload("res://attacks/attack6/easy.tres"),
+		"hard": preload("res://attacks/attack6/hard.tres")
+	},
+	"[7] 4 corners": {
+		"attack": preload("res://attacks/attack7/attack.tscn"),
+		"easy": preload("res://attacks/attack7/easy.tres"),
+		"hard": preload("res://attacks/attack7/hard.tres")
+	},
 }
 var current_attack:Attack = null
 
@@ -57,6 +67,7 @@ func start_attack():
 	$battle_framework.start_attack(current_attack)
 
 func stop_attack():
+	$player.mode_normal()
 	$battle_framework.stop_attack()
 
 func _on_start_pressed():

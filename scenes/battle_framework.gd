@@ -30,6 +30,12 @@ func move_box(pos: Vector2, size: Vector2, time: float = -1):
 	box_tween.interpolate_property(box, "rect_size", box.rect_size, size, time)
 	box_tween.start()
 
+func get_box_pos():
+	return box.rect_global_position
+
+func get_box_size():
+	return box.rect_size
+
 func start_attack(attack:Attack):
 	current_attack = attack
 	active = true
@@ -37,7 +43,7 @@ func start_attack(attack:Attack):
 	current_attack.init(self, player)
 	current_attack.start()
 	move_box(
-		Vector2(current_attack.box_pos_y,attack.box_pos_x),
+		Vector2(current_attack.box_pos_x,attack.box_pos_y),
 		Vector2(current_attack.box_size_x, attack.box_size_y),
 		default_box_tween_speed)
 	player.global_position.x = current_attack.player_spawn_x

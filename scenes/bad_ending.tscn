@@ -376,7 +376,7 @@ bbcode_text = "* Make peace not war pls"
 text = "* Make peace not war pls"
 scroll_active = false
 script = ExtResource( 4 )
-messages = [ "BAD_ENDING_DIAL1", "BAD_ENDING_DIAL2", "BAD_ENDING_DIAL3", "BAD_ENDING_DIAL4", "BAD_ENDING_DIAL5", "BAD_ENDING_DIAL6", "BAD_ENDING_DIAL7", "BAD_ENDING_DIAL8", "BAD_ENDING_DIAL9", "BAD_ENDING_DIAL10", "BAD_ENDING_DIAL11" ]
+messages = [ "BAD_ENDING_DIAL1", "BAD_ENDING_DIAL2", "BAD_ENDING_DIAL3", "BAD_ENDING_DIAL4", "BAD_ENDING_DIAL5", "BAD_ENDING_DIAL6", "BAD_ENDING_DIAL7", "BAD_ENDING_DIAL8", "BAD_ENDING_DIAL9", "BAD_ENDING_DIAL10" ]
 player_controlled = true
 
 [node name="soul" type="Sprite" parent="."]
@@ -411,6 +411,7 @@ anims/suicide = SubResource( 199 )
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="AnimationPlayer"]
 stream = ExtResource( 15 )
+bus = "sound"
 
 [node name="CameraExtended" type="Camera2D" parent="."]
 anchor_mode = 0

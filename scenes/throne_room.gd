@@ -37,7 +37,14 @@ func _on_trigger1_body_entered(body:Node):
 		"THRONE_ASGORE_DIALOGUE9",
 		"THRONE_ASGORE_DIALOGUE10",
 		"THRONE_ASGORE_DIALOGUE11",
-		"THRONE_ASGORE_DIALOGUE12"]], 
+		"THRONE_ASGORE_DIALOGUE12",
+		"THRONE_ASGORE_DIALOGUE13",
+		"THRONE_ASGORE_DIALOGUE14",
+		"THRONE_ASGORE_DIALOGUE15",
+		"THRONE_ASGORE_DIALOGUE16",
+		"THRONE_ASGORE_DIALOGUE17",
+		"THRONE_ASGORE_DIALOGUE18",
+		"THRONE_ASGORE_DIALOGUE19",]], 
 		1)
 
 func start_dialogue(messages:Array):
@@ -54,6 +61,12 @@ func _on_dialogue_custom_event(data):
 	if data == "take_to_barrier":
 		$gui/Control/DialogueLabel.player_controlled = false
 		$AnimationPlayer.play("fade_in")
+	
+	if data == "asgore_turns_away":
+		$gui.visible = false
+		$asgore.play("turn_away_and_back")
+		$asgore.frame = 0
+		$Periodic.add_method_oneshot(self, "show_gui", [], 2.5)
 	
 	if "face" in data:
 		$gui/Control/faces.play(data)

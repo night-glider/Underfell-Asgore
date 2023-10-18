@@ -72,6 +72,7 @@ text = "281:48"
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 5 )
 autoplay = true
+bus = "music"
 
 [connection signal="item_pressed" from="menu" to="." method="_on_menu_item_pressed"]
 [connection signal="item_selected" from="menu" to="." method="_on_menu_item_selected"]

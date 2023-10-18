@@ -30,7 +30,6 @@ func turn_off_face_sprite():
 	$dialogue_box/DialogueLabel.margin_left = -100
 	$dialogue_box/faces.play("empty")
 
-
 func _on_DialogueLabel_dialogue_custom_event(data):
 	if data == "turn_on_faces":
 		turn_on_face_sprite()
@@ -43,7 +42,6 @@ func _on_DialogueLabel_dialogue_custom_event(data):
 		return
 	
 	$dialogue_box/faces.play(data)
-
 
 func _on_DialogueLabel_dialogue_ended():
 	$dialogue_box.visible = false

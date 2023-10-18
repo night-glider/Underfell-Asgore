@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=2]
+[gd_scene load_steps=25 format=2]
 
 [ext_resource path="res://custom_classes/dialogue_label.gd" type="Script" id=1]
 [ext_resource path="res://sprites/overworld/dialogue_box.png" type="Texture" id=2]
@@ -10,7 +10,6 @@
 [ext_resource path="res://audio/asgore_talk.ogg" type="AudioStream" id=8]
 [ext_resource path="res://audio/talk_default.wav" type="AudioStream" id=9]
 [ext_resource path="res://audio/talk_toriel.wav" type="AudioStream" id=10]
-[ext_resource path="res://audio/closure.mp3" type="AudioStream" id=11]
 
 [sub_resource type="SpriteFrames" id=21]
 animations = [ {
@@ -275,8 +274,8 @@ anchor_bottom = 1.0
 color = Color( 1, 1, 1, 0 )
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
-stream = ExtResource( 11 )
 autoplay = true
+bus = "music"
 
 [connection signal="dialogue_custom_event" from="dialogue_box/DialogueLabel" to="." method="_on_DialogueLabel_dialogue_custom_event"]
 [connection signal="dialogue_ended" from="dialogue_box/DialogueLabel" to="." method="_on_DialogueLabel_dialogue_ended"]
