@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/serenity.mp3-ce025f70d85e2084e7482679a66e77bb.mp3str"
+
+[deps]
+
+source_file="res://audio/serenity.mp3"
+dest_files=[ "res://.import/serenity.mp3-ce025f70d85e2084e7482679a66e77bb.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

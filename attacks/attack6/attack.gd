@@ -19,6 +19,7 @@ class PurpleString:
 
 func start():
 	$Timer.start(attack_duration)
+	$healing.start(attack_duration-4)
 	var current_pos = box_pos_y - box_size_y/2 + strings_interval
 	while true:
 		var new_string = PurpleString.new()
@@ -85,3 +86,7 @@ func player_pressed_up():
 
 func player_pressed_down():
 	player_string_index = clamp(player_string_index+1, 0, len(strings)-1)
+
+
+func _on_healing_timeout():
+	spawn_healing_bullet()

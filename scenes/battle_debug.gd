@@ -36,6 +36,21 @@ var attacks = {
 		"easy": preload("res://attacks/attack7/easy.tres"),
 		"hard": preload("res://attacks/attack7/hard.tres")
 	},
+	"[8] hands #2": {
+		"attack": preload("res://attacks/attack8/attack.tscn"),
+		"easy": preload("res://attacks/attack8/easy.tres"),
+		"hard": preload("res://attacks/attack8/hard.tres")
+	},
+	"----Super attack----": {
+		"attack": preload("res://attacks/attack1/attack.tscn"),
+		"easy": preload("res://attacks/attack1/easy.tres"),
+		"hard": preload("res://attacks/attack1/hard.tres")
+	},
+	"[1]": {
+		"attack": preload("res://attacks/super_attack/sattack1/attack.tscn"),
+		"easy": preload("res://attacks/super_attack/sattack1/props.tres"),
+		"hard": preload("res://attacks/super_attack/sattack1/props.tres")
+	},
 }
 var current_attack:Attack = null
 
@@ -61,8 +76,14 @@ func debug_properties_to_attack(grid:GridContainer, attack_props:AttackPropertie
 func start_attack():
 	var attack_data = attacks[$controls/attack.get_item_text($controls/attack.selected)]
 	current_attack = attack_data["attack"].instance()
-	debug_properties_to_attack($properties/easy/easy, attack_data["easy"])
-	debug_properties_to_attack($properties/hard/hard, attack_data["hard"])
+	
+	if attack_data["easy"] == attack_data["hard"]:
+		debug_properties_to_attack($properties/hard/hard, attack_data["hard"])
+	else:
+		debug_properties_to_attack($properties/easy/easy, attack_data["easy"])
+		debug_properties_to_attack($properties/hard/hard, attack_data["hard"])
+	
+	
 	current_attack.set_difficulty(attack_data["easy"], attack_data["hard"], $controls/difficulty.value)
 	$battle_framework.start_attack(current_attack)
 
@@ -88,6 +109,11 @@ func _on_attack_item_selected(index):
 	var attack:Attack = attacks[$controls/attack.get_item_text($controls/attack.selected)]["attack"].instance()
 	var easy_props = attacks[$controls/attack.get_item_text($controls/attack.selected)]["easy"].properties
 	var hard_props = attacks[$controls/attack.get_item_text($controls/attack.selected)]["hard"].properties
+	
+	$properties.set_tab_disabled(0, easy_props == hard_props)
+	if easy_props == hard_props:
+		$properties.current_tab = 1
+	
 	for prop in attack.get_property_list():
 		if prop["usage"] == 8199:
 			var label = Label.new()

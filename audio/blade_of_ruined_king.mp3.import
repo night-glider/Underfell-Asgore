@@ -11,5 +11,5 @@ dest_files=[ "res://.import/blade_of_ruined_king.mp3-b2cb90efb529eee839bae4638ef
 
 [params]
 
-loop=false
+loop=true
 loop_offset=0

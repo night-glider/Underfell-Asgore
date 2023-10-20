@@ -115,8 +115,8 @@ REFUSE_DIAL1_4,[event enemy_dial]Your kindness is very misplaced.
 REFUSE_DIAL2_1,[event box_dial][snd default][center]* You still refused to fight.
 REFUSE_DIAL2_2,[center]* [color=red]ASGORE[/color] still refuses to accept this.
 REFUSE_DIAL2_3,[snd asgore][event enemy_dial]Don't make this harder than it already has to be.
-REFUSE_DIAL3_1,"[snd asgore][event enemy_dial]Heed this from me, young one."
-REFUSE_DIAL3_2,[event enemy_dial]Heroics are a lost cause.
+REFUSE_DIAL3_1,depricated
+REFUSE_DIAL3_2,depricated
 REFUSE_DIAL4_1,[event box_dial][snd default][center]* You still refused to fight.
 REFUSE_DIAL4_2,[center]* [color=red]ASGORE[/color] questions your motives.
 REFUSE_DIAL4_3,[snd asgore][event enemy_dial]What do you hope to accomplish?
@@ -191,3 +191,12 @@ BAD_ENDING_EPILOGUE13,"[color=gray]* But now, it's time for you to join us."
 BAD_ENDING_EPILOGUE14,"[color=gray]* Come on, before your tea gets cold."
 BAD_ENDING_EPILOGUE15,[snd asgore][event turn_on_faces][event face_asgore5]* ...
 BAD_ENDING_EPILOGUE16,[event face_asgore6]* I missed you all so much…
+FIGHT_PHASE1_END_DIAL1,[event enemy_dial]Is this some sort of joke?
+FIGHT_PHASE1_END_DIAL2,Do you seriously still expect something to happen...
+FIGHT_PHASE1_END_DIAL3,Just because I spilled my guts out to you?
+FIGHT_PHASE1_END_DIAL4,I've already told you...
+FIGHT_PHASE1_END_DIAL5,You aren't leaving here alive.
+FIGHT_PHASE1_END_DIAL6,[event his_reluctance]Quit this foolish act...
+FIGHT_PHASE1_END_DIAL7,Stop making things more difficult.
+FIGHT_PHASE3_TRANSITION1,"My children must live, even if it kills me!"
+FIGHT_PHASE3_TRANSITION2,"If you won’t fight, then stand still and die like you’re supposed to!!"

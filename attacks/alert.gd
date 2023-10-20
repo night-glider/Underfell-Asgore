@@ -23,6 +23,7 @@ func _on_flash_timeout():
 		modulate.a = 0.5
 	else:
 		modulate.a = 1
+	$AudioStreamPlayer.play()
 
 
 func _on_destruction_timeout():

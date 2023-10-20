@@ -11,5 +11,5 @@ dest_files=[ "res://.import/At Long Last.mp3-b304909976de79775216e3c277fac0af.mp
 
 [params]
 
-loop=false
+loop=true
 loop_offset=0

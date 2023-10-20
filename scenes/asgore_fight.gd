@@ -1,7 +1,7 @@
 extends Control
 
 var refuse_dials = []
-var current_refuse_dial = 0
+var current_refuse_dial = 14
 var attacks = [
 	{
 		"attack": preload("res://attacks/attack2/attack.tscn"),
@@ -25,6 +25,8 @@ var attacks = [
 	}
 ]
 var enemy_hp = 50
+
+var music_fade_in = false
 
 func _ready():
 	$player.hp = 1
@@ -53,7 +55,16 @@ func _on_battle_gui_act_pressed(option_id):
 		$battle_gui.start_dialogue(["CHECK_DIAL"])
 	if option_id == "refuse":
 		if current_refuse_dial>=14:
-			OS.alert("crash time")
+			$battle_gui.start_dialogue([
+				"FIGHT_PHASE1_END_DIAL1",
+				"FIGHT_PHASE1_END_DIAL2",
+				"FIGHT_PHASE1_END_DIAL3",
+				'FIGHT_PHASE1_END_DIAL4',
+				"FIGHT_PHASE1_END_DIAL5",
+				"FIGHT_PHASE1_END_DIAL6",
+				"FIGHT_PHASE1_END_DIAL7"
+			])
+			current_refuse_dial+=1
 			return
 		$battle_gui.start_dialogue(refuse_dials[current_refuse_dial])
 		current_refuse_dial+=1
@@ -63,7 +74,8 @@ func _on_battle_gui_waiting_for_next_state(last_action, additional_args):
 	#if last_action != BattleGui.states.PLAYER_ATTACKS:
 	#	$battle_gui.to_main_buttons()
 	#	return
-	
+	if current_refuse_dial>=15:
+		go_to_2_phase()
 	var attack_data = attacks[randi() % len(attacks)]
 	var attack = attack_data["attack"].instance()
 	var easy = attack_data["easy"]
@@ -95,3 +107,31 @@ func _on_battle_gui_enemy_hp_changed(new_hp):
 
 func to_bad_ending():
 	get_tree().change_scene("res://scenes/bad_ending.tscn")
+
+func init_2_phase():
+	music_fade_in = true
+
+func _process(delta):
+	if music_fade_in:
+		$AudioStreamPlayer.volume_db = linear2db(db2linear($AudioStreamPlayer.volume_db)-0.01)
+
+func go_to_2_phase():
+	var backgorund:Node = $fight_background
+	remove_child(backgorund)
+	backgorund.owner = null
+	
+	var particles2D:Node = $Particles2D
+	remove_child(particles2D)
+	particles2D.owner = null
+	
+	var particles2D2:Node = $Particles2D2
+	remove_child(particles2D2)
+	particles2D2.owner = null
+	
+	GlobalGeneral.temp_data = [backgorund, particles2D, particles2D2]
+	
+	get_tree().change_scene("res://scenes/asgore_fight_phase2.tscn")
+
+func _on_battle_gui_dialogue_custom_event(data):
+	if data == "his_reluctance":
+		OS.alert("his reluctance plays!")

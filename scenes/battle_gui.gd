@@ -15,6 +15,7 @@ signal act_pressed(option_id)
 signal waiting_for_next_state(last_action, additional_args)
 signal item_consumed(item)
 signal enemy_hp_changed(new_hp)
+signal dialogue_custom_event(data)
 
 export(Array, Resource) var healing_items = []
 export(Array, Resource) var act_options = []
@@ -231,11 +232,14 @@ func _on_DialogueLabel_dialogue_custom_event(data):
 		$dial.rect_size = Vector2(200, 90)
 		$dial.theme = enemy_dialogue_theme
 		$dial_cloud.visible = true
+		return
 	if data == "box_dial":
 		$dial.rect_position = Vector2(39,255+30)
 		$dial.rect_size = Vector2(560, 130)
 		$dial.theme = null
 		$dial_cloud.visible = false
+		return
+	emit_signal("dialogue_custom_event", data)
 
 func _on_DialogueLabel_dialogue_ended():
 	_on_DialogueLabel_dialogue_custom_event("box_dial")

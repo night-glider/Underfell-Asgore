@@ -12,6 +12,7 @@ onready var alert_size = Vector2(box_size_x-10, box_size_y-10) / 2
 
 func start():
 	$Timer.start(attack_duration)
+	$healing.start(attack_duration-4)
 	
 	sides = [
 		{
@@ -57,3 +58,7 @@ func spawn_projectiles(side):
 
 func _on_Timer_timeout():
 	framework.stop_attack()
+
+
+func _on_healing_timeout():
+	spawn_healing_bullet()

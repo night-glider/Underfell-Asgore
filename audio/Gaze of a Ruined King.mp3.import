@@ -11,5 +11,5 @@ dest_files=[ "res://.import/Gaze of a Ruined King.mp3-8091d624f7d7e411bf61a619a4
 
 [params]
 
-loop=false
+loop=true
 loop_offset=0

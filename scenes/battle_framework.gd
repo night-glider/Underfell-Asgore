@@ -8,6 +8,9 @@ onready var box_tween := $box/tween
 export var default_box_tween_speed := 1.0
 export var default_box_pos := Vector2(320,320)
 export var default_box_size := Vector2(570,136)
+export var hide_box_after_attack := true
+export var spawn_player_automatically := true
+
 
 signal attack_ended(attack)
 signal attack_started(attack)
@@ -16,11 +19,10 @@ var player:Node2D = null
 var active := false
 var current_attack:Attack = null
 
-func _ready():
-	move_box(Vector2(320, 320), Vector2(570,136), 0)
 
 func init(player:Player):
 	self.player = player
+	move_box(Vector2(320, 320), Vector2(570,136), 0)
 
 func move_box(pos: Vector2, size: Vector2, time: float = -1):
 	if time < 0:
@@ -46,8 +48,9 @@ func start_attack(attack:Attack):
 		Vector2(current_attack.box_pos_x,attack.box_pos_y),
 		Vector2(current_attack.box_size_x, attack.box_size_y),
 		default_box_tween_speed)
-	player.global_position.x = current_attack.player_spawn_x
-	player.global_position.y = current_attack.player_spawn_y
+	if spawn_player_automatically:
+		player.global_position.x = current_attack.player_spawn_x
+		player.global_position.y = current_attack.player_spawn_y
 	player.can_control = true
 	box_visible(true)
 	
@@ -59,7 +62,8 @@ func stop_attack():
 		current_attack.destroy()
 	move_box(default_box_pos, default_box_size, default_box_tween_speed)
 	
-	box_visible(false)
+	if hide_box_after_attack:
+		box_visible(false)
 	
 	emit_signal("attack_ended", current_attack)
 
