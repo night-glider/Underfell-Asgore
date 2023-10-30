@@ -51,6 +51,11 @@ var attacks = {
 		"easy": preload("res://attacks/super_attack/sattack1/props.tres"),
 		"hard": preload("res://attacks/super_attack/sattack1/props.tres")
 	},
+	"[2]": {
+		"attack": preload("res://attacks/super_attack/sattack2/attack.tscn"),
+		"easy": preload("res://attacks/super_attack/sattack2/props.tres"),
+		"hard": preload("res://attacks/super_attack/sattack2/props.tres")
+	},
 }
 var current_attack:Attack = null
 

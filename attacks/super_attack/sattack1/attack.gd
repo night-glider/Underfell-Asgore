@@ -9,8 +9,9 @@ export var spawn_interval:float = 1
 func start():
 	spawn_healing_bullet()
 	$Timer.start(attack_duration)
+	$destroy.start(attack_duration+3)
 	
-	$Periodic.add_method(self, "spawn_meteor", [], spawn_interval)
+	$Periodic.add_method(self, "spawn_meteor", [], spawn_interval, 0, attack_duration-2)
 
 func spawn_meteor():
 	var new_proj = preload("projectile.tscn").instance()
@@ -34,4 +35,8 @@ func spawn_circle(position):
 		add_child(new_proj)
 
 func _on_Timer_timeout():
-	framework.stop_attack()
+	framework.stop_attack_softly()
+
+
+func _on_destroy_timeout():
+	queue_free()

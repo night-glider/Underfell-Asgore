@@ -6,11 +6,17 @@
 script = ExtResource( 1 )
 paste_properties_here = ""
 properties = {
-"attack_duration": 0.0,
+"alert_size_x": 100,
+"attack_duration": 10.0,
 "box_pos_x": 320,
 "box_pos_y": 320,
-"box_size_x": 0,
-"box_size_y": 0,
+"box_size_x": 570,
+"box_size_y": 136,
+"delay": 2.0,
 "player_spawn_x": 320,
-"player_spawn_y": 320
+"player_spawn_y": 320,
+"projectile_count": 100,
+"projectile_damp": 0.9,
+"projectile_fade_spd": 0.02,
+"projectile_spd": 3.0
 }

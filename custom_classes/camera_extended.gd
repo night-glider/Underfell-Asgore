@@ -18,6 +18,9 @@ var shake_active := false
 func _init():
 	z_index = VisualServer.CANVAS_ITEM_Z_MAX
 	z_as_relative = false
+	
+	GlobalGeneral.connect("camera_shake", self, "shake")
+	GlobalGeneral.connect("camera_flash", self, "flash")
 
 func _process_flash():
 	if not flash_active:
@@ -67,7 +70,7 @@ func _draw():
 
 func flash(duration:int, fade_in:=0, fade_out:=1, color:=Color(1,1,1,1)):
 	flash_active = true
-	shake_time = 0
+	flash_time = 0
 	flash_color = color
 	flash_fade_in_duration = fade_in
 	flash_fade_out_duration = fade_out

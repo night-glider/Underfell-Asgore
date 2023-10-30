@@ -3,27 +3,27 @@ extends Control
 onready var player = $player
 var background_fade = false
 
-#var attacks = [
-#	{"attack": preload("res://attacks/attack2/attack.tscn"),
-#	 "hard": preload("res://attacks/attack2/hard.tres")},
-#	{"attack": preload("res://attacks/attack3/attack.tscn"),
-#	 "hard": preload("res://attacks/attack3/hard.tres")},
-#	{"attack": preload("res://attacks/attack4/attack.tscn"),
-#	 "hard": preload("res://attacks/attack4/hard.tres")},
-#	{"attack": preload("res://attacks/attack5/attack.tscn"),
-#	 "hard": preload("res://attacks/attack5/hard.tres")},
-#	{"attack": preload("res://attacks/attack6/attack.tscn"),
-#	 "hard": preload("res://attacks/attack6/hard.tres")},
-#	{"attack": preload("res://attacks/attack7/attack.tscn"),
-#	 "hard": preload("res://attacks/attack7/hard.tres")},
-#	{"attack": preload("res://attacks/attack8/attack.tscn"),
-#	 "hard": preload("res://attacks/attack8/hard.tres")},
-#	]
-
 var attacks = [
 	{"attack": preload("res://attacks/attack2/attack.tscn"),
 	 "hard": preload("res://attacks/attack2/hard.tres")},
-]
+	{"attack": preload("res://attacks/attack3/attack.tscn"),
+	 "hard": preload("res://attacks/attack3/hard.tres")},
+	{"attack": preload("res://attacks/attack4/attack.tscn"),
+	 "hard": preload("res://attacks/attack4/hard.tres")},
+	{"attack": preload("res://attacks/attack5/attack.tscn"),
+	 "hard": preload("res://attacks/attack5/hard.tres")},
+	{"attack": preload("res://attacks/attack6/attack.tscn"),
+	 "hard": preload("res://attacks/attack6/hard.tres")},
+	{"attack": preload("res://attacks/attack7/attack.tscn"),
+	 "hard": preload("res://attacks/attack7/hard.tres")},
+	{"attack": preload("res://attacks/attack8/attack.tscn"),
+	 "hard": preload("res://attacks/attack8/hard.tres")},
+	]
+
+#var attacks = [
+#	{"attack": preload("res://attacks/attack2/attack.tscn"),
+#	 "hard": preload("res://attacks/attack2/hard.tres")},
+#]
 
 var player_camera:CameraExtended
 var attacks_survived = 0

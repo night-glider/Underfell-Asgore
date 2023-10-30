@@ -67,6 +67,9 @@ func stop_attack():
 	
 	emit_signal("attack_ended", current_attack)
 
+func stop_attack_softly():
+	emit_signal("attack_ended", current_attack)
+
 func _process(delta):
 	if not active:
 		return
