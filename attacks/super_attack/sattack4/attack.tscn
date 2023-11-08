@@ -1,0 +1,21 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://attacks/super_attack/sattack4/attack.gd" type="Script" id=1]
+[ext_resource path="res://custom_classes/periodic.gd" type="Script" id=2]
+
+[node name="Node" type="Node"]
+script = ExtResource( 1 )
+
+[node name="Timer" type="Timer" parent="."]
+one_shot = true
+
+[node name="destroy" type="Timer" parent="."]
+one_shot = true
+
+[node name="Periodic" type="Node" parent="."]
+script = ExtResource( 2 )
+
+[node name="rain_particles" type="Node" parent="."]
+
+[connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
+[connection signal="timeout" from="destroy" to="." method="_on_destroy_timeout"]

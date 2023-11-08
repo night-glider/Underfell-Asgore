@@ -11,6 +11,8 @@ func start():
 	$Timer.start(attack_duration)
 	$destroy.start(attack_duration+3)
 	
+	framework.trigger_custom_event("spawn_player", Vector2(player_spawn_x, player_spawn_y))
+	
 	$Periodic.add_method(self, "spawn_meteor", [], spawn_interval, 0, attack_duration-2)
 
 func spawn_meteor():

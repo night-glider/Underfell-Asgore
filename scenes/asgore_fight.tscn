@@ -1,4 +1,4 @@
-[gd_scene load_steps=114 format=2]
+[gd_scene load_steps=136 format=2]
 
 [ext_resource path="res://scenes/fight_background.gd" type="Script" id=1]
 [ext_resource path="res://sprites/battle/background_particle.png" type="Texture" id=2]
@@ -10,6 +10,9 @@
 [ext_resource path="res://scenes/asgore.gd" type="Script" id=8]
 [ext_resource path="res://sprites/battle/asgore_defeated_shocked.png" type="Texture" id=9]
 [ext_resource path="res://audio/blade_of_ruined_king.mp3" type="AudioStream" id=10]
+[ext_resource path="res://sprites/battle/asgore_attacks_blue.png" type="Texture" id=11]
+[ext_resource path="res://sprites/battle/asgore_attacks_orange.png" type="Texture" id=12]
+[ext_resource path="res://sprites/battle/asgore_shadow.png" type="Texture" id=13]
 
 [sub_resource type="Gradient" id=2]
 offsets = PoolRealArray( 0, 0.375, 1 )
@@ -51,6 +54,78 @@ orbit_velocity_random = 0.0
 angle = 180.0
 angle_random = 1.0
 color_ramp = SubResource( 201 )
+
+[sub_resource type="AtlasTexture" id=202]
+atlas = ExtResource( 11 )
+region = Rect2( 0, 0, 211, 239 )
+
+[sub_resource type="AtlasTexture" id=203]
+atlas = ExtResource( 11 )
+region = Rect2( 211, 0, 211, 239 )
+
+[sub_resource type="AtlasTexture" id=204]
+atlas = ExtResource( 11 )
+region = Rect2( 422, 0, 211, 239 )
+
+[sub_resource type="AtlasTexture" id=205]
+atlas = ExtResource( 11 )
+region = Rect2( 633, 0, 211, 239 )
+
+[sub_resource type="AtlasTexture" id=206]
+atlas = ExtResource( 11 )
+region = Rect2( 844, 0, 211, 239 )
+
+[sub_resource type="AtlasTexture" id=207]
+atlas = ExtResource( 11 )
+region = Rect2( 1055, 0, 211, 239 )
+
+[sub_resource type="AtlasTexture" id=208]
+atlas = ExtResource( 11 )
+region = Rect2( 1266, 0, 211, 239 )
+
+[sub_resource type="AtlasTexture" id=209]
+atlas = ExtResource( 11 )
+region = Rect2( 1477, 0, 211, 239 )
+
+[sub_resource type="AtlasTexture" id=210]
+atlas = ExtResource( 11 )
+region = Rect2( 1688, 0, 211, 239 )
+
+[sub_resource type="AtlasTexture" id=211]
+atlas = ExtResource( 12 )
+region = Rect2( 0, 0, 211, 239 )
+
+[sub_resource type="AtlasTexture" id=212]
+atlas = ExtResource( 12 )
+region = Rect2( 211, 0, 211, 239 )
+
+[sub_resource type="AtlasTexture" id=213]
+atlas = ExtResource( 12 )
+region = Rect2( 422, 0, 211, 239 )
+
+[sub_resource type="AtlasTexture" id=214]
+atlas = ExtResource( 12 )
+region = Rect2( 633, 0, 211, 239 )
+
+[sub_resource type="AtlasTexture" id=215]
+atlas = ExtResource( 12 )
+region = Rect2( 844, 0, 211, 239 )
+
+[sub_resource type="AtlasTexture" id=216]
+atlas = ExtResource( 12 )
+region = Rect2( 1055, 0, 211, 239 )
+
+[sub_resource type="AtlasTexture" id=217]
+atlas = ExtResource( 12 )
+region = Rect2( 1266, 0, 211, 239 )
+
+[sub_resource type="AtlasTexture" id=218]
+atlas = ExtResource( 12 )
+region = Rect2( 1477, 0, 211, 239 )
+
+[sub_resource type="AtlasTexture" id=219]
+atlas = ExtResource( 12 )
+region = Rect2( 1688, 0, 211, 239 )
 
 [sub_resource type="AtlasTexture" id=102]
 atlas = ExtResource( 7 )
@@ -436,8 +511,22 @@ region = Rect2( 1086, 1088, 181, 136 )
 atlas = ExtResource( 7 )
 region = Rect2( 1267, 1088, 181, 136 )
 
+[sub_resource type="AtlasTexture" id=220]
+atlas = ExtResource( 13 )
+region = Rect2( 0, 0, 167, 139 )
+
 [sub_resource type="SpriteFrames" id=200]
 animations = [ {
+"frames": [ SubResource( 202 ), SubResource( 203 ), SubResource( 204 ), SubResource( 205 ), SubResource( 206 ), SubResource( 207 ), SubResource( 208 ), SubResource( 209 ), SubResource( 210 ) ],
+"loop": true,
+"name": "attack_blue",
+"speed": 5.0
+}, {
+"frames": [ SubResource( 211 ), SubResource( 212 ), SubResource( 213 ), SubResource( 214 ), SubResource( 215 ), SubResource( 216 ), SubResource( 217 ), SubResource( 218 ), SubResource( 219 ) ],
+"loop": true,
+"name": "attack_orange",
+"speed": 5.0
+}, {
 "frames": [ SubResource( 102 ), SubResource( 103 ), SubResource( 104 ), SubResource( 105 ), SubResource( 106 ), SubResource( 107 ), SubResource( 108 ), SubResource( 109 ), SubResource( 110 ), SubResource( 111 ), SubResource( 112 ), SubResource( 113 ), SubResource( 114 ), SubResource( 115 ), SubResource( 116 ), SubResource( 117 ), SubResource( 118 ), SubResource( 119 ), SubResource( 120 ), SubResource( 121 ), SubResource( 122 ), SubResource( 123 ), SubResource( 124 ), SubResource( 125 ), SubResource( 126 ), SubResource( 127 ), SubResource( 128 ), SubResource( 129 ), SubResource( 130 ), SubResource( 131 ), SubResource( 132 ), SubResource( 133 ), SubResource( 134 ), SubResource( 135 ), SubResource( 136 ), SubResource( 137 ), SubResource( 138 ), SubResource( 139 ), SubResource( 140 ), SubResource( 141 ), SubResource( 142 ), SubResource( 143 ), SubResource( 144 ), SubResource( 145 ), SubResource( 146 ), SubResource( 147 ), SubResource( 148 ), SubResource( 149 ), SubResource( 150 ), SubResource( 151 ), SubResource( 152 ), SubResource( 153 ), SubResource( 154 ), SubResource( 155 ), SubResource( 156 ), SubResource( 157 ), SubResource( 158 ), SubResource( 159 ), SubResource( 160 ), SubResource( 161 ), SubResource( 162 ), SubResource( 163 ), SubResource( 164 ), SubResource( 165 ), SubResource( 166 ), SubResource( 167 ), SubResource( 168 ), SubResource( 169 ), SubResource( 170 ), SubResource( 171 ), SubResource( 172 ), SubResource( 173 ), SubResource( 174 ), SubResource( 175 ), SubResource( 176 ), SubResource( 177 ), SubResource( 178 ), SubResource( 179 ), SubResource( 180 ), SubResource( 181 ), SubResource( 182 ), SubResource( 183 ), SubResource( 184 ), SubResource( 185 ), SubResource( 186 ), SubResource( 187 ), SubResource( 188 ), SubResource( 189 ), SubResource( 190 ), SubResource( 191 ), SubResource( 192 ), SubResource( 193 ), SubResource( 194 ), SubResource( 195 ), SubResource( 196 ), SubResource( 197 ) ],
 "loop": true,
 "name": "default",
@@ -446,6 +535,11 @@ animations = [ {
 "frames": [ ExtResource( 9 ) ],
 "loop": true,
 "name": "defeated_shocked",
+"speed": 5.0
+}, {
+"frames": [ SubResource( 220 ) ],
+"loop": true,
+"name": "shadow",
 "speed": 5.0
 } ]
 
@@ -603,7 +697,7 @@ texture = ExtResource( 2 )
 position = Vector2( 320, 150 )
 scale = Vector2( 2, 2 )
 frames = SubResource( 200 )
-frame = 63
+frame = 6
 playing = true
 script = ExtResource( 8 )
 

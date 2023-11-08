@@ -90,20 +90,45 @@ var attacks = [
 		"attack": preload("res://attacks/super_attack/sattack2/attack.tscn"),
 		"props":  preload("res://attacks/super_attack/sattack2/props.tres")
 	},
+	{
+		"attack": preload("res://attacks/super_attack/sattack3/attack.tscn"),
+		"props":  preload("res://attacks/super_attack/sattack3/props.tres")
+	},
+	{
+		"attack": preload("res://attacks/super_attack/sattack4/attack.tscn"),
+		"props":  preload("res://attacks/super_attack/sattack4/props.tres")
+	},
+	{
+		"attack": preload("res://attacks/super_attack/sattack5/attack.tscn"),
+		"props":  preload("res://attacks/super_attack/sattack5/props.tres")
+	},
+	{
+		"attack": preload("res://attacks/super_attack/sattack6/attack.tscn"),
+		"props":  preload("res://attacks/super_attack/sattack6/props.tres")
+	},
+	{
+		"attack": preload("res://attacks/super_attack/sattack7/attack.tscn"),
+		"props":  preload("res://attacks/super_attack/sattack7/props.tres")
+	},
+	{
+		"attack": preload("res://attacks/super_attack/sattack8/attack.tscn"),
+		"props":  preload("res://attacks/super_attack/sattack8/props.tres")
+	},
+	{
+		"attack": preload("res://attacks/super_attack/sattack9/attack.tscn"),
+		"props":  preload("res://attacks/super_attack/sattack9/props.tres")
+	},
 ]
 var current_attack_id = -1
 
 func next_attack():
 	current_attack_id+=1
+	if current_attack_id >= len(attacks):
+		return
 	var attack:Node = attacks[current_attack_id]["attack"].instance()
 	var props = attacks[current_attack_id]["props"]
 	attack.set_difficulty(props, props, 0)
 	$battle_framework.start_attack(attack)
-	
-	if current_attack_id == 0:
-		$player.position = Vector2(320, 320)
-	if current_attack_id == 1:
-		attack.connect("buttons_destroyed", self, "on_buttons_destroy")
 
 
 func _on_battle_framework_attack_ended(attack):
@@ -113,3 +138,11 @@ func _on_battle_framework_attack_ended(attack):
 func _on_player_hp_changed(new_hp):
 	$gui/TextureProgress.value = new_hp
 	$gui/hp.text = str(new_hp) + "/20"
+
+
+func _on_battle_framework_attack_custom_event(type, data):
+	if type == "spawn_player":
+		$player.position = data
+	if type == "buttons_destroyed":
+		on_buttons_destroy()
+	

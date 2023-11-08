@@ -637,6 +637,7 @@ script = ExtResource( 12 )
 [node name="fight_background" type="Node2D" parent="."]
 script = ExtResource( 2 )
 col = Color( 1, 0, 0, 1 )
+colors = [  ]
 
 [node name="Particles2D" type="Particles2D" parent="."]
 position = Vector2( 320, 500 )
@@ -653,7 +654,7 @@ texture = ExtResource( 5 )
 [node name="asgore" type="AnimatedSprite" parent="."]
 position = Vector2( 320, 150 )
 frames = SubResource( 1 )
-frame = 75
+frame = 78
 playing = true
 offset = Vector2( 74, 0 )
 
@@ -747,5 +748,6 @@ anims/fade_out = SubResource( 114 )
 [node name="Periodic" type="Node" parent="."]
 script = ExtResource( 18 )
 
+[connection signal="attack_custom_event" from="battle_framework" to="." method="_on_battle_framework_attack_custom_event"]
 [connection signal="attack_ended" from="battle_framework" to="." method="_on_battle_framework_attack_ended"]
 [connection signal="hp_changed" from="player" to="." method="_on_player_hp_changed"]

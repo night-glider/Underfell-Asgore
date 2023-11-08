@@ -1,7 +1,5 @@
 extends Attack
 
-signal buttons_destroyed()
-
 export var attack_duration:=10.5
 export var delay:=1.0
 export var projectile_count:=100
@@ -48,7 +46,7 @@ func _on_attack_timer_timeout():
 	$Particles2D2.emitting = false
 	$Particles2D3.emitting = false
 	
-	emit_signal("buttons_destroyed")
+	framework.trigger_custom_event("buttons_destroyed")
 
 
 func _on_destroy_timeout():

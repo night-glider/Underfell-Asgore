@@ -27,6 +27,15 @@ func restart():
 func player_buttons_init():
 	player = get_parent().find_node("player", true, false)
 	$Panel/VBoxContainer/heal_player.disabled = player == null
+	$Panel/VBoxContainer/heal_player.text = "game over: "
+	if player == null:
+		$Panel/VBoxContainer/heal_player.text += "off"
+		return
+	
+	if player.game_over_active:
+		$Panel/VBoxContainer/heal_player.text += "on"
+	else:
+		$Panel/VBoxContainer/heal_player.text += "off"
 
 func _process(delta):
 	if Input.is_action_just_pressed("debug"):
@@ -46,7 +55,13 @@ func _on_attacks_debugger_pressed():
 
 
 func _on_heal_player_pressed():
-	player.take_hit(-100)
+	player.game_over_active = not player.game_over_active
+	
+	$Panel/VBoxContainer/heal_player.text = "game over: "
+	if player.game_over_active:
+		$Panel/VBoxContainer/heal_player.text += "on"
+	else:
+		$Panel/VBoxContainer/heal_player.text += "off"
 
 
 func _on_tp_to_scene_item_selected(index):

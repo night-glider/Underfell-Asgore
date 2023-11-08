@@ -24,6 +24,7 @@ func _process(delta):
 
 func detonate():
 	GlobalAudio.play_sound( preload("res://audio/bomb.wav") )
+	GlobalGeneral.camera_shake(5, 2)
 	for i in proj_count:
 		var new_proj = preload("res://attacks/attack5/projectile_small.tscn").instance()
 		get_parent().add_child(new_proj)

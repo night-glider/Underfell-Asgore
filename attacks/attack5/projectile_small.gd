@@ -13,3 +13,8 @@ func _process(delta):
 	position+=vel
 	if vel.length_squared() > min_spd:
 		vel*=damping
+	
+	if position.x < -10 or position.x > 650:
+		queue_free()
+	if position.y < -10 or position.y > 650:
+		queue_free()

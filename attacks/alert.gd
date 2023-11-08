@@ -17,6 +17,9 @@ func init_by_center(pos:Vector2, size:Vector2, time:float):
 	rect_size = size
 	$destruction.start(time)
 
+func scale_exclamation_mark(scale, offset=Vector2.ZERO):
+	$TextureRect.rect_scale = scale
+	$TextureRect.rect_position += offset
 
 func _on_flash_timeout():
 	if modulate.a == 1:

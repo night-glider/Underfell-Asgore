@@ -14,6 +14,7 @@ export var spawn_player_automatically := true
 
 signal attack_ended(attack)
 signal attack_started(attack)
+signal attack_custom_event(type, data)
 
 var player:Node2D = null
 var active := false
@@ -69,6 +70,9 @@ func stop_attack():
 
 func stop_attack_softly():
 	emit_signal("attack_ended", current_attack)
+
+func trigger_custom_event(type:String, data=null):
+	emit_signal("attack_custom_event", type, data)
 
 func _process(delta):
 	if not active:

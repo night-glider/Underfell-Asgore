@@ -37,7 +37,6 @@ func _ready():
 	
 	GlobalGeneral.temp_data.clear()
 	
-	player.game_over_active = false
 	player.position = Vector2(320, 320)
 	player_camera = player.camera
 	

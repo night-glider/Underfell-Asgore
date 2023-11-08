@@ -41,6 +41,11 @@ var attacks = {
 		"easy": preload("res://attacks/attack8/easy.tres"),
 		"hard": preload("res://attacks/attack8/hard.tres")
 	},
+	"[9] scythe": {
+		"attack": preload("res://attacks/attack9/attack.tscn"),
+		"easy": preload("res://attacks/attack9/easy.tres"),
+		"hard": preload("res://attacks/attack9/hard.tres")
+	},
 	"----Super attack----": {
 		"attack": preload("res://attacks/attack1/attack.tscn"),
 		"easy": preload("res://attacks/attack1/easy.tres"),
@@ -55,6 +60,41 @@ var attacks = {
 		"attack": preload("res://attacks/super_attack/sattack2/attack.tscn"),
 		"easy": preload("res://attacks/super_attack/sattack2/props.tres"),
 		"hard": preload("res://attacks/super_attack/sattack2/props.tres")
+	},
+	"[3]": {
+		"attack": preload("res://attacks/super_attack/sattack3/attack.tscn"),
+		"easy": preload("res://attacks/super_attack/sattack3/props.tres"),
+		"hard": preload("res://attacks/super_attack/sattack3/props.tres")
+	},
+	"[4]": {
+		"attack": preload("res://attacks/super_attack/sattack4/attack.tscn"),
+		"easy": preload("res://attacks/super_attack/sattack4/props.tres"),
+		"hard": preload("res://attacks/super_attack/sattack4/props.tres")
+	},
+	"[5]": {
+		"attack": preload("res://attacks/super_attack/sattack5/attack.tscn"),
+		"easy": preload("res://attacks/super_attack/sattack5/props.tres"),
+		"hard": preload("res://attacks/super_attack/sattack5/props.tres")
+	},
+	"[6]": {
+		"attack": preload("res://attacks/super_attack/sattack6/attack.tscn"),
+		"easy": preload("res://attacks/super_attack/sattack6/props.tres"),
+		"hard": preload("res://attacks/super_attack/sattack6/props.tres")
+	},
+	"[7]": {
+		"attack": preload("res://attacks/super_attack/sattack7/attack.tscn"),
+		"easy": preload("res://attacks/super_attack/sattack7/props.tres"),
+		"hard": preload("res://attacks/super_attack/sattack7/props.tres")
+	},
+	"[8]": {
+		"attack": preload("res://attacks/super_attack/sattack8/attack.tscn"),
+		"easy": preload("res://attacks/super_attack/sattack8/props.tres"),
+		"hard": preload("res://attacks/super_attack/sattack8/props.tres")
+	},
+	"[9]": {
+		"attack": preload("res://attacks/super_attack/sattack9/attack.tscn"),
+		"easy": preload("res://attacks/super_attack/sattack9/props.tres"),
+		"hard": preload("res://attacks/super_attack/sattack9/props.tres")
 	},
 }
 var current_attack:Attack = null
@@ -93,6 +133,8 @@ func start_attack():
 	$battle_framework.start_attack(current_attack)
 
 func stop_attack():
+	$asgore.visible = false
+	$asgore.flip_h = false
 	$player.mode_normal()
 	$battle_framework.stop_attack()
 
@@ -198,3 +240,15 @@ func _on_player_hp_changed(new_hp):
 
 func _on_done_pressed():
 	$Popup.visible = false
+
+
+func _on_battle_framework_attack_custom_event(type, data):
+	if type == "change_asgore_sprite":
+		if data == "default":
+			$asgore.visible = false
+		else:
+			$asgore.visible = true
+			$asgore.frame = 0
+			$asgore.play(data)
+	if type == "asgore_hflip":
+		$asgore.flip_h = data
