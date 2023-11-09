@@ -20,8 +20,6 @@ func start():
 	pos_y = box_pos_y + box_size_y/2
 	$Particles2D1.position = Vector2(box_pos_x-box_size_x/4, 480)
 	$Particles2D2.position = Vector2(box_pos_x+box_size_x/4, 480)
-	$Particles2D1.emitting = true
-	$Particles2D2.emitting = true
 	
 	$Periodic.add_method(self, "attack", [], attack_interval, delay, attack_duration)
 
@@ -29,6 +27,8 @@ func _on_Timer_timeout():
 	framework.stop_attack_softly()
 
 func spawn_spike(pos):
+	$Particles2D1.emitting = false
+	$Particles2D2.emitting = false
 	GlobalGeneral.camera_shake(10, 10)
 	GlobalGeneral.camera_flash(5, 0, 1, Color.white)
 	
@@ -52,9 +52,11 @@ func attack():
 	var alert_pos
 	
 	if last_side == 0:
+		$Particles2D1.emitting = true
 		$Periodic.add_method_oneshot(self, "spawn_spike", [$Particles2D1.position], alert_time)
 		alert_pos = Vector2($Particles2D1.position.x, box_pos_y)
 	if last_side == 1:
+		$Particles2D2.emitting = true
 		$Periodic.add_method_oneshot(self, "spawn_spike", [$Particles2D2.position], alert_time)
 		alert_pos = Vector2($Particles2D2.position.x, box_pos_y)
 	

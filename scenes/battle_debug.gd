@@ -96,6 +96,16 @@ var attacks = {
 		"easy": preload("res://attacks/super_attack/sattack9/props.tres"),
 		"hard": preload("res://attacks/super_attack/sattack9/props.tres")
 	},
+	"[10]": {
+		"attack": preload("res://attacks/super_attack/sattack10/attack.tscn"),
+		"easy": preload("res://attacks/super_attack/sattack10/props.tres"),
+		"hard": preload("res://attacks/super_attack/sattack10/props.tres")
+	},
+	"[11]": {
+		"attack": preload("res://attacks/super_attack/sattack11/attack.tscn"),
+		"easy": preload("res://attacks/super_attack/sattack11/props.tres"),
+		"hard": preload("res://attacks/super_attack/sattack11/props.tres")
+	},
 }
 var current_attack:Attack = null
 
@@ -250,5 +260,12 @@ func _on_battle_framework_attack_custom_event(type, data):
 			$asgore.visible = true
 			$asgore.frame = 0
 			$asgore.play(data)
+		
+		if data == "attack_blue" or data == "attack_orange":
+			$asgore.offset = Vector2(0, 35)
+			$asgore.z_index = 999
+		else:
+			$asgore.offset = Vector2.ZERO
+			$asgore.z_index = 0
 	if type == "asgore_hflip":
 		$asgore.flip_h = data

@@ -697,7 +697,7 @@ texture = ExtResource( 2 )
 position = Vector2( 320, 150 )
 scale = Vector2( 2, 2 )
 frames = SubResource( 200 )
-frame = 6
+frame = 72
 playing = true
 script = ExtResource( 8 )
 

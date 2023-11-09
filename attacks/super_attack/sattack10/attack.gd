@@ -10,14 +10,13 @@ export var attacks_interval:float
 var attacks = []
 onready var last_flash = $eye_flash_left
 var asgore_hflip = false
-var frame_timer = 0
-var old_default_box_tween_speed = 0
+var box_reduce_x
 
 func start():
-	old_default_box_tween_speed = framework.default_box_tween_speed
-	framework.default_box_tween_speed = 0
+	box_reduce_x = int((box_size_x / attack_count) * 0.9)
 	spawn_healing_bullet()
 	$Timer.start(attack_duration)
+	$destroy.start(attack_duration+1)
 	
 	for i in attack_count:
 		attacks.append(randi()%2)
@@ -59,9 +58,16 @@ func spawn_projectile(type:int):
 	var new_proj = preload("res://attacks/attack9/projectile.tscn").instance()
 	new_proj.type = type
 	add_child(new_proj)
+	
+	box_size_x -= box_reduce_x
+	framework.move_box(Vector2(box_pos_x,box_pos_y), Vector2(box_size_x, box_size_y), 0)
 
 func _on_Timer_timeout():
-	framework.default_box_tween_speed = old_default_box_tween_speed
-	framework.stop_attack()
-	framework.trigger_custom_event("change_asgore_sprite", "default")
-	framework.trigger_custom_event("asgore_hflip", false)
+	framework.stop_attack_softly()
+	#framework.trigger_custom_event("change_asgore_sprite", "default")
+	#framework.trigger_custom_event("asgore_hflip", false)
+
+
+
+func _on_destroy_timeout():
+	queue_free()

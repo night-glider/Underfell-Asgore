@@ -504,12 +504,10 @@ anchor_bottom = 1.0
 script = ExtResource( 2 )
 
 [node name="asgore" type="AnimatedSprite" parent="."]
-visible = false
 position = Vector2( 320, 150 )
 scale = Vector2( 2, 2 )
 frames = SubResource( 221 )
-animation = "attack_blue"
-frame = 8
+animation = "shadow"
 playing = true
 script = ExtResource( 4 )
 
