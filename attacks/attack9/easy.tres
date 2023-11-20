@@ -11,7 +11,7 @@ properties = {
 "attacks_delay": 1.0,
 "attacks_interval": 1.0,
 "box_pos_x": 320,
-"box_pos_y": 360,
+"box_pos_y": 345,
 "box_size_x": 100,
 "box_size_y": 100,
 "flash_delay": 1.0,

@@ -53,3 +53,6 @@ func start():
 
 func _on_Timer_timeout():
 	framework.stop_attack_softly()
+
+func play_explosion():
+	$explosion.play()

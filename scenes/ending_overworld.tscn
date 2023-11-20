@@ -1,0 +1,157 @@
+[gd_scene load_steps=30 format=2]
+
+[ext_resource path="res://scenes/ending_overworld.gd" type="Script" id=1]
+[ext_resource path="res://sprites/overworld/asgore_hugs.png" type="Texture" id=2]
+[ext_resource path="res://sprites/overworld/flowey.png" type="Texture" id=3]
+[ext_resource path="res://sprites/overworld/dialogue_box.png" type="Texture" id=4]
+[ext_resource path="res://custom_classes/dialogue_label.gd" type="Script" id=5]
+[ext_resource path="res://sprites/faces/asgore_faces.png" type="Texture" id=6]
+[ext_resource path="res://fonts/determination.ttf" type="DynamicFontData" id=7]
+[ext_resource path="res://custom_classes/periodic.gd" type="Script" id=8]
+[ext_resource path="res://sprites/faces/flowey_emotion1.png" type="Texture" id=9]
+
+[sub_resource type="AtlasTexture" id=1]
+atlas = ExtResource( 2 )
+region = Rect2( 0, 0, 60, 82 )
+
+[sub_resource type="AtlasTexture" id=2]
+atlas = ExtResource( 2 )
+region = Rect2( 60, 0, 60, 82 )
+
+[sub_resource type="AtlasTexture" id=3]
+atlas = ExtResource( 2 )
+region = Rect2( 120, 0, 60, 82 )
+
+[sub_resource type="AtlasTexture" id=4]
+atlas = ExtResource( 2 )
+region = Rect2( 180, 0, 60, 82 )
+
+[sub_resource type="AtlasTexture" id=5]
+atlas = ExtResource( 2 )
+region = Rect2( 0, 82, 60, 82 )
+
+[sub_resource type="AtlasTexture" id=6]
+atlas = ExtResource( 2 )
+region = Rect2( 60, 82, 60, 82 )
+
+[sub_resource type="AtlasTexture" id=7]
+atlas = ExtResource( 2 )
+region = Rect2( 120, 82, 60, 82 )
+
+[sub_resource type="AtlasTexture" id=8]
+atlas = ExtResource( 2 )
+region = Rect2( 180, 82, 60, 82 )
+
+[sub_resource type="AtlasTexture" id=9]
+atlas = ExtResource( 2 )
+region = Rect2( 0, 164, 60, 82 )
+
+[sub_resource type="AtlasTexture" id=10]
+atlas = ExtResource( 2 )
+region = Rect2( 60, 164, 60, 82 )
+
+[sub_resource type="AtlasTexture" id=11]
+atlas = ExtResource( 2 )
+region = Rect2( 120, 164, 60, 82 )
+
+[sub_resource type="AtlasTexture" id=12]
+atlas = ExtResource( 2 )
+region = Rect2( 180, 164, 60, 82 )
+
+[sub_resource type="AtlasTexture" id=13]
+atlas = ExtResource( 2 )
+region = Rect2( 0, 246, 60, 82 )
+
+[sub_resource type="AtlasTexture" id=14]
+atlas = ExtResource( 2 )
+region = Rect2( 60, 246, 60, 82 )
+
+[sub_resource type="AtlasTexture" id=15]
+atlas = ExtResource( 2 )
+region = Rect2( 120, 246, 60, 82 )
+
+[sub_resource type="AtlasTexture" id=16]
+atlas = ExtResource( 2 )
+region = Rect2( 180, 246, 60, 82 )
+
+[sub_resource type="SpriteFrames" id=17]
+animations = [ {
+"frames": [ SubResource( 1 ), SubResource( 2 ), SubResource( 3 ), SubResource( 4 ), SubResource( 5 ), SubResource( 6 ), SubResource( 7 ), SubResource( 8 ), SubResource( 9 ), SubResource( 10 ), SubResource( 11 ), SubResource( 12 ), SubResource( 13 ), SubResource( 14 ), SubResource( 15 ), SubResource( 16 ) ],
+"loop": false,
+"name": "default",
+"speed": 5.0
+} ]
+
+[sub_resource type="AtlasTexture" id=23]
+atlas = ExtResource( 6 )
+region = Rect2( 490, 0, 98, 130 )
+
+[sub_resource type="SpriteFrames" id=22]
+animations = [ {
+"frames": [ SubResource( 23 ) ],
+"loop": false,
+"name": "asgore_emotion1",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 9 ) ],
+"loop": false,
+"name": "flowey_emotion1",
+"speed": 5.0
+} ]
+
+[sub_resource type="DynamicFont" id=21]
+size = 32
+font_data = ExtResource( 7 )
+
+[node name="Node2D" type="Node2D"]
+script = ExtResource( 1 )
+
+[node name="asgore" type="AnimatedSprite" parent="."]
+position = Vector2( 320, 350 )
+scale = Vector2( 2, 2 )
+frames = SubResource( 17 )
+frame = 15
+playing = true
+
+[node name="flowey" type="Sprite" parent="."]
+position = Vector2( 230, 375 )
+texture = ExtResource( 3 )
+
+[node name="dial_box" type="TextureRect" parent="."]
+visible = false
+margin_left = 32.0
+margin_top = 32.0
+margin_right = 614.0
+margin_bottom = 186.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource( 4 )
+
+[node name="faces" type="AnimatedSprite" parent="dial_box"]
+position = Vector2( 12, 12 )
+frames = SubResource( 22 )
+animation = "flowey_emotion1"
+centered = false
+
+[node name="DialogueLabel" type="RichTextLabel" parent="dial_box"]
+anchor_left = 0.2
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_top = 16.0
+margin_right = -16.0
+margin_bottom = -16.0
+custom_fonts/normal_font = SubResource( 21 )
+script = ExtResource( 5 )
+player_controlled = true
+
+[node name="ColorRect" type="ColorRect" parent="."]
+margin_right = 640.0
+margin_bottom = 480.0
+
+[node name="Periodic" type="Node" parent="."]
+script = ExtResource( 8 )
+
+[node name="Tween" type="Tween" parent="."]
+
+[connection signal="dialogue_custom_event" from="dial_box/DialogueLabel" to="." method="_on_DialogueLabel_dialogue_custom_event"]
+[connection signal="dialogue_ended" from="dial_box/DialogueLabel" to="." method="_on_DialogueLabel_dialogue_ended"]

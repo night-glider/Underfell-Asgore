@@ -1,0 +1,129 @@
+[gd_scene load_steps=24 format=2]
+
+[ext_resource path="res://custom_classes/periodic.gd" type="Script" id=1]
+[ext_resource path="res://custom_classes/dialogue_label.gd" type="Script" id=2]
+[ext_resource path="res://fonts/determination.ttf" type="DynamicFontData" id=3]
+[ext_resource path="res://sprites/battle/asgore_defeated.png" type="Texture" id=4]
+[ext_resource path="res://sprites/battle/dialogue_cloud.png" type="Texture" id=5]
+[ext_resource path="res://scenes/fight_phase_3_after_slides.gd" type="Script" id=6]
+[ext_resource path="res://sprites/battle/flowey_appears_angry.png" type="Texture" id=7]
+[ext_resource path="res://sprites/battle/flowey_sad.png" type="Texture" id=8]
+[ext_resource path="res://fonts/8bit_operator.ttf" type="DynamicFontData" id=9]
+
+[sub_resource type="SpriteFrames" id=240]
+animations = [ {
+"frames": [ ExtResource( 4 ) ],
+"loop": true,
+"name": "default",
+"speed": 5.0
+} ]
+
+[sub_resource type="DynamicFont" id=239]
+size = 24
+font_data = ExtResource( 9 )
+
+[sub_resource type="Theme" id=241]
+default_font = SubResource( 239 )
+
+[sub_resource type="DynamicFont" id=65]
+font_data = ExtResource( 3 )
+
+[sub_resource type="Theme" id=242]
+default_font = SubResource( 65 )
+RichTextLabel/colors/default_color = Color( 0, 0, 0, 1 )
+
+[sub_resource type="AtlasTexture" id=231]
+atlas = ExtResource( 7 )
+region = Rect2( 0, 0, 82, 98 )
+
+[sub_resource type="AtlasTexture" id=232]
+atlas = ExtResource( 7 )
+region = Rect2( 82, 0, 82, 98 )
+
+[sub_resource type="AtlasTexture" id=233]
+atlas = ExtResource( 7 )
+region = Rect2( 164, 0, 82, 98 )
+
+[sub_resource type="AtlasTexture" id=234]
+atlas = ExtResource( 7 )
+region = Rect2( 246, 0, 82, 98 )
+
+[sub_resource type="AtlasTexture" id=235]
+atlas = ExtResource( 7 )
+region = Rect2( 328, 0, 82, 98 )
+
+[sub_resource type="AtlasTexture" id=236]
+atlas = ExtResource( 7 )
+region = Rect2( 410, 0, 82, 98 )
+
+[sub_resource type="AtlasTexture" id=237]
+atlas = ExtResource( 7 )
+region = Rect2( 492, 0, 82, 98 )
+
+[sub_resource type="AtlasTexture" id=238]
+atlas = ExtResource( 7 )
+region = Rect2( 574, 0, 82, 98 )
+
+[sub_resource type="SpriteFrames" id=243]
+animations = [ {
+"frames": [ null, SubResource( 231 ), SubResource( 232 ), SubResource( 233 ), SubResource( 234 ), SubResource( 235 ), SubResource( 236 ), SubResource( 237 ), SubResource( 238 ) ],
+"loop": false,
+"name": "appears",
+"speed": 10.0
+}, {
+"frames": [ ExtResource( 8 ) ],
+"loop": true,
+"name": "sad",
+"speed": 5.0
+} ]
+
+[node name="Control" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 6 )
+
+[node name="asgore" type="AnimatedSprite" parent="."]
+position = Vector2( 320, 150 )
+scale = Vector2( 2, 2 )
+frames = SubResource( 240 )
+
+[node name="gui" type="Control" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+theme = SubResource( 241 )
+
+[node name="dial_cloud" type="Sprite" parent="gui"]
+visible = false
+position = Vector2( 400, 50 )
+texture = ExtResource( 5 )
+centered = false
+
+[node name="dial" type="RichTextLabel" parent="gui"]
+margin_left = 430.0
+margin_top = 55.0
+margin_right = 630.0
+margin_bottom = 145.0
+theme = SubResource( 242 )
+bbcode_enabled = true
+bbcode_text = "* Make peace not war pls"
+text = "* Make peace not war pls"
+scroll_active = false
+script = ExtResource( 2 )
+messages = [ "PHASE3_ENDING_DIAL_END1", "PHASE3_ENDING_DIAL_END2" ]
+player_controlled = true
+
+[node name="flowey" type="AnimatedSprite" parent="."]
+position = Vector2( 75, 200 )
+frames = SubResource( 243 )
+animation = "sad"
+
+[node name="Periodic" type="Node" parent="."]
+script = ExtResource( 1 )
+
+[node name="Tween" type="Tween" parent="."]
+
+[node name="ColorRect" type="ColorRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[connection signal="dialogue_ended" from="gui/dial" to="." method="_on_dial_dialogue_ended"]

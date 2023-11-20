@@ -47,6 +47,7 @@ func _on_attack_timer_timeout():
 	$Particles2D3.emitting = false
 	
 	framework.trigger_custom_event("buttons_destroyed")
+	$explosion.play()
 
 
 func _on_destroy_timeout():

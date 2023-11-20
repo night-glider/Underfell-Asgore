@@ -3,8 +3,13 @@ extends Control
 
 var test = 0
 
+
 func _ready():
 	$AnimationPlayer.play("start")
+	var music_player:AudioStreamPlayer = GlobalAudio.play_music( preload("res://audio/serenity.mp3") )
+	music_player.volume_db = -80
+	$Tween.interpolate_property(music_player, "volume_db", -80, 0, 4)
+	$Tween.start()
 
 func _process(delta):
 	test+=0.01
@@ -46,3 +51,6 @@ func _on_DialogueLabel_dialogue_custom_event(data):
 func _on_DialogueLabel_dialogue_ended():
 	$dialogue_box.visible = false
 	$AnimationPlayer.play("fade_in")
+
+func to_credits():
+	get_tree().change_scene("res://scenes/credits.tscn")

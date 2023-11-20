@@ -266,7 +266,10 @@ func player_attack_ended(damage):
 	emit_signal("enemy_hp_changed", enemy_hp)
 	$Periodic.add_method_oneshot(self, "ask_for_next_state", [state, []], 0.5)
 	if damage > 0:
-		GlobalAudio.play_sound( preload("res://audio/enemy_hitted.wav") )
+		if enemy_hp > 0:
+			GlobalAudio.play_sound( preload("res://audio/enemy_hitted.wav") )
+		else:
+			GlobalAudio.play_sound( preload("res://audio/heavy_hit.wav") )
 
 func enemy_attacks(attack:Attack):
 	$dial.stop_dialogue_silently()

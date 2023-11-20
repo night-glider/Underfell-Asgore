@@ -16,9 +16,11 @@ var shards_shake = [false,false,false,false,false,false]
 var fight_broken = false
 var act_broken = false
 var item_broken = false
+var hp_effect = false
+var hp_effect_zeros = 0
 
 func _ready():
-	$ColorRect/AnimationPlayer.play("fade_out")
+	$CanvasLayer/ColorRect/AnimationPlayer.play("fade_out")
 	
 	for shard in shards:
 		shards_original_pos.append(shard.position)
@@ -118,7 +120,26 @@ var attacks = [
 		"attack": preload("res://attacks/super_attack/sattack9/attack.tscn"),
 		"props":  preload("res://attacks/super_attack/sattack9/props.tres")
 	},
+	{
+		"attack": preload("res://attacks/super_attack/sattack10/attack.tscn"),
+		"props":  preload("res://attacks/super_attack/sattack10/props.tres")
+	},
+	{
+		"attack": preload("res://attacks/super_attack/sattack11/attack.tscn"),
+		"props":  preload("res://attacks/super_attack/sattack11/props.tres")
+	},
 ]
+
+#var attacks = [
+#	{
+#		"attack": preload("res://attacks/super_attack/sattack10/attack.tscn"),
+#		"props":  preload("res://attacks/super_attack/sattack10/props.tres")
+#	},
+#	{
+#		"attack": preload("res://attacks/super_attack/sattack11/attack.tscn"),
+#		"props":  preload("res://attacks/super_attack/sattack11/props.tres")
+#	},
+#]
 var current_attack_id = -1
 
 func next_attack():
@@ -134,8 +155,12 @@ func next_attack():
 func _on_battle_framework_attack_ended(attack):
 	next_attack()
 
-
 func _on_player_hp_changed(new_hp):
+	if hp_effect:
+		if new_hp <= 0:
+			$gui/hp.text = "0." + "0".repeat(hp_effect_zeros) + "1/20"
+			hp_effect_zeros+=1
+			return
 	$gui/TextureProgress.value = new_hp
 	$gui/hp.text = str(new_hp) + "/20"
 
@@ -145,4 +170,30 @@ func _on_battle_framework_attack_custom_event(type, data):
 		$player.position = data
 	if type == "buttons_destroyed":
 		on_buttons_destroy()
+	if type == "infinite_hp_effect":
+		hp_effect = true
+		$player.game_over_active = false
+	if type == "asgore_hflip":
+		$asgore.flip_h = data
+	if type == "end_phase":
+		$CanvasLayer/ColorRect/AnimationPlayer.play("fade_in")
+	if type == "change_asgore_sprite":
+		$asgore.frame = 0
+		$asgore.z_index = 0
+		if data == "roar":
+			$Periodic.add_method_oneshot($roar, "play", [], 5.33)
+		if data == "default":
+			$asgore.offset = Vector2(74, 0)
+			$asgore.scale = Vector2.ONE
+		else:
+			if data == "attack_blue" or data == "attack_orange":
+				$asgore.offset = Vector2(0, 35)
+				$asgore.z_index = 999
+			else:
+				$asgore.offset = Vector2(0,0)
+				$asgore.scale = Vector2(2,2)
+		$asgore.play(data)
 	
+
+func end_phase():
+	get_tree().change_scene("res://scenes/fight_phase_3_ending.tscn")

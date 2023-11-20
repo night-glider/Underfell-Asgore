@@ -41,9 +41,10 @@ func flash(id):
 	
 	last_flash.play("default")
 	last_flash.frame = 0
+	$eye_flash.play()
 
 func attack():
-	var attack = attacks.pop_back()
+	var attack = attacks.pop_front()
 	if attack == 0:
 		framework.trigger_custom_event("change_asgore_sprite", "attack_blue")
 	else:
@@ -53,6 +54,7 @@ func attack():
 	
 	framework.trigger_custom_event("asgore_hflip", not asgore_hflip)
 	asgore_hflip = not asgore_hflip
+	$swing.play()
 
 func spawn_projectile(type:int):
 	var new_proj = preload("res://attacks/attack9/projectile.tscn").instance()

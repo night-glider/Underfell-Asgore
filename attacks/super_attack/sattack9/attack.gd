@@ -39,6 +39,8 @@ func spawn_spike(pos):
 		new_proj.position.y = projectile_interval * i
 		new_proj.init(rand_range(-projectile_spd, projectile_spd), projectile_fade_spd, projectile_damp)
 		add_child(new_proj)
+	
+	$explosion.play()
 
 func attack():
 	if randf() > same_place_probability:

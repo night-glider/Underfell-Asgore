@@ -3,7 +3,7 @@ extends Projectile
 const center := Vector2(320,260)
 const radius = 100
 var vel:Vector2
-const n_spd = 0.1
+const n_spd = 0.2
 var stage = 0
 var n
 var target_n

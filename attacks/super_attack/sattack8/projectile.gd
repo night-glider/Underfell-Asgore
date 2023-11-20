@@ -31,6 +31,7 @@ func explode():
 		direction = direction.rotated(PI/4)
 	
 	GlobalGeneral.camera_shake(10, 3)
+	get_parent().play_explosion()
 	queue_free()
 
 func _process(delta):

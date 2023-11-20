@@ -1,0 +1,127 @@
+[gd_scene load_steps=11 format=2]
+
+[ext_resource path="res://custom_classes/dialogue_label.gd" type="Script" id=1]
+[ext_resource path="res://sprites/slide_4.png" type="Texture" id=2]
+[ext_resource path="res://sprites/slide_5.png" type="Texture" id=3]
+[ext_resource path="res://sprites/slide_3.png" type="Texture" id=4]
+[ext_resource path="res://sprites/slide_1.png" type="Texture" id=5]
+[ext_resource path="res://fonts/determination.ttf" type="DynamicFontData" id=6]
+[ext_resource path="res://scenes/ending_slides.gd" type="Script" id=7]
+[ext_resource path="res://custom_classes/periodic.gd" type="Script" id=8]
+
+[sub_resource type="DynamicFont" id=1]
+size = 32
+font_data = ExtResource( 6 )
+
+[sub_resource type="Theme" id=2]
+default_font = SubResource( 1 )
+
+[node name="Control" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+theme = SubResource( 2 )
+script = ExtResource( 7 )
+
+[node name="ColorRect" type="ColorRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0, 0, 0, 1 )
+
+[node name="slide1" type="TextureRect" parent="."]
+modulate = Color( 1, 1, 1, 0 )
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 100.0
+margin_right = 100.0
+texture = ExtResource( 5 )
+expand = true
+
+[node name="dial" type="RichTextLabel" parent="slide1"]
+anchor_left = 0.1
+anchor_top = 0.1
+anchor_right = 0.9
+anchor_bottom = 0.1
+margin_bottom = 200.0
+custom_colors/default_color = Color( 0.498039, 0.498039, 0.498039, 1 )
+text = "test"
+scroll_active = false
+script = ExtResource( 1 )
+messages = [ "SLIDES_DIAL1_1", "SLIDES_DIAL1_2" ]
+
+[node name="slide2" type="TextureRect" parent="."]
+modulate = Color( 1, 1, 1, 0 )
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -100.0
+margin_right = -100.0
+texture = ExtResource( 4 )
+expand = true
+
+[node name="dial" type="RichTextLabel" parent="slide2"]
+anchor_left = 0.1
+anchor_top = 0.1
+anchor_right = 0.9
+anchor_bottom = 0.1
+margin_bottom = 200.0
+custom_colors/default_color = Color( 1, 1, 1, 1 )
+text = "test"
+scroll_active = false
+script = ExtResource( 1 )
+messages = [ "SLIDES_DIAL2_1", "SLIDES_DIAL2_2", "SLIDES_DIAL2_3", "SLIDES_DIAL2_4" ]
+
+[node name="slide3" type="TextureRect" parent="."]
+modulate = Color( 1, 1, 1, 0 )
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_top = 100.0
+margin_bottom = 100.0
+texture = ExtResource( 2 )
+expand = true
+
+[node name="dial" type="RichTextLabel" parent="slide3"]
+anchor_left = 0.1
+anchor_top = 0.1
+anchor_right = 0.9
+anchor_bottom = 0.1
+margin_bottom = 200.0
+custom_colors/default_color = Color( 1, 1, 1, 1 )
+text = "test"
+scroll_active = false
+script = ExtResource( 1 )
+messages = [ "SLIDES_DIAL3_1", "SLIDES_DIAL3_2" ]
+
+[node name="slide4" type="TextureRect" parent="."]
+modulate = Color( 1, 1, 1, 0 )
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_top = -100.0
+margin_bottom = -100.0
+texture = ExtResource( 3 )
+expand = true
+
+[node name="dial" type="RichTextLabel" parent="slide4"]
+anchor_left = 0.1
+anchor_top = 0.1
+anchor_right = 0.9
+anchor_bottom = 0.1
+margin_bottom = 200.0
+custom_colors/default_color = Color( 1, 1, 1, 1 )
+text = "test"
+scroll_active = false
+script = ExtResource( 1 )
+messages = [ "SLIDES_DIAL4_1", "SLIDES_DIAL4_2" ]
+
+[node name="Tween" type="Tween" parent="."]
+
+[node name="Periodic" type="Node" parent="."]
+script = ExtResource( 8 )
+
+[node name="ColorRect2" type="ColorRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 1, 1, 1, 0 )
+
+[connection signal="dialogue_ended" from="slide1/dial" to="." method="_on_dial1_dialogue_ended"]
+[connection signal="dialogue_ended" from="slide2/dial" to="." method="_on_dial2_dialogue_ended"]
+[connection signal="dialogue_ended" from="slide3/dial" to="." method="_on_dial3_dialogue_ended"]
+[connection signal="dialogue_ended" from="slide4/dial" to="." method="_on_dial4_dialogue_ended"]

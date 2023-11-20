@@ -77,5 +77,8 @@ func show_gui():
 func next_room():
 	get_tree().change_scene("res://scenes/throne_room2.tscn")
 
+func cut_music():
+	$at_long_last.stop()
+
 func at_long_last_play():
 	$at_long_last.play()

@@ -35,6 +35,9 @@ func spawn_circle(position):
 		new_proj.type = type
 		new_proj.modulate = color
 		add_child(new_proj)
+	
+	GlobalGeneral.camera_shake(10, 5)
+	$explosion.play()
 
 func _on_Timer_timeout():
 	framework.stop_attack_softly()

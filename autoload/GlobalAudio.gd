@@ -15,13 +15,29 @@ func play_sound(sound:AudioStream):
 	audio_player.connect("finished", self, "_sound_finished", [audio_player])
 	audio_player.play()
 
-func play_music(music:AudioStream):
+func play_music(music:AudioStream)->AudioStreamPlayer:
 	var audio_player := AudioStreamPlayer.new()
 	add_child(audio_player)
 	audio_player.bus = "music"
 	audio_player.stream = music
 	audio_player.connect("finished", self, "_sound_finished", [audio_player])
 	audio_player.play()
+	return audio_player
+
+func stop_music():
+	for child in get_children():
+		if child is AudioStreamPlayer:
+			if child.bus == "music":
+				child.stop()
+				child.queue_free()
+
+func get_music_node() -> AudioStreamPlayer:
+	for child in get_children():
+		if child is AudioStreamPlayer:
+			if child.bus == "music":
+				return child
+	
+	return null
 
 func stop_all_sounds():
 	for child in get_children():

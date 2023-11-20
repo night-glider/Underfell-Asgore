@@ -199,11 +199,6 @@ func _on_attack_item_selected(index):
 			
 			$properties/easy/easy.add_child(prop_editor_easy)
 			$properties/hard/hard.add_child(prop_editor_hard)
-			
-			
-	
-	
-
 
 func _on_battle_framework_attack_started(attack):
 	$controls/start.text = "Stop"

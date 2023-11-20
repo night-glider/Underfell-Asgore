@@ -1,8 +1,10 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=14 format=2]
 
 [ext_resource path="res://attacks/super_attack/sattack10/attack.gd" type="Script" id=1]
+[ext_resource path="res://audio/asgore_eye_flash.wav" type="AudioStream" id=2]
 [ext_resource path="res://custom_classes/periodic.gd" type="Script" id=3]
 [ext_resource path="res://sprites/battle/eye_flash.png" type="Texture" id=4]
+[ext_resource path="res://audio/asgore_swing.wav" type="AudioStream" id=5]
 
 [sub_resource type="AtlasTexture" id=2]
 atlas = ExtResource( 4 )
@@ -63,6 +65,14 @@ position = Vector2( 340, 75 )
 frames = SubResource( 12 )
 frame = 7
 playing = true
+
+[node name="eye_flash" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 2 )
+bus = "sound"
+
+[node name="swing" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 5 )
+bus = "sound"
 
 [connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
 [connection signal="timeout" from="destroy" to="." method="_on_destroy_timeout"]

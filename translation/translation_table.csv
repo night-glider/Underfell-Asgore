@@ -72,7 +72,7 @@ THRONE_ASGORE_DIALOGUE15,*You have to understand...
 THRONE_ASGORE_DIALOGUE16,*I can't allow any of this to stop me.
 THRONE_ASGORE_DIALOGUE17,*All of what you've done can't make up for what's been lost.
 THRONE_ASGORE_DIALOGUE18,*My people and I have waited for too long.
-THRONE_ASGORE_DIALOGUE19,*I'm sorry.
+THRONE_ASGORE_DIALOGUE19,[event take_to_barrier]*I'm sorry.
 THRONE_ASGORE_TRANSITION_DIAL1,"[snd asgore][center][color=red]*Follow me, child."
 THRONE_ASGORE_TRANSITION_DIAL2,[center][color=red]*Destiny calls to us both.
 BATTLE_INTRO1,(A strange light fills the room.)
@@ -191,12 +191,82 @@ BAD_ENDING_EPILOGUE13,"[color=gray]* But now, it's time for you to join us."
 BAD_ENDING_EPILOGUE14,"[color=gray]* Come on, before your tea gets cold."
 BAD_ENDING_EPILOGUE15,[snd asgore][event turn_on_faces][event face_asgore5]* ...
 BAD_ENDING_EPILOGUE16,[event face_asgore6]* I missed you all so much…
-FIGHT_PHASE1_END_DIAL1,[event enemy_dial]Is this some sort of joke?
+FIGHT_PHASE1_END_DIAL1,[event enemy_dial][snd asgore]Is this some sort of joke?
 FIGHT_PHASE1_END_DIAL2,Do you seriously still expect something to happen...
 FIGHT_PHASE1_END_DIAL3,Just because I spilled my guts out to you?
 FIGHT_PHASE1_END_DIAL4,I've already told you...
 FIGHT_PHASE1_END_DIAL5,You aren't leaving here alive.
 FIGHT_PHASE1_END_DIAL6,[event his_reluctance]Quit this foolish act...
 FIGHT_PHASE1_END_DIAL7,Stop making things more difficult.
-FIGHT_PHASE3_TRANSITION1,"My children must live, even if it kills me!"
+FIGHT_PHASE3_TRANSITION1,"[snd asgore]My children must live, even if it kills me!"
 FIGHT_PHASE3_TRANSITION2,"If you won’t fight, then stand still and die like you’re supposed to!!"
+PHASE3_ENDING_DIAL1,[snd asgore]...
+PHASE3_ENDING_DIAL2,To think I had it in me to destroy your kind...
+PHASE3_ENDING_DIAL3,I can’t even bring myself to kill you.
+PHASE3_ENDING_DIAL4,"This was your plan, wasn't it?"
+PHASE3_ENDING_DIAL5,To exhaust me?
+PHASE3_ENDING_DIAL6,To have me on my knees?
+PHASE3_ENDING_DIAL7,"Well, now’s your chance."
+PHASE3_ENDING_DIAL8,Please…
+PHASE3_ENDING_DIAL9,Just let me be with my family again.
+PHASE3_ENDING_MERCY1,…?
+PHASE3_ENDING_MERCY2,What are you doing?
+PHASE3_ENDING_MERCY3,Stop it.
+PHASE3_ENDING_MERCY4,Why are you still doing this?
+PHASE3_ENDING_MERCY5,Do you really pity me that much?
+PHASE3_ENDING_MERCY6,Please stop.
+PHASE3_ENDING_MERCY7,I don’t understand.
+PHASE3_ENDING_MERCY8,I can't understand.
+PHASE3_ENDING_MERCY9,I…
+PHASE3_ENDING_DIAL_CONTINUE1,…
+PHASE3_ENDING_DIAL_CONTINUE2,I remember the day I lost my son...
+PHASE3_ENDING_DIAL_CONTINUE3,My wife and I were already in mourning from another child lost...
+PHASE3_ENDING_DIAL_CONTINUE4,"A human, like yourself, who fell from the surface."
+PHASE3_ENDING_DIAL_CONTINUE5,My son was determined not to let his sibling’s death be in vain.
+PHASE3_ENDING_DIAL_CONTINUE6,He left for the surface with their soul.
+PHASE3_ENDING_DIAL_CONTINUE7,"But, within a few hours he returned."
+PHASE3_ENDING_DIAL_CONTINUE8,He was so badly wounded...
+PHASE3_ENDING_DIAL_CONTINUE9,He couldn’t speak a single word.
+PHASE3_ENDING_DIAL_CONTINUE10,It wasn’t long before he was gone.
+PHASE3_ENDING_DIAL_CONTINUE11,"In my grief, I lashed out..."
+PHASE3_ENDING_DIAL_CONTINUE12,[event flowey_appears]Everything is like this because of me...
+PHASE3_ENDING_DIAL_CONTINUE13,[event flowey_talks][snd flowey]Enough!
+PHASE3_ENDING_DIAL_CONTINUE14,"I could forgive the nihilism, the neglect of your people, the SOUL snatching..."
+PHASE3_ENDING_DIAL_CONTINUE15,But you've allowed your pain to define your entire legacy.
+PHASE3_ENDING_DIAL_CONTINUE16,If you truely cared about saving the underground...
+PHASE3_ENDING_DIAL_CONTINUE17,You would be the leader it needs.
+PHASE3_ENDING_DIAL_CONTINUE18,[event flowey_sad]You’ve allowed yourself to go on like this for ages...
+PHASE3_ENDING_DIAL_CONTINUE19,[snd asgore][event asgore_talks]I know…
+PHASE3_ENDING_DIAL_CONTINUE20,[snd flowey][event flowey_talks]But you can still be that leader right now.
+PHASE3_ENDING_DIAL_CONTINUE21,"It’s never too late, Asgore."
+PHASE3_ENDING_DIAL_CONTINUE22,Let us help you.
+PHASE3_ENDING_DIAL_CONTINUE23,[snd asgore][event asgore_talks]You’re right…
+PHASE3_ENDING_DIAL_CONTINUE24,About everything.
+SLIDES_DIAL1_1,I could have brought their hopes up.
+SLIDES_DIAL1_2,"But, Instead I blamed everyone."
+SLIDES_DIAL2_1,"My guards, my wife, my whole kingdom."
+SLIDES_DIAL2_2,But not myself.
+SLIDES_DIAL2_3,Never myself.
+SLIDES_DIAL2_4,Until it was too late.
+SLIDES_DIAL3_1,My wife became disgusted with me.
+SLIDES_DIAL3_2,She left and I never saw her again.
+SLIDES_DIAL4_1,I hurt so people through my desperation to get away from everything.
+SLIDES_DIAL4_2,And justified all of it with nonsense.
+PHASE3_ENDING_DIAL_END1,[snd asgore]I’m so sorry.
+PHASE3_ENDING_DIAL_END2,I just miss them so much...
+ENDING_OVERWORLD_DIAL1,"[snd asgore][event asgore_emotion1]Thank you, both of you."
+ENDING_OVERWORLD_DIAL2,I promise that I will take full responsibility for my wrong doings.
+ENDING_OVERWORLD_DIAL3,I will do everything in my power to make things right.
+ENDING_OVERWORLD_DIAL4,So many have been hurt in my wake.
+ENDING_OVERWORLD_DIAL5,I don't expect forgiveness from everyone.
+ENDING_OVERWORLD_DIAL6,[snd flowey][event flowey_emotion1]Don't sell yourself short!
+ENDING_OVERWORLD_DIAL7,"It might take a while, but in time..."
+ENDING_OVERWORLD_DIAL8,I’m sure everyone will come around.
+ENDING_OVERWORLD_DIAL9,"[snd asgore][event asgore_emotion1]Young one, you may have to stay here for a while..."
+ENDING_OVERWORLD_DIAL10,At least until a new solution for the barrier is found.
+ENDING_OVERWORLD_DIAL11,I promise I will take good care of you.
+ENDING_OVERWORLD_DIAL12,"We can sit in the living room, telling stories, eating butterscotch pie."
+ENDING_OVERWORLD_DIAL13,We could be like a family.
+ENDING_OVERWORLD_DIAL14,...
+ENDING_OVERWORLD_DIAL15,Let’s leave this place...
+ENDING_OVERWORLD_DIAL16,Together.

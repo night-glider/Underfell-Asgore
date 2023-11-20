@@ -1,0 +1,237 @@
+[gd_scene load_steps=33 format=2]
+
+[ext_resource path="res://fonts/determination.ttf" type="DynamicFontData" id=1]
+[ext_resource path="res://sprites/battle/asgore_defeated.png" type="Texture" id=2]
+[ext_resource path="res://fonts/8bit_operator.ttf" type="DynamicFontData" id=3]
+[ext_resource path="res://custom_classes/dialogue_label.gd" type="Script" id=4]
+[ext_resource path="res://scenes/fight_phase_3_ending.gd" type="Script" id=5]
+[ext_resource path="res://sprites/battle/mercy_button.png" type="Texture" id=6]
+[ext_resource path="res://sprites/battle/soul.png" type="Texture" id=7]
+[ext_resource path="res://sprites/battle/dialogue_cloud.png" type="Texture" id=12]
+[ext_resource path="res://sprites/battle/flowey_appears_angry.png" type="Texture" id=13]
+[ext_resource path="res://sprites/battle/dialogue_cloud2.png" type="Texture" id=14]
+[ext_resource path="res://sprites/battle/flowey_sad.png" type="Texture" id=15]
+[ext_resource path="res://custom_classes/periodic.gd" type="Script" id=16]
+
+[sub_resource type="SpriteFrames" id=215]
+animations = [ {
+"frames": [ ExtResource( 2 ) ],
+"loop": true,
+"name": "default",
+"speed": 5.0
+} ]
+
+[sub_resource type="DynamicFont" id=239]
+size = 24
+font_data = ExtResource( 3 )
+
+[sub_resource type="Theme" id=214]
+default_font = SubResource( 239 )
+
+[sub_resource type="DynamicFont" id=240]
+font_data = ExtResource( 1 )
+
+[sub_resource type="Theme" id=66]
+default_font = SubResource( 240 )
+RichTextLabel/colors/default_color = Color( 0, 0, 0, 1 )
+
+[sub_resource type="AtlasTexture" id=231]
+atlas = ExtResource( 13 )
+region = Rect2( 0, 0, 82, 98 )
+
+[sub_resource type="AtlasTexture" id=232]
+atlas = ExtResource( 13 )
+region = Rect2( 82, 0, 82, 98 )
+
+[sub_resource type="AtlasTexture" id=233]
+atlas = ExtResource( 13 )
+region = Rect2( 164, 0, 82, 98 )
+
+[sub_resource type="AtlasTexture" id=234]
+atlas = ExtResource( 13 )
+region = Rect2( 246, 0, 82, 98 )
+
+[sub_resource type="AtlasTexture" id=235]
+atlas = ExtResource( 13 )
+region = Rect2( 328, 0, 82, 98 )
+
+[sub_resource type="AtlasTexture" id=236]
+atlas = ExtResource( 13 )
+region = Rect2( 410, 0, 82, 98 )
+
+[sub_resource type="AtlasTexture" id=237]
+atlas = ExtResource( 13 )
+region = Rect2( 492, 0, 82, 98 )
+
+[sub_resource type="AtlasTexture" id=238]
+atlas = ExtResource( 13 )
+region = Rect2( 574, 0, 82, 98 )
+
+[sub_resource type="SpriteFrames" id=230]
+animations = [ {
+"frames": [ null, SubResource( 231 ), SubResource( 232 ), SubResource( 233 ), SubResource( 234 ), SubResource( 235 ), SubResource( 236 ), SubResource( 237 ), SubResource( 238 ) ],
+"loop": false,
+"name": "appears",
+"speed": 10.0
+}, {
+"frames": [ ExtResource( 15 ) ],
+"loop": true,
+"name": "sad",
+"speed": 5.0
+} ]
+
+[sub_resource type="AtlasTexture" id=216]
+atlas = ExtResource( 6 )
+region = Rect2( 0, 39, 102, 39 )
+
+[sub_resource type="AtlasTexture" id=217]
+atlas = ExtResource( 6 )
+region = Rect2( 0, 0, 102, 39 )
+
+[sub_resource type="SpriteFrames" id=218]
+animations = [ {
+"frames": [ SubResource( 216 ) ],
+"loop": true,
+"name": "active",
+"speed": 5.0
+}, {
+"frames": [ SubResource( 217 ) ],
+"loop": true,
+"name": "default",
+"speed": 5.0
+} ]
+
+[sub_resource type="Animation" id=219]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("rect:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ) ]
+}
+
+[sub_resource type="Animation" id=220]
+resource_name = "rect_fade_in"
+tracks/0/type = "value"
+tracks/0/path = NodePath("rect:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
+}
+tracks/1/type = "method"
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 1 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [ true ],
+"method": "toggle_mercy"
+} ]
+}
+
+[sub_resource type="Animation" id=221]
+resource_name = "rect_fade_out"
+tracks/0/type = "value"
+tracks/0/path = NodePath("rect:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
+}
+
+[node name="transition" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 5 )
+
+[node name="asgore" type="AnimatedSprite" parent="."]
+position = Vector2( 320, 150 )
+scale = Vector2( 2, 2 )
+frames = SubResource( 215 )
+
+[node name="gui" type="Control" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+theme = SubResource( 214 )
+
+[node name="dial_cloud" type="Sprite" parent="gui"]
+visible = false
+position = Vector2( 400, 50 )
+texture = ExtResource( 12 )
+centered = false
+
+[node name="dial_cloud_flowey" type="Sprite" parent="gui"]
+visible = false
+position = Vector2( 140, 320 )
+texture = ExtResource( 14 )
+
+[node name="dial" type="RichTextLabel" parent="gui"]
+margin_left = 430.0
+margin_top = 55.0
+margin_right = 630.0
+margin_bottom = 145.0
+theme = SubResource( 66 )
+bbcode_enabled = true
+bbcode_text = "* Make peace not war pls"
+text = "* Make peace not war pls"
+scroll_active = false
+script = ExtResource( 4 )
+messages = [ "FIGHT_PHASE3_TRANSITION1", "FIGHT_PHASE3_TRANSITION2" ]
+player_controlled = true
+
+[node name="Periodic" type="Node" parent="."]
+script = ExtResource( 16 )
+
+[node name="flowey" type="AnimatedSprite" parent="."]
+position = Vector2( 75, 200 )
+frames = SubResource( 230 )
+animation = "appears"
+
+[node name="rect" type="ReferenceRect" parent="."]
+modulate = Color( 1, 1, 1, 0 )
+margin_left = 32.0
+margin_top = 320.0
+margin_right = 608.0
+margin_bottom = 456.0
+border_color = Color( 1, 1, 1, 1 )
+border_width = 5.0
+editor_only = false
+
+[node name="mercy" type="AnimatedSprite" parent="rect"]
+position = Vector2( 288, 68 )
+frames = SubResource( 218 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/RESET = SubResource( 219 )
+anims/rect_fade_in = SubResource( 220 )
+anims/rect_fade_out = SubResource( 221 )
+
+[node name="soul" type="Sprite" parent="."]
+modulate = Color( 1, 0, 0, 1 )
+position = Vector2( -100, -100 )
+texture = ExtResource( 7 )
+
+[connection signal="animation_finished" from="asgore" to="." method="_on_asgore_animation_finished"]
+[connection signal="dialogue_custom_event" from="gui/dial" to="." method="_on_dial_dialogue_custom_event"]
+[connection signal="dialogue_ended" from="gui/dial" to="." method="_on_dial_dialogue_ended"]

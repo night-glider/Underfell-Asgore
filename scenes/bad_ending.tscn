@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=2]
+[gd_scene load_steps=24 format=2]
 
 [ext_resource path="res://scenes/bad_ending.gd" type="Script" id=1]
 [ext_resource path="res://sprites/battle/asgore_defeated_shocked.png" type="Texture" id=2]
@@ -14,7 +14,6 @@
 [ext_resource path="res://sprites/battle/soul_glow.png" type="Texture" id=12]
 [ext_resource path="res://audio/battle_flash.wav" type="AudioStream" id=13]
 [ext_resource path="res://audio/scythe_transition.mp3" type="AudioStream" id=14]
-[ext_resource path="res://audio/asgore_takes_to_barrier.ogg" type="AudioStream" id=15]
 [ext_resource path="res://audio/dust.wav" type="AudioStream" id=16]
 
 [sub_resource type="SpriteFrames" id=198]
@@ -162,7 +161,7 @@ tracks/9/keys = {
 
 [sub_resource type="Animation" id=199]
 resource_name = "suicide"
-length = 10.0
+length = 14.0
 tracks/0/type = "value"
 tracks/0/path = NodePath("scythe_cutscene:visible")
 tracks/0/interp = 1
@@ -238,10 +237,10 @@ tracks/5/loop_wrap = true
 tracks/5/imported = false
 tracks/5/enabled = true
 tracks/5/keys = {
-"times": PoolRealArray( 7, 10 ),
-"transitions": PoolRealArray( 1, 1 ),
+"times": PoolRealArray( 0, 7, 12 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
 "update": 0,
-"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
 }
 tracks/6/type = "value"
 tracks/6/path = NodePath("SoulGlow:scale")
@@ -250,10 +249,10 @@ tracks/6/loop_wrap = true
 tracks/6/imported = false
 tracks/6/enabled = true
 tracks/6/keys = {
-"times": PoolRealArray( 7, 10 ),
-"transitions": PoolRealArray( 1, 1 ),
+"times": PoolRealArray( 0, 7, 12 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
 "update": 0,
-"values": [ Vector2( 1, 1 ), Vector2( 10, 10 ) ]
+"values": [ Vector2( 1, 1 ), Vector2( 1, 1 ), Vector2( 10, 10 ) ]
 }
 tracks/7/type = "value"
 tracks/7/path = NodePath("asgore:visible")
@@ -410,7 +409,7 @@ anims/RESET = SubResource( 200 )
 anims/suicide = SubResource( 199 )
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="AnimationPlayer"]
-stream = ExtResource( 15 )
+stream = ExtResource( 16 )
 bus = "sound"
 
 [node name="CameraExtended" type="Camera2D" parent="."]

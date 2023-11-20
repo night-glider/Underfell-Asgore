@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/his_reluctance.mp3-fe62f5995979060abcf73269e151439c.mp3str"
+
+[deps]
+
+source_file="res://audio/his_reluctance.mp3"
+dest_files=[ "res://.import/his_reluctance.mp3-fe62f5995979060abcf73269e151439c.mp3str" ]
+
+[params]
+
+loop=false
+loop_offset=0

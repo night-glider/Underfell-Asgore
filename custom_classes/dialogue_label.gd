@@ -5,7 +5,8 @@ export(Array, String) var messages := ["HELLO_WORLD"]
 export var sound_bits := {
 	"null": null,
 	"asgore": preload("res://audio/asgore_talk.ogg"),
-	"default": preload("res://audio/talk_default.wav")
+	"default": preload("res://audio/talk_default.wav"),
+	"flowey": preload("res://audio/flowey_talk.ogg")
 }
 export var silent_symbols := [",", ".", "-", " ", "[", "]"]
 export var text_speed := 0.25

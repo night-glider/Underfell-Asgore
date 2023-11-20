@@ -1,7 +1,7 @@
 extends Control
 
 var refuse_dials = []
-var current_refuse_dial = 14
+var current_refuse_dial = 0
 var attacks = [
 	{
 		"attack": preload("res://attacks/attack2/attack.tscn"),
@@ -22,14 +22,35 @@ var attacks = [
 		"attack": preload("res://attacks/attack5/attack.tscn"),
 		"easy": preload("res://attacks/attack5/easy.tres"),
 		"hard": preload("res://attacks/attack5/hard.tres")
+	},
+	{
+		"attack": preload("res://attacks/attack6/attack.tscn"),
+		"easy": preload("res://attacks/attack6/easy.tres"),
+		"hard": preload("res://attacks/attack6/hard.tres")
+	},
+	{
+		"attack": preload("res://attacks/attack7/attack.tscn"),
+		"easy": preload("res://attacks/attack7/easy.tres"),
+		"hard": preload("res://attacks/attack7/hard.tres")
+	},
+	{
+		"attack": preload("res://attacks/attack8/attack.tscn"),
+		"easy": preload("res://attacks/attack8/easy.tres"),
+		"hard": preload("res://attacks/attack8/hard.tres")
+	},
+	{
+		"attack": preload("res://attacks/attack9/attack.tscn"),
+		"easy": preload("res://attacks/attack9/easy.tres"),
+		"hard": preload("res://attacks/attack9/hard.tres")
 	}
 ]
-var enemy_hp = 50
+var enemy_hp = 10000
 
 var music_fade_in = false
 
 func _ready():
-	$player.hp = 1
+	$AnimationPlayer.play("start_fade_in")
+	$player.hp = 20
 	$battle_framework.init($player)
 	$battle_gui.main_menu_text = "BATTLE_ASGORE_ATTACKS"
 	$battle_gui.init($player, $battle_framework, enemy_hp)
@@ -65,6 +86,7 @@ func _on_battle_gui_act_pressed(option_id):
 				"FIGHT_PHASE1_END_DIAL7"
 			])
 			current_refuse_dial+=1
+			init_2_phase()
 			return
 		$battle_gui.start_dialogue(refuse_dials[current_refuse_dial])
 		current_refuse_dial+=1
@@ -113,7 +135,7 @@ func init_2_phase():
 
 func _process(delta):
 	if music_fade_in:
-		$AudioStreamPlayer.volume_db = linear2db(db2linear($AudioStreamPlayer.volume_db)-0.01)
+		$AudioStreamPlayer.volume_db = lerp($AudioStreamPlayer.volume_db, -80, 0.001)
 
 func go_to_2_phase():
 	var backgorund:Node = $fight_background
@@ -134,4 +156,26 @@ func go_to_2_phase():
 
 func _on_battle_gui_dialogue_custom_event(data):
 	if data == "his_reluctance":
-		OS.alert("his reluctance plays!")
+		GlobalAudio.play_music( preload("res://audio/his_reluctance.mp3") )
+
+func skip_refuse_dials():
+	current_refuse_dial = len(refuse_dials)
+
+func set_enemy_hp(val):
+	enemy_hp = val
+	$battle_gui.enemy_hp = val
+
+
+
+func _on_battle_framework_attack_custom_event(type, data):
+	if type == "change_asgore_sprite":
+		$asgore.frame = 0
+		$asgore.play(data)
+		if data == "attack_blue" or data == "attack_orange":
+			$asgore.offset = Vector2(0, 35)
+			$asgore.z_index = 999
+		else:
+			$asgore.offset = Vector2.ZERO
+			$asgore.z_index = 0
+	if type == "asgore_hflip":
+		$asgore.flip_h = data

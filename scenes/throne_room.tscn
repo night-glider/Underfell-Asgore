@@ -149,7 +149,7 @@ tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 7.9, 8 ),
+"times": PoolRealArray( 0, 4.4, 4.5 ),
 "transitions": PoolRealArray( 1, 1, 1 ),
 "update": 0,
 "values": [ Color( 0, 0, 0, 0 ), Color( 0, 0, 0, 0 ), Color( 0, 0, 0, 1 ) ]
@@ -166,7 +166,7 @@ tracks/1/keys = {
 "start_offset": 0.0,
 "stream": ExtResource( 10 )
 } ],
-"times": PoolRealArray( 3.5 )
+"times": PoolRealArray( 0 )
 }
 tracks/2/type = "method"
 tracks/2/path = NodePath(".")
@@ -175,9 +175,12 @@ tracks/2/loop_wrap = true
 tracks/2/imported = false
 tracks/2/enabled = true
 tracks/2/keys = {
-"times": PoolRealArray( 8.5 ),
-"transitions": PoolRealArray( 1 ),
+"times": PoolRealArray( 4.5, 6 ),
+"transitions": PoolRealArray( 1, 1 ),
 "values": [ {
+"args": [  ],
+"method": "cut_music"
+}, {
 "args": [  ],
 "method": "next_room"
 } ]

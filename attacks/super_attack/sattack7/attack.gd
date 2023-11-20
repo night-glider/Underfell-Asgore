@@ -49,6 +49,7 @@ func create_projectiles(type:int):
 
 func _on_Timer_timeout():
 	framework.stop_attack_softly()
+	$Periodic.add_method_oneshot(self, "queue_free", [], 2)
 
 
 func _on_healing_timeout():

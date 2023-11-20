@@ -1,4 +1,4 @@
-[gd_scene load_steps=142 format=2]
+[gd_scene load_steps=143 format=2]
 
 [ext_resource path="res://fonts/determination.ttf" type="DynamicFontData" id=1]
 [ext_resource path="res://fonts/Mars_Needs_Cunnilingus.ttf" type="DynamicFontData" id=2]
@@ -16,6 +16,7 @@
 [ext_resource path="res://sprites/battle/asgore_rage_transition.png" type="Texture" id=14]
 [ext_resource path="res://sprites/battle/asgore_in_fight.png" type="Texture" id=15]
 [ext_resource path="res://custom_classes/periodic.gd" type="Script" id=16]
+[ext_resource path="res://audio/asgore_eye_flash.wav" type="AudioStream" id=17]
 
 [sub_resource type="AtlasTexture" id=102]
 atlas = ExtResource( 15 )
@@ -634,6 +635,12 @@ player_controlled = true
 
 [node name="Periodic" type="Node" parent="."]
 script = ExtResource( 16 )
+
+[node name="Tween" type="Tween" parent="."]
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 17 )
+bus = "sound"
 
 [connection signal="animation_finished" from="asgore" to="." method="_on_asgore_animation_finished"]
 [connection signal="dialogue_ended" from="gui/dial" to="." method="_on_dial_dialogue_ended"]

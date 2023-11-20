@@ -7,12 +7,12 @@ script = ExtResource( 1 )
 paste_properties_here = ""
 properties = {
 "attack_count": 4,
-"attack_duration": 8.0,
+"attack_duration": 5.0,
 "attacks_delay": 0.5,
 "attacks_interval": 0.5,
 "box_pos_x": 320,
-"box_pos_y": 360,
-"box_size_x": 200,
+"box_pos_y": 345,
+"box_size_x": 210,
 "box_size_y": 100,
 "flash_delay": 0.5,
 "flash_interval": 0.5,

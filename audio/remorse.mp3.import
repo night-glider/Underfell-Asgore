@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/remorse.mp3-b4a4bfe4145e107bbf6f5b388ac1bfd2.mp3str"
+
+[deps]
+
+source_file="res://audio/remorse.mp3"
+dest_files=[ "res://.import/remorse.mp3-b4a4bfe4145e107bbf6f5b388ac1bfd2.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/closure.mp3-6651168b3afffb8db6ef449fb5752144.mp3str"
+
+[deps]
+
+source_file="res://audio/closure.mp3"
+dest_files=[ "res://.import/closure.mp3-6651168b3afffb8db6ef449fb5752144.mp3str" ]
+
+[params]
+
+loop=false
+loop_offset=0

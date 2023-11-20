@@ -15,5 +15,6 @@ properties = {
 "player_spawn_y": 260,
 "projectile_speed": 1.5,
 "spawn_timing": 0.75,
+"undyne_trap_timing": 4.2,
 "yellow_projectile_chance": 0.25
 }

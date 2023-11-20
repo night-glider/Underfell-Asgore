@@ -58,12 +58,12 @@ func _on_player_hp_changed(new_hp):
 func _on_battle_framework_attack_ended(_attack):
 	var attack_data = attacks.pop_front()
 	
+	if attacks.empty():
+		background_fade = true
+	
 	if attack_data == null:
 		get_tree().change_scene("res://scenes/fight_phase_3_transition.tscn")
 		return
-	
-	if attacks.empty():
-		background_fade = true
 	
 	var attack = attack_data["attack"].instance()
 	var hard = attack_data["hard"]
@@ -75,3 +75,17 @@ func _on_battle_framework_attack_ended(_attack):
 	
 	$ColorRect/AnimationPlayer.play("flash")
 	attacks_survived+=1
+
+
+func _on_battle_framework_attack_custom_event(type, data):
+	if type == "change_asgore_sprite":
+		$asgore.frame = 0
+		$asgore.play(data)
+		if data == "attack_blue" or data == "attack_orange":
+			$asgore.offset = Vector2(0, 35)
+			$asgore.z_index = 999
+		else:
+			$asgore.offset = Vector2.ZERO
+			$asgore.z_index = 0
+	if type == "asgore_hflip":
+		$asgore.flip_h = data
