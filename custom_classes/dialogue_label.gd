@@ -9,6 +9,7 @@ export var sound_bits := {
 	"flowey": preload("res://audio/flowey_talk.ogg")
 }
 export var silent_symbols := [",", ".", "-", " ", "[", "]"]
+export var double_delay_symbols := [",", "."]
 export var text_speed := 0.25
 export var player_controlled = false
 
@@ -189,6 +190,8 @@ func _advance_text():
 		if visible_characters > 1:
 			if not text[visible_characters-1] in silent_symbols:
 					audio_player.play()
+			if text[visible_characters-1] in double_delay_symbols:
+				delay_frames = 10
 	chars_to_display-=floor(chars_to_display)
 	
 	
