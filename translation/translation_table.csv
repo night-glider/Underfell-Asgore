@@ -54,11 +54,11 @@ DISCLAIMER,DISCLAIMER
 DISCLAIMER_TEXT,"This is a non-profit fangame and all characters are property of Toby Fox. We; the Underfell Asgore team recommend that you play UNDERTALE first, as this game contains spoilers for the original game.
 
 With that being said, we hope you enjoy!"
-THRONE_ASGORE_DIALOGUE1,[snd asgore][event face_asgore1]*Welcome.
-THRONE_ASGORE_DIALOGUE2,*You must have had an awful journey.
-THRONE_ASGORE_DIALOGUE3,*Especially with some of the real monsters that lurk out there.
-THRONE_ASGORE_DIALOGUE4,"*Unfortunately, you will have to face one more tonight."
-THRONE_ASGORE_DIALOGUE5,*I've been waiting for you.
+THRONE_ASGORE_DIALOGUE1,[noskip][snd asgore][event face_asgore1]*Welcome.
+THRONE_ASGORE_DIALOGUE2,[noskip]*You must have had an awful journey.
+THRONE_ASGORE_DIALOGUE3,[noskip]*Especially with some of the real monsters that lurk out there.
+THRONE_ASGORE_DIALOGUE4,"[noskip]*Unfortunately, you will have to face one more tonight."
+THRONE_ASGORE_DIALOGUE5,[noskip]*I've been waiting for you.
 THRONE_ASGORE_DIALOGUE6,[event asgore_stand_up][event face_asgore0][wait 150]*When they told me a child managed to live through some of the most treacherous conditions imaginable...
 THRONE_ASGORE_DIALOGUE7,"*That they not only survived, but even managed to befriend all who they encountered."
 THRONE_ASGORE_DIALOGUE8,*I almost laughed.
@@ -72,7 +72,7 @@ THRONE_ASGORE_DIALOGUE15,*You have to understand...
 THRONE_ASGORE_DIALOGUE16,*I can't allow any of this to stop me.
 THRONE_ASGORE_DIALOGUE17,*All of what you've done can't make up for what's been lost.
 THRONE_ASGORE_DIALOGUE18,*My people and I have waited for too long.
-THRONE_ASGORE_DIALOGUE19,[event take_to_barrier]*I'm sorry.
+THRONE_ASGORE_DIALOGUE19,[noskip][event take_to_barrier]*I'm sorry.
 THRONE_ASGORE_TRANSITION_DIAL1,"[snd asgore][center][color=red]*Follow me, child."
 THRONE_ASGORE_TRANSITION_DIAL2,[center][color=red]*Destiny calls to us both.
 BATTLE_INTRO1,(A strange light fills the room.)
@@ -242,15 +242,15 @@ PHASE3_ENDING_DIAL_CONTINUE21,"It’s never too late, Asgore."
 PHASE3_ENDING_DIAL_CONTINUE22,Let us help you.
 PHASE3_ENDING_DIAL_CONTINUE23,[snd asgore][event asgore_talks]You’re right…
 PHASE3_ENDING_DIAL_CONTINUE24,About everything.
-SLIDES_DIAL1_1,I could have brought their hopes up.
+SLIDES_DIAL1_1,[snd asgore]I could have brought their hopes up.
 SLIDES_DIAL1_2,"But, Instead I blamed everyone."
-SLIDES_DIAL2_1,"My guards, my wife, my whole kingdom."
+SLIDES_DIAL2_1,"[snd asgore]My guards, my wife, my whole kingdom."
 SLIDES_DIAL2_2,But not myself.
 SLIDES_DIAL2_3,Never myself.
 SLIDES_DIAL2_4,Until it was too late.
-SLIDES_DIAL3_1,My wife became disgusted with me.
+SLIDES_DIAL3_1,[snd asgore]My wife became disgusted with me.
 SLIDES_DIAL3_2,She left and I never saw her again.
-SLIDES_DIAL4_1,I hurt so people through my desperation to get away from everything.
+SLIDES_DIAL4_1,[snd asgore]I hurt so people through my desperation to get away from everything.
 SLIDES_DIAL4_2,And justified all of it with nonsense.
 PHASE3_ENDING_DIAL_END1,[snd asgore]I’m so sorry.
 PHASE3_ENDING_DIAL_END2,I just miss them so much...
