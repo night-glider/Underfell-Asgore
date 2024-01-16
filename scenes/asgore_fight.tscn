@@ -615,7 +615,7 @@ tracks/5/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 0,
-"values": [ Color( 1, 1, 1, 1 ) ]
+"values": [ Color( 0, 0, 0, 1 ) ]
 }
 tracks/6/type = "value"
 tracks/6/path = NodePath("AudioStreamPlayer:volume_db")
@@ -720,7 +720,7 @@ tracks/0/keys = {
 "times": PoolRealArray( 0, 0.5 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 0,
-"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
+"values": [ Color( 0, 0, 0, 1 ), Color( 0, 0, 0, 0 ) ]
 }
 
 [node name="fight" type="Control"]
@@ -748,7 +748,7 @@ texture = ExtResource( 2 )
 position = Vector2( 320, 150 )
 scale = Vector2( 2, 2 )
 frames = SubResource( 200 )
-frame = 62
+frame = 82
 playing = true
 script = ExtResource( 8 )
 
@@ -771,6 +771,7 @@ bus = "music"
 [node name="ColorRect" type="ColorRect" parent="."]
 anchor_right = 1.0
 anchor_bottom = 1.0
+color = Color( 0, 0, 0, 1 )
 
 [connection signal="attack_custom_event" from="battle_framework" to="." method="_on_battle_framework_attack_custom_event"]
 [connection signal="attack_ended" from="battle_framework" to="." method="_on_battle_framework_attack_ended"]
