@@ -112,7 +112,7 @@ animations = [ {
 "name": "stand_up",
 "speed": 5.0
 }, {
-"frames": [ SubResource( 34 ), SubResource( 35 ), SubResource( 35 ), SubResource( 35 ), SubResource( 36 ), SubResource( 36 ), SubResource( 36 ), SubResource( 36 ), SubResource( 36 ), SubResource( 35 ), SubResource( 35 ), SubResource( 35 ), SubResource( 34 ) ],
+"frames": [ SubResource( 34 ), SubResource( 35 ), SubResource( 35 ), SubResource( 35 ), SubResource( 36 ), SubResource( 36 ), SubResource( 36 ), SubResource( 36 ), SubResource( 36 ), SubResource( 36 ), SubResource( 36 ), SubResource( 36 ), SubResource( 36 ), SubResource( 36 ), SubResource( 36 ), SubResource( 36 ), SubResource( 36 ), SubResource( 36 ), SubResource( 36 ), SubResource( 36 ), SubResource( 36 ), SubResource( 35 ), SubResource( 35 ), SubResource( 35 ), SubResource( 34 ) ],
 "loop": false,
 "name": "turn_away_and_back",
 "speed": 5.0
@@ -241,7 +241,7 @@ position = Vector2( 300, 380 )
 scale = Vector2( 2, 2 )
 frames = SubResource( 13 )
 animation = "turn_away_and_back"
-frame = 12
+frame = 24
 playing = true
 
 [node name="collisions" type="StaticBody2D" parent="."]

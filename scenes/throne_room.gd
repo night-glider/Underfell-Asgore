@@ -66,7 +66,7 @@ func _on_dialogue_custom_event(data):
 		$gui.visible = false
 		$asgore.play("turn_away_and_back")
 		$asgore.frame = 0
-		$Periodic.add_method_oneshot(self, "show_gui", [], 2.5)
+		$Periodic.add_method_oneshot(self, "show_gui", [], 5)
 	
 	if "face" in data:
 		$gui/Control/faces.play(data)

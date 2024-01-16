@@ -67,7 +67,7 @@ THRONE_ASGORE_DIALOGUE10,*But it wasn't.
 THRONE_ASGORE_DIALOGUE11,*That's why when I realised I would be facing someone so small...
 THRONE_ASGORE_DIALOGUE12,*I didn't want to believe them.
 THRONE_ASGORE_DIALOGUE13,*I didn't deserve it to be true.
-THRONE_ASGORE_DIALOGUE14,[event asgore_turns_away][wait 150]*But... I suppose it won't matter soon.
+THRONE_ASGORE_DIALOGUE14,[event asgore_turns_away][wait 300]*But... I suppose it won't matter soon.
 THRONE_ASGORE_DIALOGUE15,*You have to understand...
 THRONE_ASGORE_DIALOGUE16,*I can't allow any of this to stop me.
 THRONE_ASGORE_DIALOGUE17,*All of what you've done can't make up for what's been lost.
